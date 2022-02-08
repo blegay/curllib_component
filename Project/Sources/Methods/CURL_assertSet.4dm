@@ -2,7 +2,7 @@
   //================================================================================
   //@xdoc-start : en
   //@name : CURL_assertSet
-  //@scope : private 
+  //@scope : public 
   //@attributes :    
   //@deprecated : no
   //@description : This method will allow to test the assertions for all process in the CURL component

@@ -2,7 +2,7 @@
   //================================================================================
   //@xdoc-start : en
   //@name : CURL_debugDirGet
-  //@scope : private 
+  //@scope : public 
   //@attributes :    
   //@deprecated : no
   //@description : This function returns the debug dir path

@@ -2,7 +2,7 @@
   //================================================================================
   //@xdoc-start : en
   //@name : CURL_assertGet
-  //@scope : private 
+  //@scope : public 
   //@attributes :    
   //@deprecated : no
   //@description : This function returns TRUE if the assertions are actiavted for all process in the CURL component
