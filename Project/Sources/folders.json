@@ -64,7 +64,6 @@
 		],
 		"methods": [
 			"HTTP_responseOk",
-			"S3__throughputCalc",
 			"UTL_processNameGet",
 			"UTL_timeleftSecs"
 		]
@@ -127,7 +126,6 @@
 	"public": {
 		"methods": [
 			"CURL_caRefresh",
-			"CURL_caRefreshTest",
 			"CURL_componentVersionGet",
 			"CURL_curlOptionsAuthSet",
 			"CURL_curlOptionsObjTimeoutConnS",
@@ -149,8 +147,6 @@
 			"CURL_httpObjHeaderSet",
 			"CURL_httpObjHeaderToArrCombined",
 			"CURL_httpObjNew",
-			"CURL_httpObjRequestBodySet",
-			"CURL_httpObjResponseBodyGet",
 			"CURL_httpObjStatusGet",
 			"CURL_pluginVersionGet",
 			"CURL_urlEscape",

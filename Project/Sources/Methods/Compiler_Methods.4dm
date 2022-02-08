@@ -156,14 +156,6 @@ C_TEXT:C284(CURL__headerLineSplit ;$1)
 C_POINTER:C301(CURL__headerLineSplit ;$2)
 C_POINTER:C301(CURL__headerLineSplit ;$3)
 
-  //CURL_httpObjRequestBodySet
-C_OBJECT:C1216(CURL_httpObjRequestBodySet ;$1)
-C_POINTER:C301(CURL_httpObjRequestBodySet ;$2)
-
-  //CURL_httpObjResponseBodyGet
-C_OBJECT:C1216(CURL_httpObjResponseBodyGet ;$1)
-C_POINTER:C301(CURL_httpObjResponseBodyGet ;$2)
-
   //CURL_httpObjStatusGet
 C_LONGINT:C283(CURL_httpObjStatusGet ;$0)
 C_OBJECT:C1216(CURL_httpObjStatusGet ;$1)
@@ -333,10 +325,10 @@ C_BOOLEAN:C305(CURL_assertSet ;$1)
 C_BOOLEAN:C305(HTTP_responseOk ;$0)
 C_LONGINT:C283(HTTP_responseOk ;$1)
 
-C_TEXT:C284(S3__throughputCalc ;$0)
-C_LONGINT:C283(S3__throughputCalc ;$1)
-C_LONGINT:C283(S3__throughputCalc ;$2)
-C_REAL:C285(S3__throughputCalc ;$3)
+C_TEXT:C284(UTL__throughputCalc ;$0)
+C_LONGINT:C283(UTL__throughputCalc ;$1)
+C_LONGINT:C283(UTL__throughputCalc ;$2)
+C_REAL:C285(UTL__throughputCalc ;$3)
 
 
 C_OBJECT:C1216(CURL__fileDownload ;$0)
@@ -359,3 +351,8 @@ C_OBJECT:C1216(CURL_httpObjNew ;$0)
 C_TEXT:C284(CURL_httpObjNew ;$1)
 C_TEXT:C284(CURL_httpObjNew ;$2)
 
+
+C_TEXT:C284(UTL__ratio ;$0)
+C_REAL:C285(UTL__ratio ;$1)
+C_REAL:C285(UTL__ratio ;$2)
+C_LONGINT:C283(UTL__ratio ;$3)
