@@ -1,0 +1,33 @@
+/Project/Trash
+/Components
+/Settings
+/Project/Sources/Methods/Méthode *
+/Project/Sources/Methods/_cert_*
+/DossierWeb
+/userPreferences.*
+/letsencrypt
+/Project/DerivedData/CompiledCode
+dhparams.pem
+cert.pem
+key.pem
+/Settings/buildApp.4DSettings
+/Project.zip
+/Documentation/Methods/Compiler_Methods.md
+/Documentation/Methods/Compiler_Variables_Inter.md
+/Documentation/Methods/CRC_digestBase64.md
+/Documentation/Methods/DBG__dbgInitAuto.md
+/Documentation/Methods/UTL_durationDifference.md
+/Documentation/Methods/UTL_pathToPosixConvert.md
+/Documentation.zip
+/Documentation/Methods/Méthode *.md
+
+/*.4BL
+/*.4BK
+/backupHistory.json
+/Project/Sources/Methods/Methode*.4dm
+/Project/Sources/settings.4DSettings
+/Project/Sources/Methods/web_cookieHeader.4dm
+/Project/Sources/catalog.4DCatalog
+/Documentation/Methods/compiler_web.md
+/Documentation/Methods/Methode283.md
+/Project/Sources/Methods/compiler_web.4dm

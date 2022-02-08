@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<curllibPreferences
+    xmlns="http://www.ac-consulting.fr/tech/namespace/curllibPreferences" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xsi:schemaLocation="http://www.ac-consulting.fr/tech/namespace/curllibPreferences curllibPreferences.xsd"
+    version="1.0">
+    
+    <!-- ================================================================================
+         Sample file created by Bruno LEGAY - A&C Consulting on 27/09/2011 v1.00.00
+         ================================================================================ -->
+    
+    <caFile size="236061" sha1="b50ee9dc259dac8309b342a3b97cf21aada827a6" date="2017-09-20T03:12:05Z">Macintosh HD:Library:Application Support:4D:com.ac-consulting:curllib-component:ca.pem</caFile>
+</curllibPreferences>

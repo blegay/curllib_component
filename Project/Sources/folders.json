@@ -1,0 +1,189 @@
+﻿{
+	"cURL": {
+		"groups": [
+			"libraries",
+			"private"
+		]
+	},
+	"DAT": {
+		"methods": [
+			"DAT__dateTimeZoneOffsetApply",
+			"DAT__rfc822ZoneGmtOffset",
+			"DAT_dateTimeWithTimezoneToLocal",
+			"DAT_localTimeZoneOffsetSeconds",
+			"DAT_rfc1123ToDatTimeZone",
+			"DAT_rfc1123ToIso8601"
+		]
+	},
+	"DBG": {
+		"methods": [
+			"DBG__bytes",
+			"DBG__dbgInitAuto",
+			"DBG_passwordDebug"
+		]
+	},
+	"Dossier par défaut": {
+		"groups": [
+			"Formulaires par défaut",
+			"Méthodes projet par défaut",
+			"Tables par défaut"
+		]
+	},
+	"ENV": {
+		"methods": [
+			"ENV__langageName",
+			"ENV_isComponent",
+			"ENV_plateformeStr",
+			"ENV_versionStr"
+		]
+	},
+	"Formulaires par défaut": {},
+	"FS": {
+		"methods": [
+			"FS_filenameNoExtension",
+			"FS_pathToFileName"
+		]
+	},
+	"IND": {
+		"methods": [
+			"IND__isComponent"
+		]
+	},
+	"libraries": {
+		"groups": [
+			"DAT",
+			"DBG",
+			"ENV",
+			"FS",
+			"IND",
+			"LONG",
+			"public",
+			"UTL",
+			"XDOC",
+			"XML"
+		],
+		"methods": [
+			"HTTP_responseOk",
+			"S3__throughputCalc",
+			"UTL_processNameGet",
+			"UTL_timeleftSecs"
+		]
+	},
+	"LONG": {
+		"methods": [
+			"LONG_durationDifference"
+		]
+	},
+	"Méthodes projet par défaut": {},
+	"private": {
+		"methods": [
+			"Compiler_Methods",
+			"CURL__caCertUpdateInResDir",
+			"CURL__cacertUrlDefault",
+			"CURL__callback",
+			"CURL__caPemFileDefaultPath",
+			"CURL__caPrefSave",
+			"CURL__caPrefUpToDate",
+			"CURL__curlOptionsProgressSet",
+			"CURL__curlProxySetTest",
+			"CURL__dateStringToEpochUnitTest",
+			"CURL__debugInit",
+			"CURL__debugMilliseconds",
+			"CURL__debugObjectJson",
+			"CURL__debugObjectJsonSub",
+			"CURL__debugObjectJsonTest",
+			"CURL__errHdlrToDevNull",
+			"CURL__escape",
+			"CURL__executablePathGet_",
+			"CURL__fileDownload",
+			"CURL__headerCallbackInstall",
+			"CURL__headerLineSplit",
+			"CURL__http_GET_test",
+			"CURL__httpProxyConfig",
+			"CURL__httpRequestCleanHeaders",
+			"CURL__httpRequestObj",
+			"CURL__httpRequestObjPrep",
+			"CURL__httpStatusLineToStatus",
+			"CURL__init",
+			"CURL__initG",
+			"CURL__initSub",
+			"CURL__moduleDebugDateTimeLine",
+			"CURL__options",
+			"CURL__optionsFromObject_",
+			"CURL__optionsObj",
+			"CURL__prefDirPathGet",
+			"CURL__progressClose",
+			"CURL__progressNew",
+			"CURL__progressUpdate",
+			"CURL__proxyLoginPasswordCombine",
+			"CURL__sslParamsObj",
+			"CURL__userAgent",
+			"CURL__xdocInit",
+			"CURL_assertGet",
+			"CURL_assertSet",
+			"HTTP__range"
+		]
+	},
+	"public": {
+		"methods": [
+			"CURL_caRefresh",
+			"CURL_caRefreshTest",
+			"CURL_componentVersionGet",
+			"CURL_curlOptionsAuthSet",
+			"CURL_curlOptionsObjTimeoutConnS",
+			"CURL_curlOptionsObjTimeoutSet",
+			"CURL_curlOptionsProxySet",
+			"CURL_dateStringToEpoch",
+			"CURL_debugDirGet",
+			"CURL_debugDirSet",
+			"CURL_errorToText",
+			"CURL_http_DELETE",
+			"CURL_http_GET",
+			"CURL_http_HEAD",
+			"CURL_http_headersCollValueGet",
+			"CURL_http_headersCollValueSet",
+			"CURL_http_POST",
+			"CURL_http_PUT",
+			"CURL_httpObjCall",
+			"CURL_httpObjHeaderGet",
+			"CURL_httpObjHeaderSet",
+			"CURL_httpObjHeaderToArrCombined",
+			"CURL_httpObjNew",
+			"CURL_httpObjRequestBodySet",
+			"CURL_httpObjResponseBodyGet",
+			"CURL_httpObjStatusGet",
+			"CURL_pluginVersionGet",
+			"CURL_urlEscape",
+			"CURL_urlUnescape"
+		]
+	},
+	"Tables par défaut": {},
+	"UTL": {
+		"methods": [
+			"UTL_durationMsDebug",
+			"UTL_fileCreationDateTimeSet",
+			"UTL_fileModifcationDateTimeSet",
+			"UTL_initAuto",
+			"UTL_isHeadless",
+			"UTL_launchedAsService",
+			"UTL_processIsPreemptive",
+			"UTL_throughput",
+			"UTL_timeleftString"
+		]
+	},
+	"XDOC": {
+		"methods": [
+			"UTL__callbackMethodSourceSet",
+			"UTL__isMethod",
+			"UTL__methodListGet",
+			"XDOC_run"
+		]
+	},
+	"XML": {
+		"methods": [
+			"xml__ACI0094378_workaround",
+			"xml_domSourceParse"
+		]
+	},
+	"trash": {}
+}
