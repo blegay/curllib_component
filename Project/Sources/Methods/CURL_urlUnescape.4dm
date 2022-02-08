@@ -7,7 +7,7 @@
   //@description : This function returns an unescaped url
   //@parameter[0-OUT-urlUnescaped-TEXT] : url unescaped
   //@parameter[1-IN-url-TEXT] : url
-  //@notes : 
+  //@notes :  wrapper on cURL_Unescape
   //@example : CURL_urlUnescape
   //@see : see "cURL Unescape url"
   //@version : 1.00.00
@@ -27,7 +27,6 @@ $vt_urlEscaped:=$1
 
 If (Length:C16($vt_urlEscaped)>0)
 	$vt_urlUnescaped:=cURL_Unescape ($vt_urlEscaped)
-	  //$vt_urlUnescaped:=cURL Unescape url($vt_urlEscaped)
 	
 	CURL__moduleDebugDateTimeLine (4;Current method name:C684;"url (escaped) : \""+$vt_urlEscaped+"\" => url (unescaped) : \""+$vt_urlUnescaped+"\"")
 End if 

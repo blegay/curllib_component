@@ -2,18 +2,18 @@
   //================================================================================
   //@xdoc-start : en
   //@name : CURL__fileDownload
-  //@scope : private 
+  //@scope : private
   //@deprecated : no
   //@description : This function downloads a resources using HTTP GET to a file
   //@parameter[0-OUT-result-OBJECT] : result
   //@parameter[1-IN-url-TEXT] : url
   //@parameter[2-IN-filepath-TEXT] : filepath
-  //@notes : 
+  //@notes :
   //@example : CURL__fileDownload
-  //@see : 
+  //@see :
   //@version : 1.00.00
   //@author : Bruno LEGAY (BLE) - Copyrights A&C Consulting - 2022
-  //@history : 
+  //@history :
   //  CREATION : Bruno LEGAY (BLE) - 05/01/2022, 12:52:57 - 3.00.01
   //@xdoc-end
   //================================================================================
@@ -92,7 +92,7 @@ If ($vl_httpError=0)
 			If ($vr_fileSize=0)
 				$vb_ok:=True:C214
 				$vo_result.success:=True:C214
-				  //AWS__log(Current method name+" created a empty file (S3 object size is 0). [OK]")
+				CURL__moduleDebugDateTimeLine (2;Current method name:C684;" created a empty file (S3 object size is 0). [OK]")
 			Else 
 				
 				C_BOOLEAN:C305($vb_abort;$vb_exit)
@@ -149,17 +149,18 @@ If ($vl_httpError=0)
 							$vr_fileOffset:=$vr_fileOffset+BLOB size:C605($vx_responseBodyBlob)
 							
 							SEND PACKET:C103($vh_docRef;$vx_responseBodyBlob)
-							  //AWS__log(Current method name+" bucket : \""+$vt_bucket+"\", key : \""+$vt_key+"\", file : \""+$vt_filepath+"\", sent "+String(BLOB size($vx_responseBodyBlob))+" to file, "+DBG__ratio($vr_fileSize;Get document size($vt_filepath)))
+							CURL__moduleDebugDateTimeLine (4;Current method name:C684;"")
+							  //"url : \""+$vt_url+"\", file : \""+$vt_filepath+"\", sent "+String(BLOB size($vx_responseBodyBlob))+" to file, "+UTL__ratio ($vr_fileSize;Get document size($vt_filepath)))
 							
 							If ($vb_showProgress)  //progress
-								$vt_progressThroughput:=S3__throughputCalc (BLOB size:C605($vx_responseBodyBlob);$vl_partThroughputMs;$vr_fileSize-$vr_fileOffset)
+								$vt_progressThroughput:=UTL__throughputCalc (BLOB size:C605($vx_responseBodyBlob);$vl_partThroughputMs;$vr_fileSize-$vr_fileOffset)
 								
 								$vl_partNumber:=$vl_partNumber+1
 							End if 
 							
 						Else 
 							  // erreur http (status) => à voir comment on sort au bout de x tentatives ?
-							  //AWS__log(Current method name+" bucket \""+$vt_bucket+"\", key \""+$vt_key+"\", file \""+$vt_filepath+"\", http status : "+String($vl_httpStatus)+" [KO]")
+							CURL__moduleDebugDateTimeLine (2;Current method name:C684;"url : \""+$vt_url+"\", file \""+$vt_filepath+"\", http status : "+String:C10($vl_httpStatus)+" [KO]")
 						End if 
 						
 					Else 
@@ -183,7 +184,7 @@ If ($vl_httpError=0)
 							$vb_ok:=False:C215
 							$vo_result.errorText:="user aborted"
 							
-							  //Else 
+							  //Else
 							  //$vb_exit:=False
 					End case 
 					
@@ -192,9 +193,9 @@ If ($vl_httpError=0)
 				$vl_durationMs:=LONG_durationDifference ($vl_durationMs;Milliseconds:C459)
 				
 				If ($vb_abort)
-					  //AWS__log(Current method name+" bucket : \""+$vt_bucket+"\", key : \""+$vt_key+"\", file : \""+$vt_filepath+"\" download aborted by user : [KO]")
+					CURL__moduleDebugDateTimeLine (2;Current method name:C684;"url : \""+$vt_url+"\", file : \""+$vt_filepath+"\" download aborted by user : [KO]")
 				Else 
-					  //AWS__log(Current method name+" bucket : \""+$vt_bucket+"\", key : \""+$vt_key+"\", file : \""+$vt_filepath+"\", "+UTL_throughput ($vr_fileSize;$vl_durationMs;True;True)+" download complete : [OK]")
+					CURL__moduleDebugDateTimeLine (4;Current method name:C684;"url : \""+$vt_url+"\", file : \""+$vt_filepath+"\", "+UTL_throughput ($vr_fileSize;$vl_durationMs;True:C214;True:C214)+" download complete : [OK]")
 				End if 
 				
 			End if 
@@ -209,7 +210,7 @@ If ($vl_httpError=0)
 			
 		Else 
 			$vo_result.errorText:="failed to create file  \""+$vt_filepath+"\""
-			  //AWS__log(Current method name+" failed to create file \""+$vt_filepath+"\" (or create file canceled). [KO]")
+			CURL__moduleDebugDateTimeLine (2;Current method name:C684;"failed to create file \""+$vt_filepath+"\" (or create file canceled). [KO]")
 		End if 
 		
 		If ($vb_showProgress)  //progress

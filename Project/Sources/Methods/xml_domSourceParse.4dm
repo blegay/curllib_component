@@ -33,7 +33,6 @@
   //================================================================================
 
 C_TEXT:C284($0;$vt_domRef)
-  //C_ALPHA(32;$0;$vt_domRef)
 C_TEXT:C284($1;$vt_xmlFilePath)
 C_BOOLEAN:C305($2;$vb_validate)
 C_TEXT:C284($3;$vt_xsdOrDtdFilePath)

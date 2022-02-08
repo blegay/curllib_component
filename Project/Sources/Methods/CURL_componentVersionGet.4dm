@@ -5,11 +5,11 @@
   //@scope : public
   //@deprecated : no
   //@description : This function returns the component version 
-  //@parameter[0-OUT-componentVersion-TEXT] : component version (e.g. "3.00.01")
+  //@parameter[0-OUT-componentVersion-TEXT] : component version (e.g. "3.00.03")
   //@notes : 
   //@example : CURL_componentVersionGet
   //@see : 
-  //@version : 3.00.01
+  //@version : 3.00.03
   //@author : 
   //@history : 
   //  CREATION : Bruno LEGAY (BLE) - 26/09/2017, 17:06:48 - 1.00.00
@@ -62,22 +62,30 @@
   //    - adedd CURL_assertGet and CURL_assertSet
   //    - CURL_caRefresh threw an error when there was no internet connexion
   //    - improved CURL_caRefresh : updated url "https://curl.se/ca/cacert.pem" => "https://curl.se/ca/cacert.pem" + handled follow location
+  //  MODIFICATION : Bruno LEGAY (BLE) - 03/02/2022, 12:00:00 - 3.00.02
+  //   - added 2 parameters to CURL_httpObjNew
+  //  MODIFICATION : Bruno LEGAY (BLE) - 08/02/2022, 19:26:55 - 3.00.03
+  //   - initial commit on github
   //@xdoc-end
-  //================================================================================  
-  //    
+  //================================================================================     
 
 C_TEXT:C284($0;$vt_componentVersion)
 
-  // todo :
+  // #todo :
   //  - revoir la gestion des progress, 
   //  - tester les non régressions
 
-  //<Modif> Bruno LEGAY (BLE) (03/02/2022)
-  // added 2 parameters to CURL_httpObjNew
-$vt_componentVersion:="3.00.02"
+  //<Modif> Bruno LEGAY (BLE) (08/02/2022)
+  // initial commit on github
+$vt_componentVersion:="3.00.03"
   //<Modif>
 
 If (False:C215)
+	  //<Modif> Bruno LEGAY (BLE) (03/02/2022)
+	  // added 2 parameters to CURL_httpObjNew
+	  // $vt_componentVersion:="3.00.02"
+	  //<Modif>
+	
 	  //<Modif> Bruno LEGAY (BLE) (04/01/2022)
 	  // $vt_componentVersion:="3.00.01"
 	  //    - adedd CURL_assertGet and CURL_assertSet
