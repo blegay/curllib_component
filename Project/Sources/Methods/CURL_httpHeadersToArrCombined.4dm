@@ -1,14 +1,14 @@
 //%attributes = {"shared":true,"invisible":false}
   //================================================================================
   //@xdoc-start : en
-  //@name : CURL_httpObjHeaderToArrCombined
+  //@name : CURL_httpHeadersToArrCombined
   //@scope : public
   //@deprecated : no
   //@description : This method/function returns 
   //@parameter[1-IN-httpRequestObj-OBJET] : http.request object
   //@parameter[2-OUT-headersArrayCombinedPtr-POINTER] : combined headers text array pointer (modified)
   //@notes :
-  //@example : CURL_httpObjHeaderToArrCombined 
+  //@example : CURL_httpHeadersToArrCombined 
   //@see : 
   //@version : 1.00.00
   //@author : Bruno LEGAY (BLE) - Copyrights A&C Consulting - 2008

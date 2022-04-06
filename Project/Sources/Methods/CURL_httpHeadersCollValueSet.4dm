@@ -1,7 +1,7 @@
 //%attributes = {"shared":true,"invisible":false}
   //================================================================================
   //@xdoc-start : en
-  //@name : CURL_http_headersCollValueSet
+  //@name : CURL_httpHeadersCollValueSet
   //@scope : public 
   //@deprecated : no
   //@description : This method will set a header key/value in a collection of headers
@@ -10,7 +10,7 @@
   //@parameter[3-IN-headerValue-TEXT] : header value
   //@parameter[4-IN-override-BOOLEAN] : if TRUE will override the existing value (optional, default TRUE)
   //@notes : header key is not case sensitive
-  //@example : CURL_http_headersCollValueSet
+  //@example : CURL_httpHeadersCollValueSet
   //@see : 
   //@version : 1.00.00
   //@author : Bruno LEGAY (BLE) - Copyrights A&C Consulting - 2022

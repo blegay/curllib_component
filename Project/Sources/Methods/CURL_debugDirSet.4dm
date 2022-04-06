@@ -2,7 +2,7 @@
   //================================================================================
   //@xdoc-start : en
   //@name : CURL_debugDirSet
-  //@scope : public 
+  //@scope : private 
   //@attributes :    
   //@deprecated : no
   //@description : This method sets the folder debug path

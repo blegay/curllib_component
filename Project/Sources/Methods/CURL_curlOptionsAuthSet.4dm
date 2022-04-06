@@ -2,7 +2,7 @@
   //================================================================================
   //@xdoc-start : en
   //@name : CURL_curlOptionsAuthSet
-  //@scope : public 
+  //@scope : private 
   //@attributes :    
   //@deprecated : no
   //@description : This method will set the auth parameters in a curl options object

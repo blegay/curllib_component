@@ -1,7 +1,7 @@
 //%attributes = {"shared":true,"preemptive":"capable","invisible":false}
   //================================================================================
   //@xdoc-start : en
-  //@name : CURL_http_headersCollValueGet
+  //@name : CURL_httpHeadersCollValueGet
   //@scope : public 
   //@deprecated : no
   //@description : This function returns a header value from a header collection for a given header key
@@ -9,7 +9,7 @@
   //@parameter[1-IN-headersCollection-COLLECTION] : headers collection
   //@parameter[2-IN-headerKey-TEXT] : header key
   //@notes : header key is not case sensitive
-  //@example : CURL_http_headersCollValueGet
+  //@example : CURL_httpHeadersCollValueGet
   //@see : 
   //@version : 1.00.00
   //@author : Bruno LEGAY (BLE) - Copyrights A&C Consulting - 2022

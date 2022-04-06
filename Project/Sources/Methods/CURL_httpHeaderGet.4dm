@@ -1,7 +1,7 @@
 //%attributes = {"shared":true,"invisible":false}
   //================================================================================
   //@xdoc-start : en
-  //@name : CURL_httpObjHeaderGet
+  //@name : CURL_httpHeaderGet
   //@scope : public
   //@deprecated : no
   //@description : This function returns a header value from a header key for the response sub object
@@ -9,7 +9,7 @@
   //@parameter[1-IN-httpObjReponse-OBJECT] : curl http object response subobject (not modified)
   //@parameter[2-IN-headerKey-TEXT] : header key
   //@notes :
-  //@example : CURL_httpObjHeaderGet 
+  //@example : CURL_httpHeaderGet 
   //@see : 
   //@version : 1.00.00
   //@author : Bruno LEGAY (BLE) - Copyrights A&C Consulting - 2008

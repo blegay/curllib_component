@@ -1,7 +1,7 @@
 //%attributes = {"shared":true,"invisible":false}
   //================================================================================
   //@xdoc-start : en
-  //@name : CURL_httpObjCall
+  //@name : CURL_httpRequestCall
   //@scope : public
   //@deprecated : no
   //@description : This function will make an http request
@@ -10,7 +10,7 @@
   //@parameter[2-IN-requestBodyBlobPtr-POINTER] : request body blob pointer (modified, optional)
   //@parameter[3-IN-responseBodyBlobPtr-POINTER] : response body blob (modified, optional)
   //@notes :
-  //@example : CURL_httpObjCall 
+  //@example : CURL_httpRequestCall 
   //@see : 
   //@version : 1.00.00
   //@author : Bruno LEGAY (BLE) - Copyrights A&C Consulting - 2008
@@ -68,7 +68,6 @@ If (Count parameters:C259>0)
 	Case of 
 			  //: ($vl_nbParam=0)
 		: ($vl_nbParam=1)
-			
 			$vl_error:=CURL__httpRequestObj ($vo_httpObj;->$vx_dummyRequestBodyBlob;->$vx_dummyResponseBodyBlob)
 			
 		: ($vl_nbParam=2)

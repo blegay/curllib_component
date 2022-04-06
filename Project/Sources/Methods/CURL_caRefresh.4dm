@@ -13,7 +13,7 @@
   // So it a good idea to call this method once on the application startup
   //@example : CURL_caRefresh 
   //
-  // CURL_caRefresh 
+  // CURL_caRefresh
   //
   //   or
   //
@@ -21,7 +21,7 @@
   // CURL_curlOptionsProxySet (->$vo_options;"127.0.0.1";80;"steve";"1234")
   // CURL_caRefresh ($vo_options)
   //
-  //@see : 
+  //@see :
   //@version : 1.00.00
   //@author : Bruno LEGAY (BLE) - Copyrights A&C Consulting - 2008
   //@history : CREATION : Bruno LEGAY (BLE) - 28/09/2017, 18:02:12 - v1.00.00
@@ -49,13 +49,13 @@ End case
 
   //If (Length($vt_url)=0)
   //$vt_url:="https://curl.haxx.se/ca/cacert.pem"
-  //End if 
+  //End if
 
 EXECUTE METHOD:C1007("CURL__init")
 
-  // CURL__init 
+  // CURL__init
 
-  //CURL__initG 
+  //CURL__initG
 
   //ARRAY LONGINT($tl_curlKeysCommon;0)
   //ARRAY TEXT($tt_curlValuesCommon;0)
@@ -197,7 +197,7 @@ $vl_durationMs:=LONG_durationDifference ($vl_durationMs;Milliseconds:C459)
   //<Modif> Bruno LEGAY (BLE) (04/01/2022)
   // 2021-04-09T12:06:22.036 - curl - 04 - CURL_caRefresh ==> HEAD url : "https://curl.se/ca/cacert.pem", error : CURLE_OPERATION_TIMEDOUT (28) : Operation timeout. The specified time-out period was reached according to the conditions. (28), status line : "", request size : 0 byte(s), response size : 0 byte(s), duration : 30,106s
   // Exemple de message affi
-  // dans ce cas $vt_httpStatusLine:=$co_responseHeaders[0] donne une erreur 
+  // dans ce cas $vt_httpStatusLine:=$co_responseHeaders[0] donne une erreur
   // mieux gérer cette #todo
 If (($vl_curlError=0) & (Length:C16($vt_headerInfo)>0))
 	  //<Modif>
@@ -249,29 +249,29 @@ If (($vl_curlError=0) & (Length:C16($vt_headerInfo)>0))
 		
 		  // $vt_headerInfo :
 		
-		  // HTTP/2 200 \r\n 
-		  // server: Apache\r\n 
-		  // x-frame-options: SAMEORIGIN\r\n 
-		  // last-modified: Wed, 01 Jan 2020 04:12:10 GMT\r\n 
-		  // etag: "369c7-59b0c47d1f397"\r\n 
-		  // cache-control: max-age=43200\r\n 
-		  // expires: Fri, 13 Mar 2020 12:47:24 GMT\r\n 
-		  // x-content-type-options: nosniff\r\n 
-		  // content-security-policy: default-src 'self' www.fastly-insights.com; style-src 'unsafe-inline' 'self'\r\n 
-		  // strict-transport-security: max-age=31536000; includeSubDomains;\r\n 
-		  // content-type: application/x-pem-file\r\n 
-		  // via: 1.1 varnish\r\n 
-		  // accept-ranges: bytes\r\n 
-		  // date: Sun, 24 May 2020 08:15:05 GMT\r\n 
-		  // via: 1.1 varnish\r\n 
-		  // age: 26788\r\n 
-		  // x-served-by: cache-bma1643-BMA, cache-cdg20734-CDG\r\n 
-		  // x-cache: HIT, HIT\r\n 
-		  // x-cache-hits: 1, 308\r\n 
-		  // x-timer: S1590308105.317872,VS0,VE0\r\n 
+		  // HTTP/2 200 \r\n
+		  // server: Apache\r\n
+		  // x-frame-options: SAMEORIGIN\r\n
+		  // last-modified: Wed, 01 Jan 2020 04:12:10 GMT\r\n
+		  // etag: "369c7-59b0c47d1f397"\r\n
+		  // cache-control: max-age=43200\r\n
+		  // expires: Fri, 13 Mar 2020 12:47:24 GMT\r\n
+		  // x-content-type-options: nosniff\r\n
+		  // content-security-policy: default-src 'self' www.fastly-insights.com; style-src 'unsafe-inline' 'self'\r\n
+		  // strict-transport-security: max-age=31536000; includeSubDomains;\r\n
+		  // content-type: application/x-pem-file\r\n
+		  // via: 1.1 varnish\r\n
+		  // accept-ranges: bytes\r\n
+		  // date: Sun, 24 May 2020 08:15:05 GMT\r\n
+		  // via: 1.1 varnish\r\n
+		  // age: 26788\r\n
+		  // x-served-by: cache-bma1643-BMA, cache-cdg20734-CDG\r\n
+		  // x-cache: HIT, HIT\r\n
+		  // x-cache-hits: 1, 308\r\n
+		  // x-timer: S1590308105.317872,VS0,VE0\r\n
 		  // content-length: 223687\r\n\r\n
 		
-		  // HTTP/2 301 
+		  // HTTP/2 301
 		  // server: nginx/1.17.6
 		  // content-type: text/html; charset=iso-8859-1
 		  // x-frame-options: SAMEORIGIN
@@ -288,8 +288,8 @@ If (($vl_curlError=0) & (Length:C16($vt_headerInfo)>0))
 		  // x-cache-hits: 1, 2
 		  // x-timer: S1627633192.555700,VS0,VE0
 		  // content-length: 299
-		  // 
-		  // HTTP/2 200 
+		  //
+		  // HTTP/2 200
 		  // server: nginx/1.17.6
 		  // content-type: application/x-pem-file
 		  // x-frame-options: SAMEORIGIN
@@ -309,7 +309,7 @@ If (($vl_curlError=0) & (Length:C16($vt_headerInfo)>0))
 		  // x-cache-hits: 1, 30
 		  // x-timer: S1627633192.810872,VS0,VE0
 		  // content-length: 204235
-		  // 
+		  //
 		
 	End if 
 	
@@ -340,7 +340,7 @@ If (($vl_curlError=0) & (Length:C16($vt_headerInfo)>0))
 	  //COPY ARRAY(tt_CURL_httpHeaders;$tt_headers)
 	  //ARRAY TEXT(tt_CURL_httpHeaders;0)
 	
-	  // remove headers from redirect, etc... 
+	  // remove headers from redirect, etc...
 	C_TEXT:C284($vt_httpStatusLine)
 	$vt_httpStatusLine:=$co_responseHeaders[0]  // "HTTP/2 200"
 	
@@ -358,16 +358,16 @@ If (($vl_curlError=0) & (Length:C16($vt_headerInfo)>0))
 		ASSERT:C1129(CURL__httpStatusLineToStatus ($vt_httpStatusLine)=200;"http status : \""+$vt_httpStatusLine+"\" with url : \""+$vo_curlOptions.URL+"\"")
 		
 		C_LONGINT:C283($vl_contentLength)
-		$vl_contentLength:=Num:C11(CURL_http_headersCollValueGet ($co_responseHeaders;"Content-Length"))
+		$vl_contentLength:=Num:C11(CURL_httpHeadersCollValueGet ($co_responseHeaders;"Content-Length"))
 		  //$vl_contentLength:=Num(CURL_http_headersArrayValueGet (->$tt_headers;"Content-Length"))
 		
 		C_TEXT:C284($vt_contentType)
-		$vt_contentType:=CURL_http_headersCollValueGet ($co_responseHeaders;"Content-Type")
+		$vt_contentType:=CURL_httpHeadersCollValueGet ($co_responseHeaders;"Content-Type")
 		  //$vt_contentType:=CURL_http_headersArrayValueGet (->$tt_headers;"Content-Type")
 		ASSERT:C1129($vt_contentType="application/x-pem-file";"libCurl unexpected \"Content-Type\" : \""+$vt_contentType+"\" (\"application/x-pem-file\" was expected)")
 		
 		C_TEXT:C284($vt_lastModifiedrfc1123;$vt_lastModifiedIso8601)
-		$vt_lastModifiedrfc1123:=CURL_http_headersCollValueGet ($co_responseHeaders;"Last-Modified")
+		$vt_lastModifiedrfc1123:=CURL_httpHeadersCollValueGet ($co_responseHeaders;"Last-Modified")
 		  //$vt_lastModifiedrfc1123:=CURL_http_headersArrayValueGet (->$tt_headers;"Last-Modified")
 		
 		$vt_lastModifiedIso8601:=DAT_rfc1123ToIso8601 ($vt_lastModifiedrfc1123)
@@ -446,7 +446,7 @@ If (($vl_curlError=0) & (Length:C16($vt_headerInfo)>0))
 				C_COLLECTION:C1488($co_responseHeaders)
 				$co_responseHeaders:=Split string:C1554($vt_headerInfo;"\r\n";sk ignore empty strings:K86:1+sk trim spaces:K86:2)
 				
-				  // remove headers from redirect, etc... 
+				  // remove headers from redirect, etc...
 				C_TEXT:C284($vt_httpStatusLine)
 				$vt_httpStatusLine:=$co_responseHeaders[0]  // "HTTP/2 200"
 				
@@ -454,7 +454,7 @@ If (($vl_curlError=0) & (Length:C16($vt_headerInfo)>0))
 				  //COPY ARRAY(tt_CURL_httpHeaders;$tt_headers)
 				  //ARRAY TEXT(tt_CURL_httpHeaders;0)
 				
-				  // remove headers from redirect, etc... 
+				  // remove headers from redirect, etc...
 				  //C_TEXT($vt_httpStatusLine)
 				  //$vt_httpStatusLine:=CURL__httpRequestCleanHeaders (->$tt_headers)
 				
@@ -504,7 +504,7 @@ Else
 	  //<Modif> Bruno LEGAY (BLE) (04/01/2022)
 	  // Exemple de message affiché
 	  // 2021-04-09T12:06:22.036 - curl - 04 - CURL_caRefresh ==> HEAD url : "https://curl.se/ca/cacert.pem", error : CURLE_OPERATION_TIMEDOUT (28) : Operation timeout. The specified time-out period was reached according to the conditions. (28), status line : "", request size : 0 byte(s), response size : 0 byte(s), duration : 30,106s
-	  // dans ce cas $vt_httpStatusLine:=$co_responseHeaders[0] donne une erreur 
+	  // dans ce cas $vt_httpStatusLine:=$co_responseHeaders[0] donne une erreur
 	  // mieux gérer cette #todo
 	
 	CURL__moduleDebugDateTimeLine (2;Current method name:C684;"HEAD failed, url : \""+$vo_curlOptions.URL+"\""+\

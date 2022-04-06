@@ -47,7 +47,7 @@ If ($vl_error=0)  // ;->$tt_headers
 		  // note : the file is in UTF-8 format, lf delimited, without a BOM - this is ok for CURL
 		
 		C_TEXT:C284($vt_lastModifiedrfc1123)
-		$vt_lastModifiedrfc1123:=CURL_http_headersCollValueGet ($vo_options.response.headers;"Last-Modified")
+		$vt_lastModifiedrfc1123:=CURL_httpHeadersCollValueGet ($vo_options.response.headers;"Last-Modified")
 		
 		  //C_TEXT($vt_lastModifiedrfc1123)
 		  //$vt_lastModifiedrfc1123:=CURL_http_headersArrayValueGet (->$tt_headers;"Last-Modified")

@@ -1,7 +1,7 @@
 //%attributes = {"shared":true,"invisible":false}
   //================================================================================
   //@xdoc-start : en
-  //@name : CURL_httpObjNew
+  //@name : CURL_httpRequestNew
   //@scope : public
   //@deprecated : no
   //@description : This function creates an http object for a curl http request
@@ -9,7 +9,7 @@
   //@parameter[1-IN-verb-TEXT] : http verb (e.g. "GET", POST", "PUT", "DELETE", HEAD", optional, default "GET)
   //@parameter[2-IN-url-TEXT] : url (optional, default "http://")
   //@notes : 
-  //@example : CURL_httpObjNew
+  //@example : CURL_httpRequestNew
   //@see : 
   //@version : 1.00.00
   //@author : Bruno LEGAY (BLE) - Copyrights A&C Consulting - 2019

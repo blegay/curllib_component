@@ -1,7 +1,7 @@
 //%attributes = {"shared":true,"invisible":false}
   //================================================================================
   //@xdoc-start : en
-  //@name : CURL_httpObjStatusGet
+  //@name : CURL_httpRequestStatusGet
   //@scope : public
   //@deprecated : no
   //@description : This function returns the http status from an http object
@@ -10,7 +10,7 @@
   //@notes :
   //@example : 
   //
-  // If (CURL_httpObjStatusGet ($vo_httpObj)=200)
+  // If (CURL_httpRequestStatusGet ($vo_httpObj)=200)
   //
   // If ($vo_httpObj.status=200)
   //

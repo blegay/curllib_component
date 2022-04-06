@@ -31,7 +31,7 @@ $vt_filepath:=$2
 C_BOOLEAN:C305($vb_ok)
 
 C_OBJECT:C1216($vo_curlOptions)
-$vo_curlOptions:=CURL_httpObjNew 
+$vo_curlOptions:=CURL_httpRequestNew 
 
   //C_BLOB($vx_httpResponseBody)
   //SET BLOB SIZE($vx_httpResponseBody;0)
@@ -42,7 +42,7 @@ $vl_httpError:=CURL_http_HEAD ($vt_url;$vo_curlOptions;->$tt_headers)
 If ($vl_httpError=0)
 	
 	C_LONGINT:C283($vl_httpStatus)
-	$vl_httpStatus:=CURL_httpObjStatusGet ($vo_curlOptions)
+	$vl_httpStatus:=CURL_httpRequestStatusGet ($vo_curlOptions)
 	If ($vl_httpStatus=200)
 		
 		C_COLLECTION:C1488($co_httpResponseHeaders)
@@ -50,7 +50,7 @@ If ($vl_httpError=0)
 		ARRAY TO COLLECTION:C1563($co_httpResponseHeaders;$tt_headers)
 		
 		C_REAL:C285($vr_fileSize)
-		$vr_fileSize:=Num:C11(CURL_http_headersCollValueGet ($co_httpResponseHeaders;"Content-Length"))
+		$vr_fileSize:=Num:C11(CURL_httpHeadersCollValueGet ($co_httpResponseHeaders;"Content-Length"))
 		
 		C_REAL:C285($vr_fileOffset;$vl_bufferSize)
 		$vr_fileOffset:=0
@@ -111,7 +111,7 @@ If ($vl_httpError=0)
 					End if 
 					
 					C_OBJECT:C1216($vo_curlOptions)
-					$vo_curlOptions:=CURL_httpObjNew 
+					$vo_curlOptions:=CURL_httpRequestNew 
 					
 					If ($vb_showProgress)
 						$vo_curlOptions.progressShow:=True:C214
@@ -141,7 +141,7 @@ If ($vl_httpError=0)
 					$vl_partThroughputMs:=LONG_durationDifference ($vl_partThroughputMs;Milliseconds:C459)
 					
 					If ($vl_httpError=0)
-						$vl_httpStatus:=CURL_httpObjStatusGet ($vo_curlOptions)
+						$vl_httpStatus:=CURL_httpRequestStatusGet ($vo_curlOptions)
 						
 						$vb_ok:=HTTP_responseOk ($vl_httpStatus)  // http status 206 : "partial content" (https://httpstatuses.com/206)
 						If ($vb_ok)

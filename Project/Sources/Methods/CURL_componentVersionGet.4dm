@@ -5,14 +5,14 @@
   //@scope : public
   //@deprecated : no
   //@description : This function returns the component version 
-  //@parameter[0-OUT-componentVersion-TEXT] : component version (e.g. "3.00.03")
+  //@parameter[0-OUT-componentVersion-TEXT] : component version (e.g. "3.00.04")
   //@notes : 
   //@example : CURL_componentVersionGet
   //@see : 
-  //@version : 3.00.03
+  //@version : 3.00.04
   //@author : 
   //@history : 
-  //  CREATION : Bruno LEGAY (BLE) - 26/09/2017, 17:06:48 - 1.00.00
+  //  CREATION : Bruno LEGAY (BLE) - 26/09/2017, 17:06:48 - v1.00.00
   //  MODIFICATION : Bruno LEGAY (BLE) - 27/09/2017, 18:31:11 - v1.00.01
   //    - fixed bug in CURL__httpRequest when using 5 parameters
   //    - added CURL_http_headersArrayToStatus, CURL_http_headersArrayValueGet
@@ -43,29 +43,31 @@
   //    - CURL_curlOptionsTimeoutSet et CURL_curlOptionsTimeoutConnSet (value unique)
   //    - disabled the "Accept: */*" header (was added by default by curl)
   //    - disabled the "Transfer-Encoding: chunked" header (was added by default by curl on PUT, POST, etc...)
-  //    - added CURL_httpObjCall , CURL_httpObjHeaderGet, CURL_httpObjHeaderSet, CURL_httpObjHeadersGet, CURL_httpObjHeaderToArrCombined, CURL_httpObjNew, CURL_httpObjRequestBodySet, CURL_httpObjResponseBodyGet 
+  //    - added CURL_httpRequestCall , CURL_httpObjHeaderGet, CURL_httpHeaderSet, CURL_httpObjHeadersGet, CURL_httpHeadersToArrCombined, CURL_httpRequestNew, CURL_httpObjRequestBodySet, CURL_httpObjResponseBodyGet 
   //    - added CURL_urlEscape, CURL_urlUnescape, CURL_pluginVersionGet, CURL_executablePathGet, CURL_dateStringToEpoch
   //  MODIFICATION : Bruno LEGAY (BLE) - 27/05/2020, 22:45:07 - v2.00.00
   //    - 4D v18 + https://github.com/miyako/4d-plugin-curl-v2
   //  MODIFICATION : Bruno LEGAY (BLE) - 02/06/2020, 15:27:28 - v2.00.01
-  //    - fixed bug in CURL_httpObjStatusGet, managed follow location / redirect
+  //    - fixed bug in CURL_httpRequestStatusGet, managed follow location / redirect
   //  MODIFICATION : Bruno LEGAY (BLE) - 12/01/2021, 13:55:05 - v2.00.03
   //    - added CURL_debugDirGet, CURL_debugDirSet, improved debug options
   //    - updated CURL_errorToText 
-  //  MODIFICATION : Bruno LEGAY (BLE) - 30/07/2021, 09:55:03 - 2.00.04
+  //  MODIFICATION : Bruno LEGAY (BLE) - 30/07/2021, 09:55:03 - v2.00.04
   //   - fixed CURL_http_HEAD where $3 was mandatory
   //   - fixed bug in CURL_caRefresh with redirect/301 response
-  //  MODIFICATION : Bruno LEGAY (BLE) - 04/01/2022, 08:30:52 - 3.00.00
+  //  MODIFICATION : Bruno LEGAY (BLE) - 04/01/2022, 08:30:52 - v3.00.00
   //   - curl plugin v2 v3.7.4 => curl plugin v3 v4.4.0
   //      https://github.com/miyako/4d-plugin-curl-v3
-  //  MODIFICATION : Bruno LEGAY (BLE) - 04/01/2022, 19:28:53 - 3.00.01
+  //  MODIFICATION : Bruno LEGAY (BLE) - 04/01/2022, 19:28:53 - v3.00.01
   //    - adedd CURL_assertGet and CURL_assertSet
   //    - CURL_caRefresh threw an error when there was no internet connexion
   //    - improved CURL_caRefresh : updated url "https://curl.se/ca/cacert.pem" => "https://curl.se/ca/cacert.pem" + handled follow location
-  //  MODIFICATION : Bruno LEGAY (BLE) - 03/02/2022, 12:00:00 - 3.00.02
-  //   - added 2 parameters to CURL_httpObjNew
-  //  MODIFICATION : Bruno LEGAY (BLE) - 08/02/2022, 19:26:55 - 3.00.03
+  //  MODIFICATION : Bruno LEGAY (BLE) - 03/02/2022, 12:00:00 - v3.00.02
+  //   - added 2 parameters to CURL_httpRequestNew
+  //  MODIFICATION : Bruno LEGAY (BLE) - 08/02/2022, 19:26:55 - v3.00.03
   //   - initial commit on github
+  //  MODIFICATION : Bruno LEGAY (BLE) - 06/04/2022, 14:38:36 - v3.00.04
+  //   - fixed an error in CURL__httpRequestObj
   //@xdoc-end
   //================================================================================     
 
@@ -75,14 +77,19 @@ C_TEXT:C284($0;$vt_componentVersion)
   //  - revoir la gestion des progress, 
   //  - tester les non régressions
 
+  //<Modif> Bruno LEGAY (BLE) (06/04/2022)
+  // fixed an error in CURL__httpRequestObj
+$vt_componentVersion:="3.00.04"
+  //<Modif>
+
   //<Modif> Bruno LEGAY (BLE) (08/02/2022)
   // initial commit on github
-$vt_componentVersion:="3.00.03"
+  // $vt_componentVersion:="3.00.03"
   //<Modif>
 
 If (False:C215)
 	  //<Modif> Bruno LEGAY (BLE) (03/02/2022)
-	  // added 2 parameters to CURL_httpObjNew
+	  // added 2 parameters to CURL_httpRequestNew
 	  // $vt_componentVersion:="3.00.02"
 	  //<Modif>
 	
@@ -120,7 +127,7 @@ If (False:C215)
 	
 	
 	  //<Modif> Bruno LEGAY (BLE) (02/06/2020)
-	  // fixed bug in CURL_httpObjStatusGet, managed follow location / redirect
+	  // fixed bug in CURL_httpRequestStatusGet, managed follow location / redirect
 	  //$vt_componentVersion:="2.00.01"
 	  //<Modif>
 	
@@ -140,7 +147,7 @@ If (False:C215)
 	  //<Modif> Bruno LEGAY (BLE) (18/11/2019)
 	  // disabled the "Accept: */*" header (was added by default by curl)
 	  // disabled the "Transfer-Encoding: chunked" header (was added by default by curl on PUT, POST, etc...)
-	  // added CURL_httpObjCall , CURL_httpObjHeaderGet, CURL_httpObjHeaderSet, CURL_httpObjHeadersGet, CURL_httpObjHeaderToArrCombined, CURL_httpObjNew, CURL_httpObjRequestBodySet, CURL_httpObjResponseBodyGet 
+	  // added CURL_httpRequestCall , CURL_httpObjHeaderGet, CURL_httpHeaderSet, CURL_httpObjHeadersGet, CURL_httpHeadersToArrCombined, CURL_httpRequestNew, CURL_httpObjRequestBodySet, CURL_httpObjResponseBodyGet 
 	  // added CURL_urlEscape, CURL_urlUnescape, CURL_pluginVersionGet, CURL_executablePathGet, CURL_dateStringToEpoch
 	  // $vt_componentVersion:="1.00.08"
 	  //<Modif>

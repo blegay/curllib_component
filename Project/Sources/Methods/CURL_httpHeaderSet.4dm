@@ -1,7 +1,7 @@
 //%attributes = {"shared":true,"invisible":false}
   //================================================================================
   //@xdoc-start : en
-  //@name : CURL_httpObjHeaderSet
+  //@name : CURL_httpHeaderSet
   //@scope : public
   //@deprecated : no
   //@description : This method sets a header to a request object from a http object
@@ -13,24 +13,24 @@
   //@example : 
   //
   //  C_OBJECT($vo_httpObj)
-  //  $vo_httpObj:=CURL_httpObjNew 
+  //  $vo_httpObj:=CURL_httpRequestNew 
   //
   //  OB SET($vo_httpObj;"url";"https://curl.haxx.se/ca/cacert.pem")
   //  OB SET($vo_httpObj;"verb";"GET")
   //
   //  C_OBJECT($vo_httpRequestObj)
   //  $vo_httpRequestObj:=OB Get($vo_httpObj;"request";Est un objet)
-  //  CURL_httpObjHeaderSet ($vo_httpRequestObj;"Accept";"application/x-pem-file")
+  //  CURL_httpHeaderSet ($vo_httpRequestObj;"Accept";"application/x-pem-file")
   //
   // // OR
   //
   //  C_OBJECT($vo_httpObj)
-  //  $vo_httpObj:=CURL_httpObjNew 
+  //  $vo_httpObj:=CURL_httpRequestNew 
   //
   //  $vo_httpObj.url:="https://curl.haxx.se/ca/cacert.pem"
   //  $vo_httpObj.verb:="GET"
   //
-  //  CURL_httpObjHeaderSet ($vo_httpObj.request;"Accept";"application/x-pem-file")
+  //  CURL_httpHeaderSet ($vo_httpObj.request;"Accept";"application/x-pem-file")
   //
   //
   //@see : 

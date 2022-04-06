@@ -9,7 +9,7 @@ $vl_progressId:=Progress New
 Progress SET PROGRESS ($vl_progressId;-1)
 
   //C_OBJECT($vo_curlObj)
-  //$vo_curlOptions:=CURL_httpObjNew 
+  //$vo_curlOptions:=CURL_httpRequestNew
 
   // CURL__curlOptionsProgressSet
   //CURL__curlOptionsProgressSet (->$vo_curlOptions;$vl_progressId)
@@ -26,7 +26,7 @@ C_LONGINT:C283($i)
 For ($i;1;$vl_iters)
 	
 	C_OBJECT:C1216($vo_curlOptions)
-	$vo_curlOptions:=CURL_httpObjNew 
+	$vo_curlOptions:=CURL_httpRequestNew 
 	$vo_curlOptions.progressShow:=True:C214
 	$vo_curlOptions.progressTitle:="progress test"
 	$vo_curlOptions.progressAbortable:=True:C214
@@ -66,7 +66,7 @@ If (False:C215)
 		
 		ASSERT:C1129(CURL_http_GET ($vt_url;$vo_curlOptions;->$vx_httpResponseBody;->$tt_headers)=0)
 		
-		ASSERT:C1129(CURL_httpObjStatusGet ($vo_curlOptions)=200)
+		ASSERT:C1129(CURL_httpRequestStatusGet ($vo_curlOptions)=200)
 		  //ASSERT(CURL_http_headersArrayToStatus(->$tt_headers)=200)
 		
 		
@@ -75,7 +75,7 @@ If (False:C215)
 		
 		ARRAY TO COLLECTION:C1563($co_httpResponseHeaders;$tt_headers)
 		
-		ASSERT:C1129(Num:C11(CURL_http_headersCollValueGet ($co_httpResponseHeaders;"Content-Length"))=BLOB size:C605($vx_httpResponseBody))
+		ASSERT:C1129(Num:C11(CURL_httpHeadersCollValueGet ($co_httpResponseHeaders;"Content-Length"))=BLOB size:C605($vx_httpResponseBody))
 		  //ASSERT(Num(CURL_http_headersArrayValueGet(->$tt_headers;"Content-Length"))=BLOB size($vx_httpResponseBody))
 		
 		ARRAY TEXT:C222($tt_headers;0)
