@@ -7,24 +7,21 @@ https://github.com/miyako/4d-plugin-curl-v3
 
 C_OBJECT($vo_curlOptions)
 
-$vo_curlOptions:=CURL_httpObjNew (HTTP HEAD method;\
-
+$vo_curlOptions:=CURL_httpRequestNew (HTTP HEAD method;\
 "https://github.com/miyako/4d-plugin-curl-v3/releases/download/4.4.4/cURL.dmg")
 
-C_BLOB ($vx_httpRequestBody;$vx_httpResponseBody)
+C_BLOB($vx_httpRequestBody;$vx_httpResponseBody)
 
-If (CURL_httpObjCall ($vo_curlOptions;->$vx_httpRequestBody;->$vx_httpResponseBody)=0)
-
-​	If (CURL_httpObjStatusGet ($vo_curlOptions)=200)  //  = $vo_curlOptions.status
-
-​		C_TEXT($vt_contentType)
-
-​		$vt_contentType:=CURL_http_headersCollValueGet  ($vo_curlOptions.response.headers;"content-type") // => "application/octet-stream"
-
-   End if
-
-End if
-
+If (CURL_httpRequestCall ($vo_curlOptions;->$vx_httpRequestBody;->$vx_httpResponseBody)=0)
+	
+	If (CURL_httpRequestStatusGet ($vo_curlOptions)=200)  // = $vo_curlOptions.status
+		
+		C_TEXT($vt_contentType)
+		​$vt_contentType:=CURL_httpHeadersCollValueGet ($vo_curlOptions.response.headers;"content-type")  // => "application/octet-stream"
+		
+	End if 
+	
+End if 
 
 
 
