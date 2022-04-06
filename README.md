@@ -5,6 +5,7 @@ https://github.com/miyako/4d-plugin-curl-v3
 
 *****
 
+```4d
 C_OBJECT($vo_curlOptions)
 
 $vo_curlOptions:=CURL_httpRequestNew (HTTP HEAD method;\
@@ -22,7 +23,7 @@ If (CURL_httpRequestCall ($vo_curlOptions;->$vx_httpRequestBody;->$vx_httpRespon
 	End if 
 	
 End if 
-
+```
 
 
 
