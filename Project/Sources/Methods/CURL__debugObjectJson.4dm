@@ -1,0 +1,34 @@
+//%attributes = {"invisible":true,"preemptive":"capable"}
+C_TEXT:C284($0; $vt_json)
+C_OBJECT:C1216($1; $vo_curlOptionsDebug)
+C_BOOLEAN:C305($2; $vb_indent)
+
+ASSERT:C1129(Count parameters:C259>0; "requires 1 parameter")
+
+If (Count parameters:C259>1)
+	$vb_indent:=$2
+Else 
+	$vb_indent:=True:C214
+End if 
+
+$vt_json:=""
+If ($1#Null:C1517)
+	$vo_curlOptionsDebug:=OB Copy:C1225($1)  // do not modify original object
+	
+	C_COLLECTION:C1488($co_passwordProp)
+	$co_passwordProp:=New collection:C1472("PASSWORD"; "PROXYUSERPWD"; "KEYPASSWD"; "TLSAUTH_PASSWORD")
+	
+	//  // makes a password safe (for logs)
+	//  // "veryComplicated" =>  "ve***********ed"
+	CURL__debugObjectJsonSub($vo_curlOptionsDebug; $co_passwordProp)
+	
+	If ($vb_indent)
+		$vt_json:=JSON Stringify:C1217($vo_curlOptionsDebug; *)
+	Else 
+		$vt_json:=JSON Stringify:C1217($vo_curlOptionsDebug)
+	End if 
+	
+	CLEAR VARIABLE:C89($vo_curlOptionsDebug)
+	
+End if 
+$0:=$vt_json

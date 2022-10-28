@@ -1,0 +1,10 @@
+Logs
+Project/DerivedData/CompiledCode
+Project/Sources/Methods/Méthode *.4dm
+Project/Sources/Methods/_*.4dm
+Project/Trash
+Resources/certs/cacert-old-*.pem
+Settings/buildApp.4DSettings
+Settings/backup.4DSettings
+userPreferences.*
+Documentation/Methods/CURL__*.md

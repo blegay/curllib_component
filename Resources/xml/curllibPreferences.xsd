@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema
+  xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  
+  targetNamespace="http://www.ac-consulting.fr/tech/namespace/curllibPreferences"
+  xmlns="http://www.ac-consulting.fr/tech/namespace/curllibPreferences" 
+  
+  elementFormDefault="qualified">
+  
+  <xs:element name="curllibPreferences">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="caFile"/>
+      </xs:sequence>
+      <xs:attribute name="version" use="required" type="xs:normalizedString"/>
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:element name="caFile">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="caFileST">
+          <xs:attribute name="size" use="required" type="filesizeST"/>
+          <xs:attribute name="sha1" use="required" type="sha1ST"/>
+          <xs:attribute name="date" use="required" type="timestampIso8601ST"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:simpleType name="filesizeST">
+    <xs:restriction base="xs:integer">
+      <xs:minInclusive value="0"/>
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:simpleType name="sha1ST">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[0-9a-fA-F]{40}"/>
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:simpleType name="timestampIso8601ST">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2})Z"/>
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:simpleType name="caFileST">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+</xs:schema>

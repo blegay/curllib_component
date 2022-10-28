@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE base SYSTEM "http://www.4d.com/dtd/2007/base.dtd" >
+<base name="curllib_component" uuid="7B4F82BE1FE5476DA5DFDFF30E8F290C" collation_locale="fr">
+	<schema name="DEFAULT_SCHEMA"/>
+	<base_extra __stringCompHash="icu:68.1.0" __keywordBuildingHash="icu:68.1.0" package_name="curllib_component" structure_file_name="curllib_component" data_file_path=":curllib_component.4DD">
+		<journal_file journal_file_enabled="true"/>
+	</base_extra>
+</base>
