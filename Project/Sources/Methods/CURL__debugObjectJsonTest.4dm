@@ -1,4 +1,4 @@
-//%attributes = {"invisible":true,"preemptive":"capable"}
+//%attributes = {"invisible":true,"preemptive":"capable","shared":false}
 
 
 C_OBJECT:C1216($vo_object)

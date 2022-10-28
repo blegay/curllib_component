@@ -1,4 +1,4 @@
-//%attributes = {"invisible":true,"preemptive":"capable"}
+//%attributes = {"invisible":true,"preemptive":"capable","shared":false}
 C_BOOLEAN:C305($0; $vb_ok)
 C_POINTER:C301($1; $vp_pemBlobPtr)
 C_TEXT:C284($2; $vt_dateIso8601)

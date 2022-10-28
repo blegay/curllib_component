@@ -1,4 +1,4 @@
-//%attributes = {"invisible":true,"preemptive":"capable"}
+//%attributes = {"invisible":true,"preemptive":"capable","shared":false}
 C_BOOLEAN:C305($0; $vb_abort)
 C_TEXT:C284($1; $vt_transferInfoJson)
 C_TEXT:C284($2; $vt_userInfos)  // $vo_curlOptions.PRIVATE in CURL__httpRequestObj

@@ -1,4 +1,4 @@
-//%attributes = {"invisible":true,"preemptive":"incapable"}
+//%attributes = {"invisible":true,"preemptive":"incapable","shared":false}
 C_POINTER:C301(UTL_initAuto; $1)
 C_TEXT:C284(UTL_initAuto; $2)
 C_TEXT:C284(UTL_initAuto; $3)
@@ -6,8 +6,6 @@ C_LONGINT:C283(CURL__moduleDebugDateTimeLine; $1)
 C_TEXT:C284(CURL__moduleDebugDateTimeLine; $2)
 C_TEXT:C284(CURL__moduleDebugDateTimeLine; $3)
 C_TEXT:C284(CURL__moduleDebugDateTimeLine; $4)
-C_TEXT:C284(DBG__dbgInitAuto; $1)
-C_POINTER:C301(DBG__dbgInitAuto; $2)
 C_LONGINT:C283(CURL_http_PUT; $0)
 C_TEXT:C284(CURL_http_PUT; $1)
 C_OBJECT:C1216(CURL_http_PUT; $2)

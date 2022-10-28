@@ -1,4 +1,4 @@
-//%attributes = {"invisible":true,"preemptive":"capable"}
+//%attributes = {"invisible":true,"preemptive":"capable","shared":false}
 C_TEXT:C284($0; $vt_json)
 C_OBJECT:C1216($1; $vo_curlOptionsDebug)
 C_BOOLEAN:C305($2; $vb_indent)

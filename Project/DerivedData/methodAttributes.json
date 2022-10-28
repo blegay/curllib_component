@@ -1,14 +1,15 @@
 {
 	"methods": {
 		"UTL__methodListGet": {
-			"timeStamp": "2022-10-28T17:13:42.563Z",
+			"timeStamp": "2022-10-28T18:18:17.746Z",
 			"attributes": {
 				"invisible": true,
-				"preemptive": "incapable"
+				"preemptive": "incapable",
+				"shared": false
 			}
 		},
 		"CURL_httpObjHeaderToArrCombined": {
-			"timeStamp": "2022-10-28T17:10:46.504Z",
+			"timeStamp": "2022-10-28T18:18:17.747Z",
 			"attributes": {
 				"shared": true,
 				"preemptive": "capable",
@@ -24,14 +25,15 @@
 			}
 		},
 		"CURL__optionsObjLong": {
-			"timeStamp": "2022-10-19T19:49:24.778Z",
+			"timeStamp": "2022-10-28T18:18:17.749Z",
 			"attributes": {
 				"invisible": true,
-				"preemptive": "capable"
+				"preemptive": "capable",
+				"shared": false
 			}
 		},
 		"ENV_versionStr": {
-			"timeStamp": "2022-10-28T17:06:42.706Z",
+			"timeStamp": "2022-10-28T18:18:17.750Z",
 			"attributes": {
 				"invisible": true,
 				"preemptive": "capable",
@@ -39,21 +41,23 @@
 			}
 		},
 		"CURL__httpProxyConfig": {
-			"timeStamp": "2022-10-19T19:49:24.718Z",
+			"timeStamp": "2022-10-28T18:18:17.752Z",
 			"attributes": {
 				"invisible": true,
-				"preemptive": "capable"
+				"preemptive": "capable",
+				"shared": false
 			}
 		},
 		"CURL__httpStatusLineToStatus": {
-			"timeStamp": "2022-10-19T19:49:24.723Z",
+			"timeStamp": "2022-10-28T18:18:17.753Z",
 			"attributes": {
 				"invisible": true,
-				"preemptive": "capable"
+				"preemptive": "capable",
+				"shared": false
 			}
 		},
 		"UTL_launchedAsService": {
-			"timeStamp": "2022-10-28T17:10:01.290Z",
+			"timeStamp": "2022-10-28T18:18:17.755Z",
 			"attributes": {
 				"invisible": true,
 				"preemptive": "capable",
@@ -69,28 +73,31 @@
 			}
 		},
 		"CURL__xdocInit": {
-			"timeStamp": "2022-10-28T17:11:47.802Z",
+			"timeStamp": "2022-10-28T18:18:17.756Z",
 			"attributes": {
 				"invisible": true,
-				"preemptive": "incapable"
+				"preemptive": "incapable",
+				"shared": false
 			}
 		},
 		"CURL_debugDirGet": {
-			"timeStamp": "2022-10-19T19:49:24.783Z",
+			"timeStamp": "2022-10-28T18:18:17.757Z",
 			"attributes": {
 				"shared": true,
-				"preemptive": "capable"
+				"preemptive": "capable",
+				"invisible": false
 			}
 		},
 		"UTL_processIsPreemptive": {
-			"timeStamp": "2022-10-19T19:49:24.775Z",
+			"timeStamp": "2022-10-28T18:18:17.759Z",
 			"attributes": {
 				"invisible": true,
-				"preemptive": "capable"
+				"preemptive": "capable",
+				"shared": false
 			}
 		},
 		"CURL_http_HEAD": {
-			"timeStamp": "2022-10-28T17:12:19.165Z",
+			"timeStamp": "2022-10-28T18:18:17.760Z",
 			"attributes": {
 				"shared": true,
 				"preemptive": "capable",
@@ -106,14 +113,15 @@
 			}
 		},
 		"DAT_localTimeZoneOffsetSeconds": {
-			"timeStamp": "2022-10-28T17:08:55.021Z",
+			"timeStamp": "2022-10-28T18:18:17.762Z",
 			"attributes": {
 				"invisible": true,
-				"preemptive": "capable"
+				"preemptive": "capable",
+				"shared": false
 			}
 		},
 		"IND__isComponent": {
-			"timeStamp": "2022-10-28T17:11:35.945Z",
+			"timeStamp": "2022-10-28T18:18:17.763Z",
 			"attributes": {
 				"invisible": true,
 				"preemptive": "capable",
@@ -129,14 +137,15 @@
 			}
 		},
 		"CURL_errorToText": {
-			"timeStamp": "2022-10-19T19:49:24.752Z",
+			"timeStamp": "2022-10-28T18:18:17.764Z",
 			"attributes": {
 				"shared": true,
-				"preemptive": "capable"
+				"preemptive": "capable",
+				"invisible": false
 			}
 		},
 		"CURL__escape": {
-			"timeStamp": "2022-10-28T17:12:30.733Z",
+			"timeStamp": "2022-10-28T18:18:17.766Z",
 			"attributes": {
 				"invisible": true,
 				"preemptive": "capable",
@@ -152,21 +161,23 @@
 			}
 		},
 		"UTL_timeleftString": {
-			"timeStamp": "2022-10-19T19:49:24.776Z",
+			"timeStamp": "2022-10-28T18:18:17.767Z",
 			"attributes": {
 				"invisible": true,
-				"preemptive": "capable"
+				"preemptive": "capable",
+				"shared": false
 			}
 		},
 		"CURL__callback": {
-			"timeStamp": "2022-10-19T19:49:24.709Z",
+			"timeStamp": "2022-10-28T18:18:17.769Z",
 			"attributes": {
 				"invisible": true,
-				"preemptive": "capable"
+				"preemptive": "capable",
+				"shared": false
 			}
 		},
 		"CURL_http_PUT": {
-			"timeStamp": "2022-10-28T17:10:46.492Z",
+			"timeStamp": "2022-10-28T18:18:17.771Z",
 			"attributes": {
 				"shared": true,
 				"preemptive": "capable",
@@ -182,7 +193,7 @@
 			}
 		},
 		"UTL_fileCreationDateTimeSet": {
-			"timeStamp": "2022-10-28T17:09:52.936Z",
+			"timeStamp": "2022-10-28T18:18:17.772Z",
 			"attributes": {
 				"invisible": true,
 				"preemptive": "capable",
@@ -198,7 +209,7 @@
 			}
 		},
 		"CURL__caPrefUpToDate": {
-			"timeStamp": "2022-10-28T17:09:47.569Z",
+			"timeStamp": "2022-10-28T18:18:17.774Z",
 			"attributes": {
 				"invisible": true,
 				"preemptive": "capable",
@@ -214,30 +225,15 @@
 			}
 		},
 		"DBG_passwordDebug": {
-			"timeStamp": "2022-10-19T19:49:24.766Z",
-			"attributes": {
-				"invisible": true,
-				"preemptive": "capable"
-			}
-		},
-		"CURL__optionsFromObject_": {
-			"timeStamp": "2022-10-28T17:11:35.948Z",
+			"timeStamp": "2022-10-28T18:18:17.775Z",
 			"attributes": {
 				"invisible": true,
 				"preemptive": "capable",
-				"executedOnServer": false,
-				"publishedWsdl": false,
-				"shared": false,
-				"publishedSql": false,
-				"publishedWeb": false,
-				"published4DMobile": {
-					"scope": "none"
-				},
-				"publishedSoap": false
+				"shared": false
 			}
 		},
-		"_cURL_GetDate_test": {
-			"timeStamp": "2022-10-28T17:10:01.306Z",
+		"CURL__optionsFromObject_": {
+			"timeStamp": "2022-10-28T18:18:17.777Z",
 			"attributes": {
 				"invisible": true,
 				"preemptive": "capable",
@@ -253,7 +249,7 @@
 			}
 		},
 		"CURL_curlOptionsProxySet": {
-			"timeStamp": "2022-10-28T17:10:46.484Z",
+			"timeStamp": "2022-10-28T18:18:17.778Z",
 			"attributes": {
 				"shared": true,
 				"preemptive": "capable",
@@ -269,7 +265,7 @@
 			}
 		},
 		"CURL_dateStringToEpoch": {
-			"timeStamp": "2022-10-28T17:43:47.230Z",
+			"timeStamp": "2022-10-28T18:18:17.779Z",
 			"attributes": {
 				"shared": true,
 				"preemptive": "capable",
@@ -285,14 +281,15 @@
 			}
 		},
 		"CURL_http_headersCollValueGet": {
-			"timeStamp": "2022-10-19T19:49:24.754Z",
+			"timeStamp": "2022-10-28T18:18:17.781Z",
 			"attributes": {
 				"shared": true,
-				"preemptive": "capable"
+				"preemptive": "capable",
+				"invisible": false
 			}
 		},
 		"CURL_httpObjHeaderSet": {
-			"timeStamp": "2022-10-28T17:17:28.165Z",
+			"timeStamp": "2022-10-28T18:18:17.782Z",
 			"attributes": {
 				"shared": true,
 				"preemptive": "capable",
@@ -308,7 +305,7 @@
 			}
 		},
 		"DAT_rfc1123ToDatTimeZone": {
-			"timeStamp": "2022-10-28T17:11:35.918Z",
+			"timeStamp": "2022-10-28T18:18:17.783Z",
 			"attributes": {
 				"invisible": true,
 				"preemptive": "capable",
@@ -324,7 +321,7 @@
 			}
 		},
 		"CURL__dateStringToEpochUnitTest": {
-			"timeStamp": "2022-10-28T17:12:30.738Z",
+			"timeStamp": "2022-10-28T18:18:17.785Z",
 			"attributes": {
 				"invisible": true,
 				"preemptive": "capable",
@@ -340,7 +337,7 @@
 			}
 		},
 		"UTL_fileModifcationDateTimeSet": {
-			"timeStamp": "2022-10-28T17:10:01.283Z",
+			"timeStamp": "2022-10-28T18:18:17.786Z",
 			"attributes": {
 				"invisible": true,
 				"preemptive": "capable",
@@ -356,7 +353,7 @@
 			}
 		},
 		"CURL_assertSet": {
-			"timeStamp": "2022-10-28T17:11:35.912Z",
+			"timeStamp": "2022-10-28T18:18:17.787Z",
 			"attributes": {
 				"shared": true,
 				"preemptive": "capable",
@@ -372,7 +369,7 @@
 			}
 		},
 		"CURL__httpRequestObj": {
-			"timeStamp": "2022-10-28T17:04:33.338Z",
+			"timeStamp": "2022-10-28T18:18:17.789Z",
 			"attributes": {
 				"invisible": true,
 				"preemptive": "capable",
@@ -380,14 +377,15 @@
 			}
 		},
 		"LONG_durationDifference": {
-			"timeStamp": "2022-10-19T19:49:24.770Z",
+			"timeStamp": "2022-10-28T18:18:17.790Z",
 			"attributes": {
 				"invisible": true,
-				"preemptive": "capable"
+				"preemptive": "capable",
+				"shared": false
 			}
 		},
 		"DAT__rfc822ZoneGmtOffset": {
-			"timeStamp": "2022-10-28T17:11:35.909Z",
+			"timeStamp": "2022-10-28T18:18:17.792Z",
 			"attributes": {
 				"invisible": true,
 				"preemptive": "capable",
@@ -403,7 +401,7 @@
 			}
 		},
 		"CURL__curlProxySetTest": {
-			"timeStamp": "2022-10-28T17:12:30.741Z",
+			"timeStamp": "2022-10-28T18:18:17.793Z",
 			"attributes": {
 				"invisible": true,
 				"preemptive": "capable",
@@ -419,21 +417,23 @@
 			}
 		},
 		"CURL_http_GET": {
-			"timeStamp": "2022-10-19T19:49:24.753Z",
+			"timeStamp": "2022-10-28T18:18:17.794Z",
 			"attributes": {
 				"shared": true,
-				"preemptive": "capable"
+				"preemptive": "capable",
+				"invisible": false
 			}
 		},
 		"CURL__optionsObj": {
-			"timeStamp": "2022-10-19T19:49:24.728Z",
+			"timeStamp": "2022-10-28T18:18:17.796Z",
 			"attributes": {
 				"invisible": true,
-				"preemptive": "capable"
+				"preemptive": "capable",
+				"shared": false
 			}
 		},
 		"UTL__isMethod": {
-			"timeStamp": "2022-10-28T17:44:57.362Z",
+			"timeStamp": "2022-10-28T18:18:17.797Z",
 			"attributes": {
 				"invisible": true,
 				"preemptive": "incapable",
@@ -441,7 +441,7 @@
 			}
 		},
 		"xml__ACI0094378_workaround": {
-			"timeStamp": "2022-10-28T17:10:01.310Z",
+			"timeStamp": "2022-10-28T18:18:17.799Z",
 			"attributes": {
 				"invisible": true,
 				"preemptive": "capable",
@@ -457,7 +457,7 @@
 			}
 		},
 		"CURL__sslParamsObj": {
-			"timeStamp": "2022-10-28T17:11:35.936Z",
+			"timeStamp": "2022-10-28T18:18:17.800Z",
 			"attributes": {
 				"invisible": true,
 				"preemptive": "capable",
@@ -473,14 +473,15 @@
 			}
 		},
 		"UTL_durationMsDebug": {
-			"timeStamp": "2022-10-19T19:49:24.772Z",
+			"timeStamp": "2022-10-28T18:18:17.801Z",
 			"attributes": {
 				"invisible": true,
-				"preemptive": "capable"
+				"preemptive": "capable",
+				"shared": false
 			}
 		},
 		"CURL_urlEscape": {
-			"timeStamp": "2022-10-28T17:10:46.517Z",
+			"timeStamp": "2022-10-28T18:18:17.803Z",
 			"attributes": {
 				"shared": true,
 				"preemptive": "capable",
@@ -496,7 +497,7 @@
 			}
 		},
 		"CURL_httpObjCall": {
-			"timeStamp": "2022-10-28T17:10:46.497Z",
+			"timeStamp": "2022-10-28T18:18:17.804Z",
 			"attributes": {
 				"shared": true,
 				"preemptive": "capable",
@@ -512,7 +513,7 @@
 			}
 		},
 		"CURL__http_GET_test": {
-			"timeStamp": "2022-10-28T17:12:30.712Z",
+			"timeStamp": "2022-10-28T18:18:17.806Z",
 			"attributes": {
 				"invisible": true,
 				"preemptive": "capable",
@@ -528,14 +529,15 @@
 			}
 		},
 		"CURL__debugObjectJson": {
-			"timeStamp": "2022-10-19T19:49:24.713Z",
+			"timeStamp": "2022-10-28T18:18:17.807Z",
 			"attributes": {
 				"invisible": true,
-				"preemptive": "capable"
+				"preemptive": "capable",
+				"shared": false
 			}
 		},
 		"CURL__cacertUrlDefault": {
-			"timeStamp": "2022-10-28T17:09:51.980Z",
+			"timeStamp": "2022-10-28T18:18:17.808Z",
 			"attributes": {
 				"invisible": true,
 				"preemptive": "capable",
@@ -551,7 +553,7 @@
 			}
 		},
 		"CURL__prefDirPathGet": {
-			"timeStamp": "2022-10-19T20:00:38.693Z",
+			"timeStamp": "2022-10-28T18:18:17.810Z",
 			"attributes": {
 				"invisible": true,
 				"preemptive": "capable",
@@ -559,7 +561,7 @@
 			}
 		},
 		"FS_filenameNoExtension": {
-			"timeStamp": "2022-10-28T17:11:35.941Z",
+			"timeStamp": "2022-10-28T18:18:17.811Z",
 			"attributes": {
 				"invisible": true,
 				"preemptive": "capable",
@@ -575,7 +577,7 @@
 			}
 		},
 		"ENV_plateformeStr": {
-			"timeStamp": "2022-10-28T17:07:38.055Z",
+			"timeStamp": "2022-10-28T18:18:17.813Z",
 			"attributes": {
 				"invisible": true,
 				"preemptive": "capable",
@@ -583,7 +585,7 @@
 			}
 		},
 		"CURL_caRefreshTest": {
-			"timeStamp": "2022-10-28T17:10:46.515Z",
+			"timeStamp": "2022-10-28T18:18:17.814Z",
 			"attributes": {
 				"shared": true,
 				"preemptive": "capable",
@@ -599,7 +601,7 @@
 			}
 		},
 		"CURL_caRefresh": {
-			"timeStamp": "2022-10-28T17:43:53.643Z",
+			"timeStamp": "2022-10-28T18:18:17.816Z",
 			"attributes": {
 				"shared": true,
 				"preemptive": "capable",
@@ -607,7 +609,7 @@
 			}
 		},
 		"CURL__proxyLoginPasswordCombine": {
-			"timeStamp": "2022-10-28T17:11:35.938Z",
+			"timeStamp": "2022-10-28T18:18:17.817Z",
 			"attributes": {
 				"invisible": true,
 				"preemptive": "capable",
@@ -623,28 +625,31 @@
 			}
 		},
 		"CURL_curlOptionsObjTimeoutSet": {
-			"timeStamp": "2022-10-19T19:49:24.736Z",
+			"timeStamp": "2022-10-28T18:18:17.818Z",
 			"attributes": {
 				"shared": true,
-				"preemptive": "capable"
+				"preemptive": "capable",
+				"invisible": false
 			}
 		},
 		"CURL__progressUpdate": {
-			"timeStamp": "2022-10-19T19:49:24.730Z",
+			"timeStamp": "2022-10-28T18:18:17.820Z",
 			"attributes": {
 				"invisible": true,
-				"preemptive": "incapable"
+				"preemptive": "incapable",
+				"shared": false
 			}
 		},
 		"UTL_isHeadless": {
-			"timeStamp": "2022-10-19T19:49:24.774Z",
+			"timeStamp": "2022-10-28T18:18:17.821Z",
 			"attributes": {
 				"invisible": true,
-				"preemptive": "capable"
+				"preemptive": "capable",
+				"shared": false
 			}
 		},
 		"FS_pathToFileName": {
-			"timeStamp": "2022-10-28T17:11:35.943Z",
+			"timeStamp": "2022-10-28T18:18:17.822Z",
 			"attributes": {
 				"invisible": true,
 				"shared": false,
@@ -660,14 +665,15 @@
 			}
 		},
 		"UTL_throughput": {
-			"timeStamp": "2022-10-19T19:49:24.775Z",
+			"timeStamp": "2022-10-28T18:18:17.824Z",
 			"attributes": {
 				"invisible": true,
-				"preemptive": "capable"
+				"preemptive": "capable",
+				"shared": false
 			}
 		},
 		"CURL_httpObjNew": {
-			"timeStamp": "2022-10-28T17:10:46.506Z",
+			"timeStamp": "2022-10-28T18:18:17.825Z",
 			"attributes": {
 				"shared": true,
 				"preemptive": "capable",
@@ -682,24 +688,8 @@
 				"publishedSoap": false
 			}
 		},
-		"Méthode 200": {
-			"timeStamp": "2022-10-28T17:12:52.124Z",
-			"attributes": {
-				"invisible": true,
-				"preemptive": "capable",
-				"executedOnServer": false,
-				"publishedWsdl": false,
-				"shared": false,
-				"publishedSql": false,
-				"publishedWeb": false,
-				"published4DMobile": {
-					"scope": "none"
-				},
-				"publishedSoap": false
-			}
-		},
 		"UTL__callbackMethodSourceSet": {
-			"timeStamp": "2022-10-28T17:09:45.083Z",
+			"timeStamp": "2022-10-28T18:18:17.827Z",
 			"attributes": {
 				"invisible": true,
 				"preemptive": "capable",
@@ -715,7 +705,7 @@
 			}
 		},
 		"CURL__init": {
-			"timeStamp": "2022-10-19T20:15:52.614Z",
+			"timeStamp": "2022-10-28T18:18:17.828Z",
 			"attributes": {
 				"invisible": true,
 				"preemptive": "capable",
@@ -723,7 +713,7 @@
 			}
 		},
 		"CURL_componentVersionGet": {
-			"timeStamp": "2022-10-19T20:25:18.723Z",
+			"timeStamp": "2022-10-28T18:18:17.830Z",
 			"attributes": {
 				"shared": true,
 				"preemptive": "capable",
@@ -731,7 +721,7 @@
 			}
 		},
 		"UTL_processNameGet": {
-			"timeStamp": "2022-10-28T17:10:01.296Z",
+			"timeStamp": "2022-10-28T18:18:17.831Z",
 			"attributes": {
 				"invisible": true,
 				"preemptive": "capable",
@@ -747,7 +737,7 @@
 			}
 		},
 		"CURL_urlUnescape": {
-			"timeStamp": "2022-10-28T17:10:46.519Z",
+			"timeStamp": "2022-10-28T18:18:17.832Z",
 			"attributes": {
 				"shared": true,
 				"preemptive": "capable",
@@ -763,21 +753,23 @@
 			}
 		},
 		"CURL__caPrefSave": {
-			"timeStamp": "2022-10-19T19:49:24.711Z",
+			"timeStamp": "2022-10-28T18:18:17.834Z",
 			"attributes": {
 				"invisible": true,
-				"preemptive": "capable"
+				"preemptive": "capable",
+				"shared": false
 			}
 		},
 		"CURL_curlOptionsAuthSet": {
-			"timeStamp": "2022-10-19T19:49:24.735Z",
+			"timeStamp": "2022-10-28T18:18:17.835Z",
 			"attributes": {
 				"shared": true,
-				"preemptive": "capable"
+				"preemptive": "capable",
+				"invisible": false
 			}
 		},
 		"CURL__caPemFileDefaultPath": {
-			"timeStamp": "2022-10-28T17:09:24.180Z",
+			"timeStamp": "2022-10-28T18:18:17.837Z",
 			"attributes": {
 				"invisible": true,
 				"preemptive": "capable",
@@ -793,29 +785,23 @@
 			}
 		},
 		"CURL_pluginVersionGet": {
-			"timeStamp": "2022-10-28T17:04:47.915Z",
+			"timeStamp": "2022-10-28T18:18:17.838Z",
 			"attributes": {
 				"shared": true,
 				"preemptive": "capable",
 				"invisible": false
 			}
 		},
-		"Méthode 198": {
-			"timeStamp": "2022-10-28T17:13:03.081Z",
-			"attributes": {
-				"invisible": true,
-				"preemptive": "incapable"
-			}
-		},
 		"CURL__progressClose": {
-			"timeStamp": "2022-10-19T19:49:24.729Z",
+			"timeStamp": "2022-10-28T18:18:17.839Z",
 			"attributes": {
 				"invisible": true,
-				"preemptive": "incapable"
+				"preemptive": "incapable",
+				"shared": false
 			}
 		},
 		"DAT__dateTimeZoneOffsetApply": {
-			"timeStamp": "2022-10-28T17:11:35.907Z",
+			"timeStamp": "2022-10-28T18:18:17.841Z",
 			"attributes": {
 				"invisible": true,
 				"preemptive": "capable",
@@ -831,21 +817,15 @@
 			}
 		},
 		"CURL_debugDirSet": {
-			"timeStamp": "2022-10-19T19:49:24.783Z",
+			"timeStamp": "2022-10-28T18:18:17.842Z",
 			"attributes": {
 				"shared": true,
-				"preemptive": "capable"
-			}
-		},
-		"Méthode 199": {
-			"timeStamp": "2022-10-28T17:13:10.084Z",
-			"attributes": {
-				"invisible": true,
-				"preemptive": "incapable"
+				"preemptive": "capable",
+				"invisible": false
 			}
 		},
 		"XDOC_run": {
-			"timeStamp": "2022-10-28T17:10:01.308Z",
+			"timeStamp": "2022-10-28T18:18:17.843Z",
 			"attributes": {
 				"invisible": true,
 				"preemptive": "capable",
@@ -861,7 +841,7 @@
 			}
 		},
 		"CURL__options": {
-			"timeStamp": "2022-10-28T17:12:52.126Z",
+			"timeStamp": "2022-10-28T18:18:17.845Z",
 			"attributes": {
 				"invisible": true,
 				"preemptive": "capable",
@@ -877,7 +857,7 @@
 			}
 		},
 		"CURL_httpObjStatusGet": {
-			"timeStamp": "2022-10-28T17:10:46.513Z",
+			"timeStamp": "2022-10-28T18:18:17.846Z",
 			"attributes": {
 				"shared": true,
 				"preemptive": "capable",
@@ -893,7 +873,7 @@
 			}
 		},
 		"CURL_http_POST": {
-			"timeStamp": "2022-10-28T17:10:46.490Z",
+			"timeStamp": "2022-10-28T18:18:17.848Z",
 			"attributes": {
 				"shared": true,
 				"preemptive": "capable",
@@ -909,7 +889,7 @@
 			}
 		},
 		"CURL__caCertUpdateInResDir": {
-			"timeStamp": "2022-10-28T17:45:20.482Z",
+			"timeStamp": "2022-10-28T18:18:17.850Z",
 			"attributes": {
 				"invisible": true,
 				"preemptive": "capable",
@@ -925,28 +905,31 @@
 			}
 		},
 		"CURL__initStorage": {
-			"timeStamp": "2022-10-28T17:12:41.060Z",
+			"timeStamp": "2022-10-28T18:18:17.851Z",
 			"attributes": {
 				"invisible": true,
-				"preemptive": "incapable"
+				"preemptive": "incapable",
+				"shared": false
 			}
 		},
 		"CURL__debugObjectJsonTest": {
-			"timeStamp": "2022-10-19T19:49:24.715Z",
+			"timeStamp": "2022-10-28T18:18:17.852Z",
 			"attributes": {
 				"invisible": true,
-				"preemptive": "capable"
+				"preemptive": "capable",
+				"shared": false
 			}
 		},
 		"CURL__httpRequestObjPrep": {
-			"timeStamp": "2022-10-19T19:49:24.722Z",
+			"timeStamp": "2022-10-28T18:18:17.854Z",
 			"attributes": {
 				"invisible": true,
-				"preemptive": "capable"
+				"preemptive": "capable",
+				"shared": false
 			}
 		},
 		"Compiler_Variables": {
-			"timeStamp": "2022-10-28T17:10:01.293Z",
+			"timeStamp": "2022-10-28T18:18:17.856Z",
 			"attributes": {
 				"invisible": true,
 				"preemptive": "capable",
@@ -962,46 +945,15 @@
 			}
 		},
 		"DAT_dateTimeWithTimezoneToLocal": {
-			"timeStamp": "2022-10-28T17:09:01.965Z",
+			"timeStamp": "2022-10-28T18:18:17.857Z",
 			"attributes": {
 				"invisible": true,
-				"preemptive": "capable"
+				"preemptive": "capable",
+				"shared": false
 			}
 		},
 		"CURL__executablePathGet_": {
-			"timeStamp": "2022-10-28T17:12:30.730Z",
-			"attributes": {
-				"invisible": true,
-				"preemptive": "capable",
-				"executedOnServer": false,
-				"publishedWsdl": false,
-				"shared": false,
-				"publishedSql": false,
-				"publishedWeb": false,
-				"published4DMobile": {
-					"scope": "none"
-				},
-				"publishedSoap": false
-			}
-		},
-		"Méthode 117": {
-			"timeStamp": "2022-10-28T17:12:52.111Z",
-			"attributes": {
-				"invisible": true,
-				"preemptive": "capable",
-				"executedOnServer": false,
-				"publishedWsdl": false,
-				"shared": false,
-				"publishedSql": false,
-				"publishedWeb": false,
-				"published4DMobile": {
-					"scope": "none"
-				},
-				"publishedSoap": false
-			}
-		},
-		"Méthode 103": {
-			"timeStamp": "2022-10-28T17:11:35.950Z",
+			"timeStamp": "2022-10-28T18:18:17.859Z",
 			"attributes": {
 				"invisible": true,
 				"preemptive": "capable",
@@ -1017,7 +969,7 @@
 			}
 		},
 		"UTL_initAuto": {
-			"timeStamp": "2022-10-28T17:10:01.285Z",
+			"timeStamp": "2022-10-28T18:18:17.860Z",
 			"attributes": {
 				"invisible": true,
 				"preemptive": "capable",
@@ -1033,21 +985,23 @@
 			}
 		},
 		"CURL__userAgent": {
-			"timeStamp": "2022-10-19T19:49:24.731Z",
+			"timeStamp": "2022-10-28T18:18:17.861Z",
 			"attributes": {
 				"invisible": true,
-				"preemptive": "capable"
+				"preemptive": "capable",
+				"shared": false
 			}
 		},
 		"Compiler_Methods": {
-			"timeStamp": "2022-10-28T17:10:20.124Z",
+			"timeStamp": "2022-10-28T18:18:17.962Z",
 			"attributes": {
 				"invisible": true,
-				"preemptive": "incapable"
+				"preemptive": "incapable",
+				"shared": false
 			}
 		},
 		"DBG__bytes": {
-			"timeStamp": "2022-10-28T17:11:35.922Z",
+			"timeStamp": "2022-10-28T18:18:17.864Z",
 			"attributes": {
 				"invisible": true,
 				"preemptive": "capable",
@@ -1063,7 +1017,7 @@
 			}
 		},
 		"CURL__debugObjectJsonSub": {
-			"timeStamp": "2022-10-28T17:44:06.062Z",
+			"timeStamp": "2022-10-28T18:18:17.866Z",
 			"attributes": {
 				"invisible": true,
 				"preemptive": "capable",
@@ -1071,7 +1025,7 @@
 			}
 		},
 		"CURL_httpObjRequestBodySet": {
-			"timeStamp": "2022-10-28T17:10:46.508Z",
+			"timeStamp": "2022-10-28T18:18:17.867Z",
 			"attributes": {
 				"shared": true,
 				"preemptive": "capable",
@@ -1087,7 +1041,7 @@
 			}
 		},
 		"CURL_httpObjResponseBodyGet": {
-			"timeStamp": "2022-10-28T17:10:46.510Z",
+			"timeStamp": "2022-10-28T18:18:17.869Z",
 			"attributes": {
 				"shared": true,
 				"preemptive": "capable",
@@ -1103,7 +1057,7 @@
 			}
 		},
 		"CURL__debugMilliseconds": {
-			"timeStamp": "2022-10-28T17:12:30.735Z",
+			"timeStamp": "2022-10-28T18:18:17.870Z",
 			"attributes": {
 				"invisible": true,
 				"preemptive": "capable",
@@ -1119,7 +1073,7 @@
 			}
 		},
 		"CURL_assertGet": {
-			"timeStamp": "2022-10-28T17:11:35.914Z",
+			"timeStamp": "2022-10-28T18:18:17.871Z",
 			"attributes": {
 				"shared": true,
 				"preemptive": "capable",
@@ -1135,7 +1089,7 @@
 			}
 		},
 		"ENV_isComponent": {
-			"timeStamp": "2022-10-28T17:11:35.934Z",
+			"timeStamp": "2022-10-28T18:18:17.873Z",
 			"attributes": {
 				"invisible": true,
 				"preemptive": "capable",
@@ -1151,7 +1105,7 @@
 			}
 		},
 		"CURL__httpRequestCleanHeaders": {
-			"timeStamp": "2022-10-28T17:12:30.708Z",
+			"timeStamp": "2022-10-28T18:18:17.874Z",
 			"attributes": {
 				"invisible": true,
 				"preemptive": "capable",
@@ -1167,7 +1121,7 @@
 			}
 		},
 		"DAT_rfc1123ToIso8601": {
-			"timeStamp": "2022-10-28T17:17:18.481Z",
+			"timeStamp": "2022-10-28T18:18:17.876Z",
 			"attributes": {
 				"invisible": true,
 				"preemptive": "capable",
@@ -1183,7 +1137,7 @@
 			}
 		},
 		"CURL_http_DELETE": {
-			"timeStamp": "2022-10-28T17:10:46.478Z",
+			"timeStamp": "2022-10-28T18:18:17.877Z",
 			"attributes": {
 				"shared": true,
 				"preemptive": "capable",
@@ -1199,45 +1153,13 @@
 			}
 		},
 		"CURL__headerLineSplit": {
-			"timeStamp": "2022-10-28T17:12:30.714Z",
+			"timeStamp": "2022-10-28T18:18:17.879Z",
 			"attributes": {
 				"invisible": true,
 				"preemptive": "capable",
 				"executedOnServer": false,
 				"publishedWsdl": false,
 				"shared": false,
-				"publishedSql": false,
-				"publishedWeb": false,
-				"published4DMobile": {
-					"scope": "none"
-				},
-				"publishedSoap": false
-			}
-		},
-		"Méthode 105": {
-			"timeStamp": "2022-10-28T17:12:52.097Z",
-			"attributes": {
-				"invisible": true,
-				"preemptive": "capable",
-				"executedOnServer": false,
-				"publishedWsdl": false,
-				"shared": false,
-				"publishedSql": false,
-				"publishedWeb": false,
-				"published4DMobile": {
-					"scope": "none"
-				},
-				"publishedSoap": false
-			}
-		},
-		"Méthode 111": {
-			"timeStamp": "2022-10-28T17:12:52.104Z",
-			"attributes": {
-				"invisible": true,
-				"shared": false,
-				"preemptive": "capable",
-				"executedOnServer": false,
-				"publishedWsdl": false,
 				"publishedSql": false,
 				"publishedWeb": false,
 				"published4DMobile": {
@@ -1247,45 +1169,13 @@
 			}
 		},
 		"CURL__moduleDebugDateTimeLine": {
-			"timeStamp": "2022-10-28T17:12:52.129Z",
+			"timeStamp": "2022-10-28T18:18:17.880Z",
 			"attributes": {
 				"invisible": true,
 				"shared": false,
 				"preemptive": "capable",
 				"executedOnServer": false,
 				"publishedWsdl": false,
-				"publishedSql": false,
-				"publishedWeb": false,
-				"published4DMobile": {
-					"scope": "none"
-				},
-				"publishedSoap": false
-			}
-		},
-		"Méthode 107": {
-			"timeStamp": "2022-10-28T17:12:52.102Z",
-			"attributes": {
-				"invisible": true,
-				"preemptive": "capable",
-				"executedOnServer": false,
-				"publishedWsdl": false,
-				"shared": false,
-				"publishedSql": false,
-				"publishedWeb": false,
-				"published4DMobile": {
-					"scope": "none"
-				},
-				"publishedSoap": false
-			}
-		},
-		"Méthode 113": {
-			"timeStamp": "2022-10-28T17:12:52.109Z",
-			"attributes": {
-				"invisible": true,
-				"preemptive": "capable",
-				"executedOnServer": false,
-				"publishedWsdl": false,
-				"shared": false,
 				"publishedSql": false,
 				"publishedWeb": false,
 				"published4DMobile": {
@@ -1295,14 +1185,15 @@
 			}
 		},
 		"CURL_curlOptionsObjTimeoutConnS": {
-			"timeStamp": "2022-10-19T19:49:24.735Z",
+			"timeStamp": "2022-10-28T18:18:17.881Z",
 			"attributes": {
 				"shared": true,
-				"preemptive": "capable"
+				"preemptive": "capable",
+				"invisible": false
 			}
 		},
 		"CURL_http_headersCollValueSet": {
-			"timeStamp": "2022-10-28T17:10:46.487Z",
+			"timeStamp": "2022-10-28T18:18:17.883Z",
 			"attributes": {
 				"shared": true,
 				"preemptive": "capable",
@@ -1318,7 +1209,7 @@
 			}
 		},
 		"CURL_httpObjHeaderGet": {
-			"timeStamp": "2022-10-28T17:10:46.499Z",
+			"timeStamp": "2022-10-28T18:18:17.884Z",
 			"attributes": {
 				"shared": true,
 				"preemptive": "capable",
@@ -1334,39 +1225,7 @@
 			}
 		},
 		"xml_domSourceParse": {
-			"timeStamp": "2022-10-28T17:10:01.312Z",
-			"attributes": {
-				"invisible": true,
-				"preemptive": "capable",
-				"executedOnServer": false,
-				"publishedWsdl": false,
-				"shared": false,
-				"publishedSql": false,
-				"publishedWeb": false,
-				"published4DMobile": {
-					"scope": "none"
-				},
-				"publishedSoap": false
-			}
-		},
-		"Méthode 112": {
-			"timeStamp": "2022-10-28T17:12:52.106Z",
-			"attributes": {
-				"invisible": true,
-				"preemptive": "capable",
-				"executedOnServer": false,
-				"publishedWsdl": false,
-				"shared": false,
-				"publishedSql": false,
-				"publishedWeb": false,
-				"published4DMobile": {
-					"scope": "none"
-				},
-				"publishedSoap": false
-			}
-		},
-		"Méthode 106": {
-			"timeStamp": "2022-10-28T17:12:52.100Z",
+			"timeStamp": "2022-10-28T18:18:17.886Z",
 			"attributes": {
 				"invisible": true,
 				"preemptive": "capable",
@@ -1382,75 +1241,15 @@
 			}
 		},
 		"CURL__progressNew": {
-			"timeStamp": "2022-10-19T19:49:24.729Z",
+			"timeStamp": "2022-10-28T18:18:17.888Z",
 			"attributes": {
 				"invisible": true,
-				"preemptive": "incapable"
+				"preemptive": "incapable",
+				"shared": false
 			}
 		},
 		"CURL__headerCallbackInstall": {
-			"timeStamp": "2022-10-28T17:12:30.727Z",
-			"attributes": {
-				"invisible": true,
-				"preemptive": "capable",
-				"executedOnServer": false,
-				"publishedWsdl": false,
-				"shared": false,
-				"publishedSql": false,
-				"publishedWeb": false,
-				"published4DMobile": {
-					"scope": "none"
-				},
-				"publishedSoap": false
-			}
-		},
-		"(ENV__langageName)": {
-			"timeStamp": "2022-10-19T19:49:24.767Z",
-			"attributes": {
-				"invisible": true
-			}
-		},
-		"(CURL__initG)": {
-			"timeStamp": "2022-10-28T17:12:30.705Z",
-			"attributes": {
-				"invisible": true,
-				"preemptive": "capable",
-				"executedOnServer": false,
-				"publishedWsdl": false,
-				"shared": false,
-				"publishedSql": false,
-				"publishedWeb": false,
-				"published4DMobile": {
-					"scope": "none"
-				},
-				"publishedSoap": false
-			}
-		},
-		"(CURL__initSub)": {
-			"timeStamp": "2022-10-28T17:12:30.699Z",
-			"attributes": {
-				"invisible": true,
-				"preemptive": "capable",
-				"executedOnServer": false,
-				"publishedWsdl": false,
-				"shared": false,
-				"publishedSql": false,
-				"publishedWeb": false,
-				"published4DMobile": {
-					"scope": "none"
-				},
-				"publishedSoap": false
-			}
-		},
-		"(CURL__errHdlrToDevNull)": {
-			"timeStamp": "2022-10-19T19:49:24.715Z",
-			"attributes": {
-				"invisible": true,
-				"preemptive": "capable"
-			}
-		},
-		"(DBG__dbgInitAuto)": {
-			"timeStamp": "2022-10-28T17:11:35.929Z",
+			"timeStamp": "2022-10-28T18:18:17.889Z",
 			"attributes": {
 				"invisible": true,
 				"preemptive": "capable",

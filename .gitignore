@@ -8,3 +8,4 @@ Settings/buildApp.4DSettings
 Settings/backup.4DSettings
 userPreferences.*
 Documentation/Methods/CURL__*.md
+Libraries/lib4d-*.dylib

@@ -1,4 +1,4 @@
-//%attributes = {"invisible":true,"preemptive":"incapable"}
+//%attributes = {"invisible":true,"preemptive":"incapable","shared":false}
 
 C_LONGINT:C283($0; $vl_progressId)
 C_TEXT:C284($1; $vt_title)

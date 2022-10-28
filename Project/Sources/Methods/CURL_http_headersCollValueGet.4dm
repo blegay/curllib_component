@@ -1,4 +1,4 @@
-//%attributes = {"shared":true,"preemptive":"capable"}
+//%attributes = {"shared":true,"preemptive":"capable","invisible":false}
 
 C_TEXT:C284($0; $vt_headerValue)
 C_COLLECTION:C1488($1; $co_headersCollection)
