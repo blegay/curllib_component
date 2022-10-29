@@ -1,17 +1,16 @@
 //%attributes = {"invisible":true,"preemptive":"capable","shared":false}
 C_BOOLEAN:C305($0; $vb_abort)
-C_TEXT:C284($1; $vt_transferInfoJson)
+C_OBJECT:C1216($1; $vo_transferInfo)
 C_TEXT:C284($2; $vt_userInfos)  // $vo_curlOptions.PRIVATE in CURL__httpRequestObj
 
 $vb_abort:=False:C215
-
-$vt_transferInfoJson:=$1
+$vo_transferInfo:=$1
 $vt_userInfos:=$2
 
-If (Length:C16($vt_transferInfoJson)>0)
+If ($vo_transferInfo#Null:C1517)
 	
 	If (False:C215)
-		// $vt_transferInfoJson
+		// $vo_transferInfo
 		
 		//   {
 		//      "appConnectTime" : 0.34377999999999997,
@@ -98,10 +97,6 @@ If (Length:C16($vt_transferInfoJson)>0)
 		//   }
 	End if 
 	
-	C_OBJECT:C1216($vt_transferInfo)
-	$vt_transferInfo:=JSON Parse:C1218($vt_transferInfoJson)
-	
-	
 	If (Length:C16($vt_userInfos)>0)
 		C_OBJECT:C1216($vo_userInfos)
 		$vo_userInfos:=JSON Parse:C1218($vt_userInfos)
@@ -114,18 +109,18 @@ If (Length:C16($vt_transferInfoJson)>0)
 				If ($vl_progressId#0)
 					
 					C_REAL:C285($vr_contentLengthDownload; $vr_sizeDownload; $vr_speedDownload)
-					$vr_contentLengthDownload:=$vt_transferInfo.contentLengthDownload
-					$vr_sizeDownload:=$vt_transferInfo.sizeDownload
-					$vr_speedDownload:=$vt_transferInfo.speedDownload  // bytes/sec
+					$vr_contentLengthDownload:=$vo_transferInfo.contentLengthDownload
+					$vr_sizeDownload:=$vo_transferInfo.sizeDownload
+					$vr_speedDownload:=$vo_transferInfo.speedDownload  // bytes/sec
 					
 					C_REAL:C285($vr_contentLengthUpload; $vr_sizeUpload; $vr_speedUpload)
-					$vr_contentLengthUpload:=$vt_transferInfo.contentLengthUpload
-					$vr_sizeUpload:=$vt_transferInfo.sizeUpload
-					$vr_speedUpload:=$vt_transferInfo.speedUpload  // bytes/sec
+					$vr_contentLengthUpload:=$vo_transferInfo.contentLengthUpload
+					$vr_sizeUpload:=$vo_transferInfo.sizeUpload
+					$vr_speedUpload:=$vo_transferInfo.speedUpload  // bytes/sec
 					
 					C_REAL:C285($vr_startTransferTime; $vr_totalTime; $vr_elapsed; $vr_estimatedTimeleft)
-					$vr_startTransferTime:=$vt_transferInfo.startTransferTime
-					$vr_totalTime:=$vt_transferInfo.totalTime
+					$vr_startTransferTime:=$vo_transferInfo.startTransferTime
+					$vr_totalTime:=$vo_transferInfo.totalTime
 					$vr_elapsed:=$vr_totalTime-$vr_startTransferTime
 					
 					
@@ -176,7 +171,7 @@ If (Length:C16($vt_transferInfoJson)>0)
 							$vr_progress:=-1
 					End case 
 					
-					CURL__moduleDebugDateTimeLine(6; Current method name:C684; "progressId : "+String:C10($vl_progressId)+", progress : "+String:C10($vr_progress)+", message : \""+$vt_message+"\"\r"+JSON Stringify:C1217($vt_transferInfo; *))
+					CURL__moduleDebugDateTimeLine(6; Current method name:C684; "progressId : "+String:C10($vl_progressId)+", progress : "+String:C10($vr_progress)+", message : \""+$vt_message+"\"\r"+JSON Stringify:C1217($vo_transferInfo; *))
 					
 					// 26/05/2020 11:39:57 - curl - 04 - CURL__callback ==> progressId : 1, progress : 0
 					// 26/05/2020 11:39:58 - curl - 04 - CURL__callback ==> progressId : 1, progress : 0,2829823145649
@@ -196,7 +191,6 @@ If (Length:C16($vt_transferInfoJson)>0)
 						CURL__moduleDebugDateTimeLine(2; Current method name:C684; "progressId : "+String:C10($vl_progressId)+", user abort : TRUE !")
 					End if 
 					
-					
 				End if 
 				
 			End if 
@@ -204,13 +198,6 @@ If (Length:C16($vt_transferInfoJson)>0)
 		
 	End if 
 	
-	
-	If (False:C215)
-		//%T-
-		//SET TEXT TO PASTEBOARD($vt_transferInfoJson)
-		//%T+
-	End if 
 End if 
-
 
 $0:=$vb_abort

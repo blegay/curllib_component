@@ -240,7 +240,7 @@ C_TEXT:C284(CURL__httpProxyConfig; $6)
 
 //CURL__callback
 C_BOOLEAN:C305(CURL__callback; $0)
-C_TEXT:C284(CURL__callback; $1)
+C_OBJECT:C1216(CURL__callback; $1)
 C_TEXT:C284(CURL__callback; $2)
 
 //CURL__debugObjectJson
