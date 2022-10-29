@@ -13,7 +13,7 @@ This method sets the body for the request of an http object
 
 ## **Example :** 
 ```
-CURL_httpObjRequestBodySet¬†
+CURL_httpObjRequestBodySet
 ```
 ## **Version :** 
 1.00.00
