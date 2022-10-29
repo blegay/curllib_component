@@ -1,4 +1,4 @@
-//%attributes = {"invisible":true,"shared":false}
+//%attributes = {"invisible":true,"shared":false,"preemptive":"capable","executedOnServer":false,"publishedWsdl":false,"publishedSql":false,"publishedWeb":false,"published4DMobile":{"scope":"none"},"publishedSoap":false}
   //================================================================================
   //@xdoc-start : en
   //@name : CURL__dateStringToEpochUnitTest

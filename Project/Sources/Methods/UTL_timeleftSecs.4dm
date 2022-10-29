@@ -1,4 +1,4 @@
-//%attributes = {"shared":false,"invisible":true}
+//%attributes = {"shared":false,"invisible":true,"preemptive":"capable","executedOnServer":false,"publishedWsdl":false,"publishedSql":false,"publishedWeb":false,"published4DMobile":{"scope":"none"},"publishedSoap":false}
 C_LONGINT:C283($0;$vl_timeleftSecs)
 C_REAL:C285($1;$vr_bufferSize)
 C_LONGINT:C283($2;$vl_bufferDurationMs)

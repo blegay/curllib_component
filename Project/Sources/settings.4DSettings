@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><preferences stamp="7">
+<?xml version="1.0" encoding="UTF-8"?><preferences stamp="8">
 	<com.4d>
 		<deployment>
 			<options/>
@@ -24,5 +24,6 @@
 				<configuration automatic_session_management="true" session_mode="3"/>
 			</remote>
 		</web>
+		<general execute_host_database_event="true"/>
 	</com.4d>
 </preferences>

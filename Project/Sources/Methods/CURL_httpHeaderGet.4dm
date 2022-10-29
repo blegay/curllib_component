@@ -1,4 +1,4 @@
-//%attributes = {"shared":true,"invisible":false}
+//%attributes = {"shared":true,"invisible":false,"preemptive":"capable","executedOnServer":false,"publishedWsdl":false,"publishedSql":false,"publishedWeb":false,"published4DMobile":{"scope":"none"},"publishedSoap":false}
   //================================================================================
   //@xdoc-start : en
   //@name : CURL_httpHeaderGet

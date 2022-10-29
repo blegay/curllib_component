@@ -1,4 +1,4 @@
-//%attributes = {"shared":false,"invisible":true}
+//%attributes = {"shared":false,"invisible":true,"preemptive":"capable","executedOnServer":false,"publishedWsdl":false,"publishedSql":false,"publishedWeb":false,"published4DMobile":{"scope":"none"},"publishedSoap":false}
   //================================================================================
   //@xdoc-start : en
   //@name : CURL_curlOptionsProgressSet

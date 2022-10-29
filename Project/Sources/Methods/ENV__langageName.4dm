@@ -1,4 +1,4 @@
-//%attributes = {"invisible":true,"shared":false}
+//%attributes = {"invisible":true,"shared":false,"preemptive":"capable","executedOnServer":false,"publishedWsdl":false,"publishedSql":false,"publishedWeb":false,"published4DMobile":{"scope":"none"},"publishedSoap":false}
 
   //C_TEXT($0;$vt_languageStr)
   //C_LONGINT($1;$vl_language)
