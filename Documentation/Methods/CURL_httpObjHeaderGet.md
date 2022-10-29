@@ -14,7 +14,7 @@ This function returns a header value from a header key for the response sub obje
 
 ## **Example :** 
 ```
-CURL_httpObjHeaderGet¬†
+CURL_httpObjHeaderGet
 ```
 ## **Version :** 
 1.00.00

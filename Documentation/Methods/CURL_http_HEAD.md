@@ -15,7 +15,7 @@ This function uses curl plugin to do a http HEAD
 
 ## **Example :** 
 ```
-CURL_http_HEAD¬†
+CURL_http_HEAD
 ```
 ## **Version :** 
 1.00.00

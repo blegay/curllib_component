@@ -13,7 +13,7 @@ This method/function returns
 
 ## **Example :** 
 ```
-CURL_httpObjHeaderToArrCombined¬†
+CURL_httpObjHeaderToArrCombined
 ```
 ## **Version :** 
 1.00.00

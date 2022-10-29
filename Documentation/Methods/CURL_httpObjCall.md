@@ -15,7 +15,7 @@ This function will make an http request
 
 ## **Example :** 
 ```
-CURL_httpObjCall¬†
+CURL_httpObjCall
 ```
 ## **Version :** 
 1.00.00
