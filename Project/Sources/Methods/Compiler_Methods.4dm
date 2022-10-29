@@ -315,7 +315,7 @@ C_LONGINT:C283(CURL__optionsObjLong; $3)
 C_BOOLEAN:C305(CURL__optionsObjLong; $4)
 
 //CURL__debugObjectJson
-C_OBJECT:C1216(CURL__debugObjectJsonSub; $1)
+C_VARIANT:C1683(CURL__debugObjectJsonSub; $1)
 C_COLLECTION:C1488(CURL__debugObjectJsonSub; $2)
 
 C_TEXT:C284(CURL_debugDirSet; $1)
