@@ -1,4 +1,4 @@
-//%attributes = {"invisible":true,"shared":false}
+//%attributes = {"invisible":true,"preemptive":"incapable","shared":false}
   //================================================================================
   //@xdoc-start : en
   //@name : CURL__fileDownload

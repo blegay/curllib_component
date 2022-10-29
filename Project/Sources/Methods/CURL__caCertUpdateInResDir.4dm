@@ -1,4 +1,4 @@
-//%attributes = {"invisible":true,"shared":false}
+//%attributes = {"invisible":true,"shared":false,"preemptive":"capable","executedOnServer":false,"publishedWsdl":false,"publishedSql":false,"publishedWeb":false,"published4DMobile":{"scope":"none"},"publishedSoap":false}
 
 C_TEXT:C284($vt_url)
   //$vt_url:="https://curl.haxx.se/ca/cacert.pem"
