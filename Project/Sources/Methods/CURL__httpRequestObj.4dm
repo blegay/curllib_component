@@ -287,7 +287,6 @@ If ($vl_nbParam>2)
 		
 		//<Modif> Bruno LEGAY (BLE) (03/06/2020)
 		// When getting redirect, we have all the headers
-		//
 		
 		C_COLLECTION:C1488($co_responseHeaders)
 		$co_responseHeaders:=Split string:C1554($vt_headerInfo; "\r\n\r\n"; sk ignore empty strings:K86:1)
@@ -352,15 +351,15 @@ If ($vl_nbParam>2)
 		//$vt_redirectUrl:=CURL_http_headersCollValueGet ($co_responseHeaders;"Location")
 		
 		//CURL__moduleDebugDateTimeLine (4;Current method name;"url : \""+$vo_curlRequestOptions.URL+"\""+\
-															", verb : \""+$vo_curlOptions.verb+"\""+\
-															", redirect status : "+String($vl_status)+\
-															", status line : \""+$vt_httpStatusLine+"\""+\
-															", redirect count : "+String($vo_curlOptions.redirectCount)+\
-															", redirect url : \""+$vt_redirectUrl+"\""+\
-															", request size : "+String(BLOB size($vx_curlRequestBody))+" byte(s)"+\
-															", response size : "+String(BLOB size($vx_curlResponseBody))+" byte(s)"+\
-															", headers : \r"+$vt_headerInfo+\
-															", duration : "+CURL__debugMilliseconds ($vl_durationMs))
+																		", verb : \""+$vo_curlOptions.verb+"\""+\
+																		", redirect status : "+String($vl_status)+\
+																		", status line : \""+$vt_httpStatusLine+"\""+\
+																		", redirect count : "+String($vo_curlOptions.redirectCount)+\
+																		", redirect url : \""+$vt_redirectUrl+"\""+\
+																		", request size : "+String(BLOB size($vx_curlRequestBody))+" byte(s)"+\
+																		", response size : "+String(BLOB size($vx_curlResponseBody))+" byte(s)"+\
+																		", headers : \r"+$vt_headerInfo+\
+																		", duration : "+CURL__debugMilliseconds ($vl_durationMs))
 		
 		//If ((Length($vt_redirectUrl)>0) & ($vt_redirectUrl#$vo_curlOptions.request.curlOptions.URL))
 		
@@ -385,11 +384,11 @@ If ($vl_nbParam>2)
 		
 		//Else 
 		//CURL__moduleDebugDateTimeLine (2;Current method name;"url : \""+$vo_curlRequestOptions.URL+"\""+\
-															", verb : \""+$vo_curlOptions.verb+"\""+\
-															", redirect status : "+String($vl_status)+\
-															", status line : \""+$vt_httpStatusLine+"\""+\
-															", redirect count : "+String($vo_curlOptions.redirectCount)+\
-															", too many redirects, max redirect : "+String($vl_redirectMax))
+																		", verb : \""+$vo_curlOptions.verb+"\""+\
+																		", redirect status : "+String($vl_status)+\
+																		", status line : \""+$vt_httpStatusLine+"\""+\
+																		", redirect count : "+String($vo_curlOptions.redirectCount)+\
+																		", too many redirects, max redirect : "+String($vl_redirectMax))
 		//End if 
 		
 		//End if 
