@@ -4,7 +4,7 @@
 //@xdoc-start : en
 //@name : CURL_httpObjRequestBodySet
 //@scope : public
-//@deprecated : no
+//@deprecated : yes
 //@description : This method sets the body for the request of an http object
 //@parameter[1-IN-httpObj-OBJECT] : http object (modified)
 //@parameter[2-IN-bodyPtr-POINTER] : request body blob pointer (not modified)

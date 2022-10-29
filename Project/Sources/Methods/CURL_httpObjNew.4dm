@@ -3,7 +3,7 @@
 //@xdoc-start : en
 //@name : CURL_httpObjNew
 //@scope : public
-//@deprecated : no
+//@deprecated : yes
 //@description : This function creates an http object for a curl http request
 //@parameter[0-OUT-httpObject-OBJECT] : http object
 //@notes : 

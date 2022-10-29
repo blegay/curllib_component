@@ -4,7 +4,7 @@
 //@xdoc-start : en
 //@name : CURL_httpObjHeaderToArrCombined
 //@scope : public
-//@deprecated : no
+//@deprecated : yes
 //@description : This method/function returns 
 //@parameter[1-IN-httpRequestObj-OBJECT] : http.request object
 //@parameter[2-OUT-headersArrayCombinedPtr-POINTER] : combined headers text array pointer (modified)

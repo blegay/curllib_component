@@ -3,7 +3,7 @@
 //@xdoc-start : en
 //@name : CURL_httpObjHeaderSet
 //@scope : public
-//@deprecated : no
+//@deprecated : yes
 //@description : This method sets a header to a request object from a http object
 //@parameter[0-OUT-paramName-TEXT] : ParamDescription
 //@parameter[1-IN-httpRequestObj-OBJECT] : http.request object

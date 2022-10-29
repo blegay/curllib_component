@@ -1,10 +1,9 @@
 //%attributes = {"shared":true,"preemptive":"capable","executedOnServer":false,"publishedWsdl":false,"publishedSql":false,"publishedWeb":false,"invisible":false,"published4DMobile":{"scope":"none"},"publishedSoap":false}
-
 //================================================================================
 //@xdoc-start : en
 //@name : CURL_httpObjCall
 //@scope : public
-//@deprecated : no
+//@deprecated : yes
 //@description : This function will make an http request
 //@parameter[0-OUT-error-LONGINT] : error code (0 if no error)
 //@parameter[1-IN-httpObj-OBJECT] : ParamDescription

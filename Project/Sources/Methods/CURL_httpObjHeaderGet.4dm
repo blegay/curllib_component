@@ -4,7 +4,7 @@
 //@xdoc-start : en
 //@name : CURL_httpObjHeaderGet
 //@scope : public
-//@deprecated : no
+//@deprecated : yes
 //@description : This function returns a header value from a header key for the response sub object
 //@parameter[0-OUT-headerValue-TEXT] : header value
 //@parameter[1-IN-httpObjReponse-OBJECT] : curl http object response subobject (not modified)

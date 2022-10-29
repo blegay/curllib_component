@@ -4,7 +4,7 @@
 //@xdoc-start : en
 //@name : CURL_httpObjStatusGet
 //@scope : public
-//@deprecated : no
+//@deprecated : yes
 //@description : This function returns the http status from an http object
 //@parameter[0-OUT-status-LONGINT] : http status (e.g. 200)
 //@parameter[1-IN-httpObj-OBJECT] : curl http object (not modified)

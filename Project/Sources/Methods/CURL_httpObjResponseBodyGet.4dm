@@ -3,7 +3,7 @@
 //@xdoc-start : en
 //@name : CURL_httpObjResponseBodyGet
 //@scope : public
-//@deprecated : no
+//@deprecated : yes
 //@description : This methods retrieves the response body (from the object if stored as base64)
 //@parameter[1-IN-httpObj-OBJECT] : http object
 //@parameter[2-OUT-bodyPtr-POINTER] : response blody blob pointer (modified)
