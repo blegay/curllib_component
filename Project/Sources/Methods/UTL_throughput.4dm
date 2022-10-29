@@ -10,7 +10,7 @@
 //@parameter[1-IN-size-REAL] : size
 //@parameter[2-IN-durationMs-LONGINT] : durationin milliseconds
 //@notes :
-//@example : UTL_throughput(160000;1023)¬†=> "152,73 Kbyte(s) per second (160 000 bytes in 1,023s)"
+//@example : UTL_throughput(160000;1023)=> "152,73 Kbyte(s) per second (160 000 bytes in 1,023s)"
 //@see : 
 //@version : 1.00.00
 //@author : Bruno LEGAY (BLE) - Copyrights A&C Consulting - 2018

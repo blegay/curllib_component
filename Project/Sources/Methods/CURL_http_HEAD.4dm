@@ -10,7 +10,7 @@
 //@parameter[2-IN-options-OBJECT] : option object
 //@parameter[3-INOUT-httpHeaders-POINTER] : pointer to a text array for headers (optional)
 //@notes :
-//@example : CURL_http_HEAD¬†
+//@example : CURL_http_HEAD
 //@see : 
 //@version : 1.00.00
 //@author : Bruno LEGAY (BLE) - Copyrights A&C Consulting - 2008
@@ -27,7 +27,7 @@ $vl_error:=-1
 
 C_LONGINT:C283($vl_nbParam)
 $vl_nbParam:=Count parameters:C259
-If ($vl_nbParam>2)
+If ($vl_nbParam>0)
 	$vt_url:=$1
 	
 	Case of 

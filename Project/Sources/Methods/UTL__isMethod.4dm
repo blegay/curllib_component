@@ -8,7 +8,7 @@
 //@parameter[0-OUT-isMethod-BOOLEAN] : True if a given method name is really a method, False otherwise
 //@parameter[1-IN-methodName-TEXT] : method name
 //@notes : 
-//@example : UTL__isMethod¬†
+//@example : UTL__isMethod
 //@see : 
 //@version : 1.00.00
 //@author : Bruno LEGAY (BLE) - Copyrights A&C Consulting - 2008 

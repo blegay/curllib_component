@@ -10,7 +10,7 @@
 //@parameter[1-IN-httpObjReponse-OBJECT] : curl http object response subobject (not modified)
 //@parameter[2-IN-headerKey-TEXT] : header key
 //@notes :
-//@example : CURL_httpObjHeaderGet¬†
+//@example : CURL_httpObjHeaderGet
 //@see : 
 //@version : 1.00.00
 //@author : Bruno LEGAY (BLE) - Copyrights A&C Consulting - 2008

@@ -10,7 +10,7 @@
 //@parameter[3-IN-timezoneStr-TEXT] : source timezone (according to rfc822)
 //@notes :
 //   see http://www.w3.org/Protocols/rfc822/#z28
-//@example : DAT_dateTimeWithTimezoneToLocal¬†
+//@example : DAT_dateTimeWithTimezoneToLocal
 //@see : 
 //@version : 1.00.00
 //@author : Bruno LEGAY (BLE) - Copyrights A&C Consulting - 2008

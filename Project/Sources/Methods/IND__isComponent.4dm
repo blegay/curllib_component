@@ -12,7 +12,7 @@
 //    ...
 // Else
 //    ...
-//End case¬†¬†
+//End case
 //@see : 
 //@version : 1.00.00
 //@author : Bruno LEGAY (BLE) - Copyrights A&C Consulting - 2008

@@ -8,7 +8,7 @@
 //@description : This function returns the 4D version (i.e. "4D 2004.9", "4D v11r6")
 //@parameter[0-OUT-4dversion-TEXT] : 4d version
 //@notes :
-//@example : ENV_versionStr¬†=> "4D v12.5 Final (Build 122263)"
+//@example : ENV_versionStr=> "4D v12.5 Final (Build 122263)"
 //@see : 
 //@version : 1.00.00
 //@author : Bruno LEGAY (BLE) - Copyrights A&C Consulting - 2008

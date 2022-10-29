@@ -10,7 +10,7 @@
 //@parameter[1-IN-path-TEXT] : path
 //@parameter[2-IN-sep-ALPHA] : separator (optional, default : current plateform separator)
 //@notes :
-//@example :¬†
+//@example :
 
 //FS_pathToFileName ("Disque Dur:Dossier Grand Parent:Dossier Parent:Fichier") => 
 //   ‚Äî‚Äî‚Äî‚Äî‚Äî‚Äî‚Äî‚Äî‚Äî‚Äî‚Äî‚Äî‚Äî‚Äî‚Äî‚Äî‚Äî‚Äî‚Äî‚Äî‚Äî‚Äî‚Äî‚Äî‚Äî‚Äî‚Äî‚Äî‚Äî>    "Fichier"

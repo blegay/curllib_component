@@ -12,8 +12,8 @@
 //         if size >= 1048576 ==> "1 420,05 Mbyte"
 //@notes :
 //@example : 
-// DBG_bytes (0x00020000) => "128,00 Kbyte(s)"¬†
-// DBG_bytes (5170352136) => "4,81 Gbyte(s)"¬†
+// DBG_bytes (0x00020000) => "128,00 Kbyte(s)"
+// DBG_bytes (5170352136) => "4,81 Gbyte(s)"
 //@see : 
 //@version : 1.00.00
 //@author : Bruno LEGAY (BLE) - Copyrights A&C Consulting - 2016

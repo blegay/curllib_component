@@ -8,7 +8,7 @@
 //@description : This function returns true if it is called within a component 
 //@parameter[0-OUT-paramName-TEXT] : ParamDescription
 //@notes : this methode cannot (by definition) be used as a component...
-//@example : ENV__isComponent¬†
+//@example : ENV__isComponent
 //@see : 
 //@version : 1.00.00
 //@author : Bruno LEGAY (BLE) - Copyrights A&C Consulting - 2008

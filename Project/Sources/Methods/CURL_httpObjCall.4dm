@@ -11,7 +11,7 @@
 //@parameter[2-IN-requestBodyBlobPtr-POINTER] : request body blob pointer (modified, optional)
 //@parameter[3-IN-responseBodyBlobPtr-POINTER] : response body blob (modified, optional)
 //@notes :
-//@example : CURL_httpObjCall¬†
+//@example : CURL_httpObjCall
 //@see : 
 //@version : 1.00.00
 //@author : Bruno LEGAY (BLE) - Copyrights A&C Consulting - 2008

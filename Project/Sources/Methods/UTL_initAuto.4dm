@@ -11,10 +11,10 @@
 //@notes :
 //@example : 
 //
-//¬†`interprocess init
+//`interprocess init
 //UTL_initAuto (->‚óävb_PK_init;"PK__compiler";"PK__initSub")
 //
-//¬†¬†`process init
+//`process init
 //UTL_initAuto (->vb_PK_init;"PK__compilerG";"PK__initGSub")
 //
 //@see : 

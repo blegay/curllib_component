@@ -10,7 +10,7 @@
 //@parameter[2-INOUT-timePtr-POINTER] : time pointer (modified)
 //@parameter[3-IN-timeOffsetSeconds-LONGINT] : offset in seconds
 //@notes :
-//@example : DAT__dateTimeZoneOffsetApply¬†
+//@example : DAT__dateTimeZoneOffsetApply
 //@see : 
 //@version : 1.00.00
 //@author : Bruno LEGAY (BLE) - Copyrights A&C Consulting - 2008

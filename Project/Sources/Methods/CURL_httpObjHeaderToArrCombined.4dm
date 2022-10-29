@@ -9,7 +9,7 @@
 //@parameter[1-IN-httpRequestObj-OBJECT] : http.request object
 //@parameter[2-OUT-headersArrayCombinedPtr-POINTER] : combined headers text array pointer (modified)
 //@notes :
-//@example : CURL_httpObjHeaderToArrCombined¬†
+//@example : CURL_httpObjHeaderToArrCombined
 //@see : 
 //@version : 1.00.00
 //@author : Bruno LEGAY (BLE) - Copyrights A&C Consulting - 2008

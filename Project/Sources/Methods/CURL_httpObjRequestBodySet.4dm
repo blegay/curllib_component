@@ -9,7 +9,7 @@
 //@parameter[1-IN-httpObj-OBJECT] : http object (modified)
 //@parameter[2-IN-bodyPtr-POINTER] : request body blob pointer (not modified)
 //@notes :
-//@example : CURL_httpObjRequestBodySet¬†
+//@example : CURL_httpObjRequestBodySet
 //@see : 
 //@version : 1.00.00
 //@author : Bruno LEGAY (BLE) - Copyrights A&C Consulting - 2008

@@ -9,7 +9,7 @@
 //@parameter[0-OUT-durationMsDebug-TEXT] : duration text for debug (e.g. "0,020s")
 //@parameter[1-IN-durationMs-LONGINT] : duration in milliseconds
 //@notes : 
-//@example : UTL_durationMsDebug(20) =>¬†"0,020s"
+//@example : UTL_durationMsDebug(20) =>"0,020s"
 //@see : 
 //@version : 1.00.00
 //@author : Bruno LEGAY (BLE) - Copyrights A&C Consulting - 2018

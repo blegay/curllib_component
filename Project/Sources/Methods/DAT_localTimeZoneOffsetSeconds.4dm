@@ -9,11 +9,11 @@
 //@parameter[0-OUT-gmtTimeshift-LONGINT] : GMT timeshift
 //@parameter[1-IN-winterTimeSummerTime-BOOLEAN] : if true, take into account winter time / summer time (using current date) otherwise use 1 jan of current year. Default True.
 //@notes : 
-//@example : DAT_localTimeZoneOffsetSeconds¬†
-//¬†If local time is GMT   =>     0
-//¬†If local time is GMT+1 =>  3600 (winter time in CET/Paris zone for instance)
-//¬†If local time is GMT+2 =>  7200 (summer time in CET/Paris zone for instance)
-//¬†If local time is GMT-1 => -3600
+//@example : DAT_localTimeZoneOffsetSeconds
+//If local time is GMT   =>     0
+//If local time is GMT+1 =>  3600 (winter time in CET/Paris zone for instance)
+//If local time is GMT+2 =>  7200 (summer time in CET/Paris zone for instance)
+//If local time is GMT-1 => -3600
 //@see : 
 //@version : 1.00.00
 //@author : Bruno LEGAY (BLE) - Copyrights A&C Consulting - 2008
@@ -65,7 +65,7 @@ XML DECODE:C1091($vt_timestampGmt; $vh_gmtTime)
 //C_HEURE($vh_gmtTime)
 //
 //C_TEXTE($vt_gmtTimeStr)
-//  //¬†$vt_gmtTimeStr:=AP Timestamp to GMT ($vd_localDate;$vh_localTime;$vd_gmtDate;$vh_gmtTime)
+//  //$vt_gmtTimeStr:=AP Timestamp to GMT ($vd_localDate;$vh_localTime;$vd_gmtDate;$vh_gmtTime)
 //$vt_gmtTimeStr:=AP Timestamp to GMT ($vd_localDate;$vh_localTime;$vd_gmtDate;$vh_gmtTime)
 
 //DAT_utcDateTimeGet

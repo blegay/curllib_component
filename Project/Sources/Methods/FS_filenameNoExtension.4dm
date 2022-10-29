@@ -9,7 +9,7 @@
 //@parameter[0-OUT-filenameWithoutExtension-TEXT] : the filename without the extension
 //@parameter[1-IN-filename-TEXT] : filename
 //@notes :
-//@example : FS_filenameNoExtension¬†
+//@example : FS_filenameNoExtension
 //@see : 
 //@version : 1.00.00
 //@author : Bruno LEGAY (BLE) - Copyrights A&C Consulting - 2008

@@ -11,7 +11,7 @@
 //@parameter[3-OUT-timePtr-POINTER] : time pointer (optional, modified)
 //@parameter[4-OUT-zonePtr-POINTER] : zone text pointer (optional, modified)
 //@notes :
-//@example : DAT_rfc1123ToDatTimeZone¬†
+//@example : DAT_rfc1123ToDatTimeZone
 //@see : 
 //@version : 1.00.00
 //@author : Bruno LEGAY (BLE) - Copyrights A&C Consulting - 2008

@@ -10,7 +10,7 @@
 //@notes : this will not work in a compiled database
 //  4D adds a first line : //%attributes = {"lang":"fr","invisible":true} comment added and reserved by 4D.
 //  it looks like JSON properties stored in an "attributes" object (good idea)
-//@example : UTL__callbackMethodSourceSet¬†
+//@example : UTL__callbackMethodSourceSet
 //@see : 
 //@version : 1.00.00
 //@author : Bruno LEGAY (BLE) - Copyrights A&C Consulting - 2008

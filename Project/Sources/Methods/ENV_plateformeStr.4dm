@@ -9,7 +9,7 @@
 //@parameter[0-OUT-plateformeStr-TEXT] : plateform information string
 //@parameter[1-IN-detail-BOOLEAN] : if TRUE output with details (optional, default FALSE)
 //@notes :
-//@example : ENV_plateformeStr¬†
+//@example : ENV_plateformeStr
 //@see : 
 //@version : 1.00.00
 //@author : Bruno LEGAY (BLE) - Copyrights A&C Consulting - 2008
@@ -249,7 +249,7 @@ Else
 	//$vt_platformOS:=$vt_windowsName+" Server 2003"
 	
 	//  //: ($vl_winMinVers=3)
-	//  //$vt_platformOS:=$vt_windowsName+" 2008"¬†¬†`a valider
+	//  //$vt_platformOS:=$vt_windowsName+" 2008"`a valider
 	
 	//Else 
 	//$vb_unknown:=True
