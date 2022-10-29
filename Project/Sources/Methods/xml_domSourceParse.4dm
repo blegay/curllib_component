@@ -2,7 +2,6 @@
 
 //================================================================================
 //@xdoc-start : en
-//@name : xml_domSourceParse
 //@scope : public
 //@deprecated : no
 //@description : This method is a wrapper on the DOM Parse XML source command
@@ -33,12 +32,12 @@
 //================================================================================
 
 C_TEXT:C284($0; $vt_domRef)
-//C_ALPHA(32;$0;$vt_domRef)
 C_TEXT:C284($1; $vt_xmlFilePath)
 C_BOOLEAN:C305($2; $vb_validate)
 C_TEXT:C284($3; $vt_xsdOrDtdFilePath)
 
 ASSERT:C1129(Count parameters:C259>2; "should have 3 parameter")
+//@name : xml_domSourceParse
 
 $vt_xmlFilePath:=$1
 $vb_validate:=$2

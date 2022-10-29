@@ -64,9 +64,6 @@ C_TEXT:C284(CURL__userAgent; $0)
 C_TEXT:C284(ENV_plateformeStr; $0)
 C_BOOLEAN:C305(ENV_plateformeStr; $1)
 C_TEXT:C284(ENV_versionStr; $0)
-//C_TEXT(ENV__langageName; $0)
-//C_LONGINT(ENV__langageName; $1)
-//C_TEXT(ENV__langageName; $2)
 C_TEXT:C284(CURL_componentVersionGet; $0)
 C_BOOLEAN:C305(UTL__isMethod; $0)
 C_TEXT:C284(UTL__isMethod; $1)
@@ -219,6 +216,7 @@ C_OBJECT:C1216(CURL__optionsFromObject_; $3)
 //CURL__optionsObj
 C_OBJECT:C1216(CURL__optionsObj; $1)
 C_TEXT:C284(CURL__optionsObj; $2)
+C_VARIANT:C1683(CURL__optionsObj; $3)
 C_BOOLEAN:C305(CURL__optionsObj; $4)
 
 //CURL_curlOptionsObjTimeoutConnS
@@ -310,9 +308,6 @@ C_TEXT:C284(CURL_curlOptionsAuthSet; $2)
 C_TEXT:C284(CURL_curlOptionsAuthSet; $3)
 C_TEXT:C284(CURL_curlOptionsAuthSet; $4)
 
-//CURL__optionsObj
-C_TEXT:C284(CURL__optionsObj; $3)
-
 //CURL__optionsObjLong
 C_OBJECT:C1216(CURL__optionsObjLong; $1)
 C_TEXT:C284(CURL__optionsObjLong; $2)
@@ -337,3 +332,69 @@ C_LONGINT:C283(UTL_processNameGet; $1)
 C_BOOLEAN:C305(CURL_assertGet; $0)
 C_BOOLEAN:C305(CURL_assertSet; $1)
 C_TEXT:C284(CURL__cacertUrlDefault; $0)
+
+
+C_OBJECT:C1216(CURL_httpRequestNew; $0)
+C_TEXT:C284(CURL_httpRequestNew; $1)
+C_TEXT:C284(CURL_httpRequestNew; $2)
+
+
+C_LONGINT:C283(UTL_timeleftSecs; $0)
+C_REAL:C285(UTL_timeleftSecs; $1)
+C_LONGINT:C283(UTL_timeleftSecs; $2)
+C_REAL:C285(UTL_timeleftSecs; $3)
+
+
+C_TEXT:C284(UTL__ratio; $0)  //ratio : "80,2 %"
+C_REAL:C285(UTL__ratio; $1)  //reference
+C_REAL:C285(UTL__ratio; $2)  //value
+C_LONGINT:C283(UTL__ratio; $3)  //nb decimal (optionnal, default 1)
+
+
+C_TEXT:C284(UTL__throughputCalc; $0)
+C_LONGINT:C283(UTL__throughputCalc; $1)
+C_LONGINT:C283(UTL__throughputCalc; $2)
+C_REAL:C285(UTL__throughputCalc; $3)
+
+C_TEXT:C284(CURL_httpHeaderGet; $0)
+C_OBJECT:C1216(CURL_httpHeaderGet; $1)
+C_TEXT:C284(CURL_httpHeaderGet; $2)
+
+C_TEXT:C284(CURL_httpHeadersCollValueGet; $0)
+C_COLLECTION:C1488(CURL_httpHeadersCollValueGet; $1)
+C_TEXT:C284(CURL_httpHeadersCollValueGet; $2)
+
+
+C_TEXT:C284(HTTP__range; $0)
+C_REAL:C285(HTTP__range; $1)
+C_REAL:C285(HTTP__range; $2)
+C_REAL:C285(HTTP__range; $3)
+
+C_LONGINT:C283(CURL_httpRequestStatusGet; $0)
+C_OBJECT:C1216(CURL_httpRequestStatusGet; $1)
+
+C_COLLECTION:C1488(CURL_httpHeadersCollValueSet; $1)
+C_TEXT:C284(CURL_httpHeadersCollValueSet; $2)
+C_TEXT:C284(CURL_httpHeadersCollValueSet; $3)
+C_BOOLEAN:C305(CURL_httpHeadersCollValueSet; $4)
+
+
+C_LONGINT:C283(CURL_httpRequestCall; $0)
+C_OBJECT:C1216(CURL_httpRequestCall; $1)
+C_POINTER:C301(CURL_httpRequestCall; $2)
+C_POINTER:C301(CURL_httpRequestCall; $3)
+
+C_OBJECT:C1216(CURL__fileDownload; $0)
+C_TEXT:C284(CURL__fileDownload; $1)
+C_TEXT:C284(CURL__fileDownload; $2)
+
+C_BOOLEAN:C305(HTTP_responseOk; $0)
+C_LONGINT:C283(HTTP_responseOk; $1)
+
+
+C_OBJECT:C1216(CURL_httpHeaderSet; $1)
+C_TEXT:C284(CURL_httpHeaderSet; $2)
+C_TEXT:C284(CURL_httpHeaderSet; $3)
+
+
+

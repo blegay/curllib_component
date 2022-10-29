@@ -1,0 +1,64 @@
+//%attributes = {"shared":true,"preemptive":"capable","invisible":false}
+  //================================================================================
+  //@xdoc-start : en
+  //@name : CURL_httpHeadersCollValueGet
+  //@scope : public 
+  //@deprecated : no
+  //@description : This function returns a header value from a header collection for a given header key
+  //@parameter[0-OUT-headerValue-TEXT] : header value
+  //@parameter[1-IN-headersCollection-COLLECTION] : headers collection
+  //@parameter[2-IN-headerKey-TEXT] : header key
+  //@notes : header key is not case sensitive
+  //@example : CURL_httpHeadersCollValueGet
+  //@see : 
+  //@version : 1.00.00
+  //@author : Bruno LEGAY (BLE) - Copyrights A&C Consulting - 2022
+  //@history : 
+  //  CREATION : Bruno LEGAY (BLE) - 04/01/2022, 18:36:34 - 3.00.00
+  //@xdoc-end
+  //================================================================================
+
+C_TEXT:C284($0;$vt_headerValue)
+C_COLLECTION:C1488($1;$c_headersCollection)
+C_TEXT:C284($2;$vt_headerKey)
+
+ASSERT:C1129(Count parameters:C259>1;"requires 2 parameter")
+  //ASSERT(Type($1->)=Text array;"$1 should be a text array pointer")
+ASSERT:C1129(Length:C16($2)>0;"$2 should not be empty")
+ASSERT:C1129($1#Null:C1517;"$1 should be a collection")
+
+$vt_headerValue:=""
+  //Si (Nombre de paramètres>1)
+$c_headersCollection:=$1
+$vt_headerKey:=$2
+
+If ($c_headersCollection#Null:C1517)  //  indexOf fails on an Null collection
+	
+	If (Position:C15(":";$vt_headerKey;*)=0)
+		$vt_headerKey:=$vt_headerKey+":"
+	End if 
+	
+	C_LONGINT:C283($vl_index)
+	$vl_index:=$c_headersCollection.indexOf($vt_headerKey+"@")
+	  // "Content-Type:@" matches "content-type:"
+	
+	If ($vl_index>=0)
+		C_TEXT:C284($vt_headerLine)
+		$vt_headerLine:=$c_headersCollection[$vl_index]
+		
+		C_LONGINT:C283($vl_start)
+		$vl_start:=Length:C16($vt_headerKey)+1
+		If (Substring:C12($vt_headerLine;$vl_start;1)=" ")  // "content-type: 1234"
+			$vl_start:=$vl_start+1
+		End if 
+		$vt_headerValue:=Substring:C12($vt_headerLine;$vl_start)
+		
+		  //$vt_headerValue:=Substring($vt_headerLine;Length($vt_headerKey)+1)
+		  //If (Substring($vt_headerValue;1;1)=" ")
+		  //$vt_headerValue:=Substring($vt_headerValue;2)
+		  //End if 
+	End if 
+	
+End if 
+
+$0:=$vt_headerValue

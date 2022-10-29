@@ -1,4 +1,23 @@
 //%attributes = {"invisible":true,"preemptive":"capable","shared":false}
+//================================================================================
+//@xdoc-start : en
+//@name : CURL__callback
+//@scope : private 
+//@deprecated : no
+//@description : This function is a callback callled by CURL
+//@parameter[0-OUT-aborted-BOOLEAN] : aborted
+//@parameter[1-IN-transferInfo-OBJECT] : transferInfo
+//@parameter[2-IN-userInfos-TEXT] : user infos
+//@notes : 
+//@example : CURL__callback
+//@see : 
+//@version : 1.00.00
+//@author : Bruno LEGAY (BLE) - Copyrights A&C Consulting - 2022
+//@history : 
+//  CREATION : Bruno LEGAY (BLE) - 06/04/2022, 14:34:34 - 3.00.03
+//@xdoc-end
+//================================================================================
+
 C_BOOLEAN:C305($0; $vb_abort)
 C_OBJECT:C1216($1; $vo_transferInfo)
 C_TEXT:C284($2; $vt_userInfos)  // $vo_curlOptions.PRIVATE in CURL__httpRequestObj

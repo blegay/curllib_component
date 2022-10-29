@@ -1,4 +1,4 @@
-//%attributes = {"invisible":true,"preemptive":"capable","shared":false}
+//%attributes = {"preemptive":"capable","shared":false,"invisible":true}
 
 //================================================================================
 //@xdoc-start : en
@@ -7,14 +7,14 @@
 //@deprecated : no
 //@description : This function uses curl plugin to do an http request
 //@parameter[0-OUT-curlError-LONGINT] : curl error (0 = no error)
-//@parameter[1-IN-object-OBJECT] : curl option object
+//@parameter[1-IN-object-OBJET] : curl option object
 //@parameter[2-IN-requestBodyPtr-POINTER] : request body blob pointer (not modified)
 //@parameter[3-IN-responseBodyPtr-POINTER] : response body blob pointer (modified)
 //@parameter[4-INOUT-httpHeaders-POINTER] : http headers text array pointer (optional, modified)
 //@parameter[5-OUT-curlInfosJsonPtr-POINTER] : curl infos in json format (optional, modified)
 //@notes : 
 //@example : CURL__httpRequest
-//@see : https://github.com/miyako/4d-plugin-curl-v3
+//@see : https://github.com/miyako/4d-plugin-curl-v2
 //@version : 1.00.00
 //@author : 
 //@history : 
@@ -34,11 +34,16 @@ ASSERT:C1129($1#Null:C1517; "$1 object is null")
 ASSERT:C1129($1.request#Null:C1517; "$1.request is null")
 ASSERT:C1129($1.request.curlOptions#Null:C1517; "$1.request.curlOptions is null")
 ASSERT:C1129($1.request.curlOptions.URL#Null:C1517; "$1.request.curlOptions.URL is null")
-ASSERT:C1129(Type:C295($2->)=Is BLOB:K8:12; "$4 should be a blob pointer")
-ASSERT:C1129(Type:C295($3->)=Is BLOB:K8:12; "$5 should be a blob pointer")
-If (Count parameters:C259>5)
-	ASSERT:C1129(Type:C295($4->)=Text array:K8:16; "$6 should be a text array pointer")
-End if   //ASSERT(Type($7->)=Est un texte;"$7 should be a text pointer")
+ASSERT:C1129(Type:C295($2->)=Is BLOB:K8:12; "$2 should be a blob pointer")
+If (Count parameters:C259>2)
+	ASSERT:C1129(Type:C295($3->)=Is BLOB:K8:12; "$3 should be a blob pointer")
+End if 
+If (Count parameters:C259>3)
+	ASSERT:C1129(Type:C295($4->)=Text array:K8:16; "$4 should be a text array pointer")
+End if 
+If (Count parameters:C259>4)
+	ASSERT:C1129(Type:C295($5->)=Text array:K8:16; "$5 should be a text array pointer")
+End if 
 
 $vl_curlError:=-1
 
@@ -53,12 +58,9 @@ If ($vl_nbParam>2)
 	Case of 
 		: ($vl_nbParam=3)
 		: ($vl_nbParam=4)
-			ASSERT:C1129(Type:C295($4->)=Text array:K8:16; "$4 should be a text array pointer")
 			$vp_httpHeadersPtr:=$4
 		Else 
 			//: ($vl_nbParam=5)
-			ASSERT:C1129(Type:C295($4->)=Text array:K8:16; "$4 should be a text array pointer")
-			ASSERT:C1129(Type:C295($5->)=Is text:K8:3; "$5 should be a text pointer")
 			$vp_httpHeadersPtr:=$4
 			$vp_curlInfosJsonPtr:=$5
 	End case 
@@ -117,6 +119,50 @@ If ($vl_nbParam>2)
 	//<Modif>
 	
 	
+	//<Modif> Bruno LEGAY (BLE) (04/04/2022)
+	If (True:C214)  // add in the debug log the curl command...
+		// curl -v -L -X POST https://test-api.service.hmrc.gov.uk/organisations/vat/123456789/returns \
+																							--http1.1 \
+																							-H "Accept: application/vnd.hmrc.1.0+json" \
+																							-H "Authorization: Bearer 0373680b2576469eb49a4af521853666" \
+																							-H "Content-Type: application/json" \
+																							--data 
+		//$vt_cmdNewLine
+		C_TEXT:C284($vt_cmd; $vt_cmdNewLine; $vt_header)
+		$vt_cmdNewLine:=Choose:C955(Is Windows:C1573; "^"; "\\")
+		$vt_cmd:="curl -X "+$vo_curlOptions.verb+" "+$vo_curlOptions.url+" "+$vt_cmdNewLine+"\r"
+		$vt_cmd:=$vt_cmd+" --http1.1 "+$vt_cmdNewLine+"\r"
+		C_BOOLEAN:C305($vb_sendRequestData)
+		$vb_sendRequestData:=(($vo_curlOptions.verb="POST") | ($vo_curlOptions.verb="PUT")) & (BLOB size:C605($vx_curlRequestBody)>0)
+		For each ($vt_header; $vo_curlOptions.request.headers)
+			$vt_cmd:=$vt_cmd+" -H '"+$vt_header+"' "+$vt_cmdNewLine+"\r"
+			If (Substring:C12($vt_header; 1; 14)="Content-Type: ")
+				$vt_header:=Substring:C12($vt_header; 15)
+				Case of 
+					: (BLOB size:C605($vx_curlRequestBody)>102400)
+						$vb_sendRequestData:=False:C215
+					: ($vt_header="application/json")
+					: ($vt_header="application/xml")
+					: ($vt_header="application/x-www-form-urlencoded")
+					: ($vt_header="application/json@")  // "application/json; charset=utf-8"
+					: ($vt_header="application/xml@")  // "application/json; charset=utf-8"
+					: ($vt_header="x-www-form-urlencoded")
+					: ($vt_header="text/@")
+					Else 
+						$vb_sendRequestData:=False:C215
+				End case 
+			End if 
+		End for each 
+		
+		If ($vb_sendRequestData)
+			$vt_cmd:=$vt_cmd+" -d '"+BLOB to text:C555($vx_curlRequestBody; UTF8 text without length:K22:17)+"'"
+		End if 
+		CURL__moduleDebugDateTimeLine(4; Current method name:C684; $vt_cmd)
+	End if 
+	//<Modif>
+	
+	
+	
 	C_LONGINT:C283($vl_progressId)
 	$vl_progressId:=0
 	Case of 
@@ -131,29 +177,29 @@ If ($vl_nbParam>2)
 			//Progress SET PROGRESS ($vl_progressId;-1)
 			//Progress SET TITLE ($vl_progressId;$vo_curlOptions.progressTitle)
 			//Progress SET BUTTON ENABLED ($vl_progressId;$vo_curlOptions.progressAbortable)
-			
-			//<Modif> Bruno LEGAY (BLE) (13/01/2021)
-			$vo_curlRequestOptions.PRIVATE:=JSON Stringify:C1217(New object:C1471("progressId"; $vl_progressId))
-			//<Modif>
-			
 	End case 
 	
-	//<Modif> Bruno LEGAY (BLE) (13/01/2021)
-	//$vo_curlRequestOptions.PRIVATE:=JSON Stringify(New object("progressId";$vl_progressId))
+	//<Modif> Bruno LEGAY (BLE) (04/01/2022)
+	//$vo_curlRequestOptions.PRIVATE:=New object("progressId";$vl_progressId)
+	//$vo_curlRequestOptions.userInfo:=New object("progressId";$vl_progressId)
+	//If ($vo_curlRequestOptions.PRIVATE=Null)
+	$vo_curlRequestOptions.PRIVATE:=JSON Stringify:C1217(New object:C1471("progressId"; $vl_progressId))
+	//End if 
 	//<Modif>
 	
-	//<Modif> Bruno LEGAY (BLE) (12/01/2021)
+	
 	// dump all key/values into logs
-	//CURL__moduleDebugDateTimeLine (6;Current method name;CURL__debugObjectJson ($vo_curlOptions))
-	//<Modif>
+	// CURL__moduleDebugDateTimeLine (6;Current method name;CURL__debugObjectJson ($vo_curlOptions))
 	
-	C_TEXT:C284($vt_callbackMethod; $vt_transferInfo; $vt_headerInfo)
+	C_TEXT:C284($vt_callbackMethod; $vt_headerInfo)  //;$vt_transferInfo)
 	$vt_callbackMethod:="CURL__callback"
-	$vt_transferInfo:=""
+	//$vt_transferInfo:=""
 	$vt_headerInfo:=""
 	
+	//<Modif> Bruno LEGAY (BLE) (04/01/2022)
 	//C_TEXT($vt_curlOptionsJson)
 	//$vt_curlOptionsJson:=JSON Stringify($vo_curlRequestOptions)
+	//<Modif> 
 	
 	//<Modif> Bruno LEGAY (BLE) (12/01/2021)
 	C_TEXT:C284($vt_processDebug)
@@ -162,12 +208,13 @@ If ($vl_nbParam>2)
 		", resquest local blob size : "+String:C10(BLOB size:C605($vx_curlRequestBody))+" byte(s)"+\
 		", response local blob size : "+String:C10(BLOB size:C605($vx_curlResponseBody))+" byte(s)"+\
 		", callbackMethod : \""+$vt_callbackMethod+"\""+\
-		", transferInfo : \""+$vt_transferInfo+"\""+\
 		", process : \""+$vt_processDebug+"\""+\
 		", isPreemptive : "+Choose:C955($vb_isPreemptive; "true"; "false")+\
 		", isHeadless : "+Choose:C955($vb_isHeadless; "true"; "false")+\
 		", launchedAsService : "+Choose:C955($vb_launchedAsService; "true"; "false"))
 	
+	// ", transferInfo : \""+$vt_transferInfo+"\""+\
+																												
 	If ($vo_curlOptions.request.curlOptions.DEBUG#Null:C1517)
 		C_TEXT:C284($vt_objJsonDumpPath)
 		$vt_objJsonDumpPath:=$vo_curlOptions.request.curlOptions.DEBUG+"request.json"
@@ -176,30 +223,33 @@ If ($vl_nbParam>2)
 	End if 
 	//<Modif>
 	
+	$vo_curlOptions.start:=Timestamp:C1445
 	C_LONGINT:C283($vl_durationMs)
 	$vl_durationMs:=Milliseconds:C459
 	
+	//<Modif> Bruno LEGAY (BLE) (04/01/2022)
 	// https://github.com/miyako/4d-plugin-curl-v3
 	
+	C_OBJECT:C1216($vo_curlResponse)
+	$vo_curlResponse:=cURL($vo_curlRequestOptions; $vx_curlRequestBody; $vx_curlResponseBody; $vt_callbackMethod)
+	$vl_curlError:=$vo_curlResponse.status
+	$vt_headerInfo:=$vo_curlResponse.headerInfo
+	//  $vo_transferInfo:=$vo_curlResponse.transferInfo
 	
-	C_OBJECT:C1216($vo_curlResult)
-	$vo_curlResult:=cURL($vo_curlRequestOptions; $vx_curlRequestBody; $vx_curlResponseBody; $vt_callbackMethod)  //; $vt_transferInfo; $vt_headerInfo)
-	
-	$vl_curlError:=$vo_curlResult.status
-	$vt_headerInfo:=$vo_curlResult.headerInfo
-	$vt_transferInfo:=JSON Stringify:C1217($vo_curlResult.transferInfo)
-	
-	//$vl_curlError:=cURL($vo_curlRequestOptions; $vx_curlRequestBody; $vx_curlResponseBody; $vt_callbackMethod; $vt_transferInfo; $vt_headerInfo)
+	// https://github.com/miyako/4d-plugin-curl-v2
+	//$vl_curlError:=cURL ($vt_curlOptionsJson;$vx_curlRequestBody;$vx_curlResponseBody;$vt_callbackMethod;$vt_transferInfo;$vt_headerInfo)
+	//<Modif>
 	
 	$vl_durationMs:=LONG_durationDifference($vl_durationMs; Milliseconds:C459)
+	$vo_curlOptions.end:=Timestamp:C1445
 	
 	//<Modif> Bruno LEGAY (BLE) (12/01/2021)
 	CURL__moduleDebugDateTimeLine(4; Current method name:C684; "about to call cURL, curlOptions : "+CURL__debugObjectJson($vo_curlRequestOptions; True:C214)+\
 		", resquest local blob size : "+String:C10(BLOB size:C605($vx_curlRequestBody))+" byte(s)"+\
 		", response local blob size : "+String:C10(BLOB size:C605($vx_curlResponseBody))+" byte(s)"+\
 		", callbackMethod : \""+$vt_callbackMethod+"\""+\
-		", transferInfo : \""+$vt_transferInfo+"\""+\
-		", headerInfo : \""+$vt_headerInfo+"\""+\
+		", transferInfo :\r"+JSON Stringify:C1217($vo_curlResponse.transferInfo; *)+\
+		", headerInfo :\r"+JSON Stringify:C1217($vo_curlResponse.headerInfo; *)+\
 		", process : \""+$vt_processDebug+"\""+\
 		", errror code : "+String:C10($vl_curlError)+" - "+CURL_errorToText($vl_curlError))
 	//<Modif>
@@ -222,7 +272,7 @@ If ($vl_nbParam>2)
 		//      "contentLengthDownload" : 223687,
 		//      "contentLengthUpload" : -1,
 		//      "contentType" : "application/x-pem-file",
-		//      "effectiveUrl" : "https://curl.se/ca/cacert.pem",
+		//      "effectiveUrl" : "https://curl.haxx.se/ca/cacert.pem",
 		//      "fileTime" : -1,
 		//      "ftpEntryPath" : "",
 		//      "headerSize" : 705,
@@ -283,10 +333,14 @@ If ($vl_nbParam>2)
 	
 	$vo_curlOptions.error:=$vl_curlError
 	
-	If (($vl_curlError=0) & (Length:C16($vt_headerInfo)>0))
+	$vo_curlOptions.duration:=$vl_durationMs/1000
+	
+	
+	If ($vl_curlError=0)
 		
 		//<Modif> Bruno LEGAY (BLE) (03/06/2020)
 		// When getting redirect, we have all the headers
+		//
 		
 		C_COLLECTION:C1488($co_responseHeaders)
 		$co_responseHeaders:=Split string:C1554($vt_headerInfo; "\r\n\r\n"; sk ignore empty strings:K86:1)
@@ -348,18 +402,18 @@ If ($vl_nbParam>2)
 		//If ((($vl_status=301) | ($vl_status=302) | ($vl_status=303)) & (Bool($vo_curlOptions.followRedirect)))
 		
 		//C_TEXT($vt_redirectUrl)
-		//$vt_redirectUrl:=CURL_http_headersCollValueGet ($co_responseHeaders;"Location")
+		//$vt_redirectUrl:=CURL_httpHeadersCollValueGet ($co_responseHeaders;"Location")
 		
 		//CURL__moduleDebugDateTimeLine (4;Current method name;"url : \""+$vo_curlRequestOptions.URL+"\""+\
-																		", verb : \""+$vo_curlOptions.verb+"\""+\
-																		", redirect status : "+String($vl_status)+\
-																		", status line : \""+$vt_httpStatusLine+"\""+\
-																		", redirect count : "+String($vo_curlOptions.redirectCount)+\
-																		", redirect url : \""+$vt_redirectUrl+"\""+\
-																		", request size : "+String(BLOB size($vx_curlRequestBody))+" byte(s)"+\
-																		", response size : "+String(BLOB size($vx_curlResponseBody))+" byte(s)"+\
-																		", headers : \r"+$vt_headerInfo+\
-																		", duration : "+CURL__debugMilliseconds ($vl_durationMs))
+																																																						", verb : \""+$vo_curlOptions.verb+"\""+\
+																																																						", redirect status : "+String($vl_status)+\
+																																																						", status line : \""+$vt_httpStatusLine+"\""+\
+																																																						", redirect count : "+String($vo_curlOptions.redirectCount)+\
+																																																						", redirect url : \""+$vt_redirectUrl+"\""+\
+																																																						", request size : "+String(BLOB size($vx_curlRequestBody))+" byte(s)"+\
+																																																						", response size : "+String(BLOB size($vx_curlResponseBody))+" byte(s)"+\
+																																																						", headers : \r"+$vt_headerInfo+\
+																																																						", duration : "+CURL__debugMilliseconds ($vl_durationMs))
 		
 		//If ((Length($vt_redirectUrl)>0) & ($vt_redirectUrl#$vo_curlOptions.request.curlOptions.URL))
 		
@@ -384,11 +438,11 @@ If ($vl_nbParam>2)
 		
 		//Else 
 		//CURL__moduleDebugDateTimeLine (2;Current method name;"url : \""+$vo_curlRequestOptions.URL+"\""+\
-																		", verb : \""+$vo_curlOptions.verb+"\""+\
-																		", redirect status : "+String($vl_status)+\
-																		", status line : \""+$vt_httpStatusLine+"\""+\
-																		", redirect count : "+String($vo_curlOptions.redirectCount)+\
-																		", too many redirects, max redirect : "+String($vl_redirectMax))
+																																																						", verb : \""+$vo_curlOptions.verb+"\""+\
+																																																						", redirect status : "+String($vl_status)+\
+																																																						", status line : \""+$vt_httpStatusLine+"\""+\
+																																																						", redirect count : "+String($vo_curlOptions.redirectCount)+\
+																																																						", too many redirects, max redirect : "+String($vl_redirectMax))
 		//End if 
 		
 		//End if 
@@ -421,8 +475,11 @@ If ($vl_nbParam>2)
 		//$vo_curlOptions.response.status:=$vl_status
 		//<Modif>
 		$vo_curlOptions.response.headers:=$co_responseHeaders
-		$vo_curlOptions.transferInfo:=JSON Parse:C1218($vt_transferInfo)
 		
+		//<Modif> Bruno LEGAY (BLE) (04/01/2022)
+		$vo_curlOptions.transferInfo:=$vo_curlResponse.transferInfo
+		//$vo_curlOptions.transferInfo:=JSON Parse($vt_transferInfo)
+		//<Modif>
 		
 		C_TEXT:C284($vt_throughputDebug)
 		// "228,89 KB/s (66,83 KB, 68 441 bytes in 0,292s)"
@@ -459,30 +516,32 @@ If ($vl_nbParam>2)
 			", response size : "+String:C10(BLOB size:C605($vx_curlResponseBody))+" byte(s)"+\
 			$vt_throughputDebug+\
 			", duration : "+CURL__debugMilliseconds($vl_durationMs)+\
-			", curl options :\r"+JSON Stringify:C1217($vo_curlOptions; *)+"\r"+\
-			", transfer infos :\r"+$vt_transferInfo+"\r"+\
-			", header infos :\r"+$vt_headerInfo)
+			", infos :\r"+JSON Stringify:C1217($vo_curlOptions; *))
 		
 		$vp_curlResponseBodyPtr->:=$vx_curlResponseBody
 		
-		If ($vl_nbParam>6)
-			$vp_curlInfosJsonPtr->:=$vt_transferInfo
-		End if 
+		//<Modif> Bruno LEGAY (BLE) (04/01/2022)
+		//If ($vl_nbParam>6)
+		//$vp_curlInfosJsonPtr->:=$vt_transferInfo
+		//End if 
+		//<Modif>
 		
 		//End if 
 		
 	Else   // $vl_curlError#0
 		
 		$vo_curlOptions.response:=New object:C1471
-		$vo_curlOptions.transferInfo:=JSON Parse:C1218($vt_transferInfo)
+		
+		//<Modif> Bruno LEGAY (BLE) (04/01/2022)
+		$vo_curlOptions.transferInfo:=$vo_curlResponse.transferInfo
+		//$vo_curlOptions.transferInfo:=JSON Parse($vt_transferInfo)
+		//<Modif>
 		
 		CURL__moduleDebugDateTimeLine(2; Current method name:C684; "url : \""+$vo_curlRequestOptions.URL+"\""+\
 			", verb : \""+$vo_curlOptions.verb+"\""+\
 			", error : "+CURL_errorToText($vl_curlError)+" ("+String:C10($vl_curlError)+")"+\
 			", duration : "+CURL__debugMilliseconds($vl_durationMs)+\
-			", curl options :\r"+JSON Stringify:C1217($vo_curlOptions; *)+"\r"+\
-			", transfer infos :\r"+$vt_transferInfo+"\r"+\
-			", header infos :\r"+$vt_headerInfo)
+			", infos :\r"+JSON Stringify:C1217($vo_curlOptions; *))
 		
 	End if 
 	
