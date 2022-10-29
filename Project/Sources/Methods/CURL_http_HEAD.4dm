@@ -27,17 +27,14 @@ $vl_error:=-1
 
 C_LONGINT:C283($vl_nbParam)
 $vl_nbParam:=Count parameters:C259
-If ($vl_nbParam>0)
+If ($vl_nbParam>1)
 	$vt_url:=$1
+	$vo_curlOptions:=$2
 	
 	Case of 
-		: ($vl_nbParam=1)
 		: ($vl_nbParam=2)
-			$vo_curlOptions:=$2
 			
 		Else 
-			$vo_curlOptions:=$2
-			
 			ASSERT:C1129(Type:C295($3->)=Text array:K8:16; "$3 should be a text array pointer")
 			$vp_extraHttpHeaderLinesArrayPtr:=$3
 	End case 
@@ -60,6 +57,7 @@ If ($vl_nbParam>0)
 	If ($vo_curlOptions=Null:C1517)
 		$vo_curlOptions:=New object:C1471
 	End if 
+	
 	CURL__httpRequestObjPrep($vo_curlOptions; $vt_url; "HEAD"; $vp_extraHttpHeaderLinesArrayPtr)
 	
 	If ($vl_nbParam=2)
