@@ -38,7 +38,7 @@ If (Count parameters:C259>2)
 			//Si (ok=1)
 			
 			C_TEXT:C284($vt_xpath)
-			$vt_xpath:="/curllibPreferences/caFile[1]"
+			$vt_xpath:="/curllibPreferences/caFile[1]"  // full xpath syntax : ok
 			
 			C_TEXT:C284($vt_caFileElementdomRef)
 			$vt_caFileElementdomRef:=DOM Find XML element:C864($vt_domRef; $vt_xpath)
