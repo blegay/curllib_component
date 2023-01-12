@@ -4,7 +4,7 @@
 ## **Description :** 
 This method will set the proxy configuration parameters in the "option" object
 ## **Parameters :** 
-| Parameter | Direction | Name | Type | Ddescription | 
+| Parameter | Direction | Name | Type | Description | 
 |:----:|:----:|:----|:----|:----| 
 | $1 | INOUT | optionPtr | POINTER | option object pointer (modified) | 
 | $2 | IN | proxyServer | TEXT | proxy server (e.g. "myProxy.local" or "192.168.1.250") | 

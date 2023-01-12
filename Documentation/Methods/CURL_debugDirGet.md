@@ -4,7 +4,7 @@
 ## **Description :** 
 This function returns the debug dir path
 ## **Parameters :** 
-| Parameter | Direction | Name | Type | Ddescription | 
+| Parameter | Direction | Name | Type | Description | 
 |:----:|:----:|:----|:----|:----| 
 | $0 | OUT | debugDirPath | TEXT | debug dir path | 
 

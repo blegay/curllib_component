@@ -4,7 +4,7 @@
 ## **Description :** 
 This method will set the connect timeout in the "option" object
 ## **Parameters :** 
-| Parameter | Direction | Name | Type | Ddescription | 
+| Parameter | Direction | Name | Type | Description | 
 |:----:|:----:|:----|:----|:----| 
 | $1 | INOUT | curlOptions | OBJECT | curl options object (modified) | 
 | $2 | IN | timeoutSecs | TEXT | timeout in seconds | 

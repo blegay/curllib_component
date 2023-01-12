@@ -4,7 +4,7 @@
 ## **Description :** 
 This method will set the auth parameters in a curl options object
 ## **Parameters :** 
-| Parameter | Direction | Name | Type | Ddescription | 
+| Parameter | Direction | Name | Type | Description | 
 |:----:|:----:|:----|:----|:----| 
 | $1 | INOUT | curlOptions | OBJECT | curl options object | 
 | $2 | IN | login | TEXT | login | 

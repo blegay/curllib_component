@@ -4,7 +4,7 @@
 ## **Description :** 
 This function returns the component version
 ## **Parameters :** 
-| Parameter | Direction | Name | Type | Ddescription | 
+| Parameter | Direction | Name | Type | Description | 
 |:----:|:----:|:----|:----|:----| 
 | $0 | OUT | componentVersion | TEXT | component version (e.g. "4.00.00") | 
 

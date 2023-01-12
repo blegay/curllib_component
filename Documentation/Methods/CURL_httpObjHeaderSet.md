@@ -4,7 +4,7 @@
 ## **Description :** 
 This method sets a header to a request object from a http object
 ## **Parameters :** 
-| Parameter | Direction | Name | Type | Ddescription | 
+| Parameter | Direction | Name | Type | Description | 
 |:----:|:----:|:----|:----|:----| 
 | $0 | OUT | paramName | TEXT | ParamDescription | 
 | $1 | IN | httpRequestObj | OBJECT | http.request object | 

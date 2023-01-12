@@ -4,7 +4,7 @@
 ## **Description :** 
 This methods retrieves the response body (from the object if stored as base64)
 ## **Parameters :** 
-| Parameter | Direction | Name | Type | Ddescription | 
+| Parameter | Direction | Name | Type | Description | 
 |:----:|:----:|:----|:----|:----| 
 | $1 | IN | httpObj | OBJECT | http object | 
 | $2 | OUT | bodyPtr | POINTER | response blody blob pointer (modified) | 

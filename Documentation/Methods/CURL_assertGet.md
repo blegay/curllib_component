@@ -4,7 +4,7 @@
 ## **Description :** 
 This function returns TRUE if the assertions are actiavted for all process in the CURL component
 ## **Parameters :** 
-| Parameter | Direction | Name | Type | Ddescription | 
+| Parameter | Direction | Name | Type | Description | 
 |:----:|:----:|:----|:----|:----| 
 | $0 | OUT | assertion | BOOLEAN | if TRUE, assertions are enabled for all process in the component | 
 

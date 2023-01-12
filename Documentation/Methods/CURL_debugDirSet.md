@@ -4,7 +4,7 @@
 ## **Description :** 
 This method sets the folder debug path
 ## **Parameters :** 
-| Parameter | Direction | Name | Type | Ddescription | 
+| Parameter | Direction | Name | Type | Description | 
 |:----:|:----:|:----|:----|:----| 
 | $1 | IN | debugDirPath | TEXT | folder dir path | 
 

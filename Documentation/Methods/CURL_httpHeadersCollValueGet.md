@@ -4,7 +4,7 @@
 ## **Description :** 
 This function returns a header value from a header collection for a given header key
 ## **Parameters :** 
-| Parameter | Direction | Name | Type | Ddescription | 
+| Parameter | Direction | Name | Type | Description | 
 |:----:|:----:|:----|:----|:----| 
 | $0 | OUT | headerValue | TEXT | header value | 
 | $1 | IN | headersCollection | COLLECTION | headers collection | 

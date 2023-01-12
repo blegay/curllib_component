@@ -4,7 +4,7 @@
 ## **Description :** 
 This function returns the http status from an http object
 ## **Parameters :** 
-| Parameter | Direction | Name | Type | Ddescription | 
+| Parameter | Direction | Name | Type | Description | 
 |:----:|:----:|:----|:----|:----| 
 | $0 | OUT | status | LONGINT | http status (e.g. 200) | 
 | $1 | IN | httpObj | OBJECT | curl http object (not modified) | 

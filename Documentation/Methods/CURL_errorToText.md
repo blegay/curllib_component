@@ -4,7 +4,7 @@
 ## **Description :** 
 This function returns a text error code from an error message
 ## **Parameters :** 
-| Parameter | Direction | Name | Type | Ddescription | 
+| Parameter | Direction | Name | Type | Description | 
 |:----:|:----:|:----|:----|:----| 
 | $0 | OUT | errorCode | TEXT | error code | 
 | $1 | IN | error | LONGINT | error number | 

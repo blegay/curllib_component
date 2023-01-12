@@ -4,7 +4,7 @@
 ## **Description :** 
 This method will set a header key/value in a collection of headers
 ## **Parameters :** 
-| Parameter | Direction | Name | Type | Ddescription | 
+| Parameter | Direction | Name | Type | Description | 
 |:----:|:----:|:----|:----|:----| 
 | $1 | INOUT | headersCollection | COLLECTION | headers collection (modified) | 
 | $2 | IN | headerKey | TEXT | header key | 

@@ -4,7 +4,7 @@
 ## **Description :** 
 This method/function returns
 ## **Parameters :** 
-| Parameter | Direction | Name | Type | Ddescription | 
+| Parameter | Direction | Name | Type | Description | 
 |:----:|:----:|:----|:----|:----| 
 | $1 | IN | httpRequestObj | OBJECT | http.request object | 
 | $2 | OUT | headersArrayCombinedPtr | POINTER | combined headers text array pointer (modified) | 

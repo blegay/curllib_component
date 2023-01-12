@@ -4,7 +4,7 @@
 ## **Description :** 
 This function uses curl plugin to do a http HEAD
 ## **Parameters :** 
-| Parameter | Direction | Name | Type | Ddescription | 
+| Parameter | Direction | Name | Type | Description | 
 |:----:|:----:|:----|:----|:----| 
 | $0 | OUT | error | LONGINT | error code (0 = no error) | 
 | $1 | IN | $vt_url | TEXT | url | 

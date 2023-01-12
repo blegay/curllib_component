@@ -4,7 +4,7 @@
 ## **Description :** 
 This function will make an http request
 ## **Parameters :** 
-| Parameter | Direction | Name | Type | Ddescription | 
+| Parameter | Direction | Name | Type | Description | 
 |:----:|:----:|:----|:----|:----| 
 | $0 | OUT | error | LONGINT | error code (0 if no error) | 
 | $1 | IN | httpObj | OBJECT | ParamDescription | 

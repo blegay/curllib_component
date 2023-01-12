@@ -4,7 +4,7 @@
 ## **Description :** 
 This function returns an unescaped url
 ## **Parameters :** 
-| Parameter | Direction | Name | Type | Ddescription | 
+| Parameter | Direction | Name | Type | Description | 
 |:----:|:----:|:----|:----|:----| 
 | $0 | OUT | urlUnescaped | TEXT | url unescaped | 
 | $1 | IN | url | TEXT | url | 

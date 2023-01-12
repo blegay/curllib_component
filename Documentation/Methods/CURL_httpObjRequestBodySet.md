@@ -4,7 +4,7 @@
 ## **Description :** 
 This method sets the body for the request of an http object
 ## **Parameters :** 
-| Parameter | Direction | Name | Type | Ddescription | 
+| Parameter | Direction | Name | Type | Description | 
 |:----:|:----:|:----|:----|:----| 
 | $1 | IN | httpObj | OBJECT | http object (modified) | 
 | $2 | IN | bodyPtr | POINTER | request body blob pointer (not modified) | 

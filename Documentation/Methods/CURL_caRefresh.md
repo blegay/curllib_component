@@ -4,7 +4,7 @@
 ## **Description :** 
 This method will download a ca certificates in pem format and store it in as "cache" in the prefence directory
 ## **Parameters :** 
-| Parameter | Direction | Name | Type | Ddescription | 
+| Parameter | Direction | Name | Type | Description | 
 |:----:|:----:|:----|:----|:----| 
 | $0 | OUT | ok | BOOLEAN | TRUE if ok, FALSE otherwise | 
 | $1 | IN | options | OBJECT | curl options (for proxy configuration for instance) (optional) | 

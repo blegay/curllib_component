@@ -4,7 +4,7 @@
 ## **Description :** 
 This method will allow to test the assertions for all process in the CURL component
 ## **Parameters :** 
-| Parameter | Direction | Name | Type | Ddescription | 
+| Parameter | Direction | Name | Type | Description | 
 |:----:|:----:|:----|:----|:----| 
 | $1 | IN | assertion | BOOLEAN | if TRUE, assertions will be enabled for all process in the component | 
 

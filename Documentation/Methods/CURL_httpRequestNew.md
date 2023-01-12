@@ -4,7 +4,7 @@
 ## **Description :** 
 This function creates an http object for a curl http request
 ## **Parameters :** 
-| Parameter | Direction | Name | Type | Ddescription | 
+| Parameter | Direction | Name | Type | Description | 
 |:----:|:----:|:----|:----|:----| 
 | $0 | OUT | httpObject | OBJECT | http object | 
 | $1 | IN | verb | TEXT | http verb (e.g. "GET", POST", "PUT", "DELETE", HEAD", optional, default "GET) | 
