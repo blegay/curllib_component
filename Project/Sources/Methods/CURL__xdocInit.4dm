@@ -29,10 +29,10 @@ If (Not:C34(Is compiled mode:C492))
 		$vt_compte:=Current system user:C484
 		Case of 
 			: ($vt_compte="@Bruno@")
-				$vt_developer:="Bruno LEGAY (BLE))"
+				$vt_developer:="Bruno LEGAY (BLE)"
 				
 			: ($vt_compte="@Joel@")
-				$vt_developer:="Jo‘l LACLAVERE (JLA)"
+				$vt_developer:="JoÃ«l LACLAVERE (JLA)"
 				
 			: ($vt_compte="@Jean@")
 				$vt_developer:="Jean GRAVELINE (JGR)"
