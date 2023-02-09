@@ -1,2 +1,0 @@
-﻿## **Treadsafe :** incapable ⚠️ 
-## **Parameters :** 
