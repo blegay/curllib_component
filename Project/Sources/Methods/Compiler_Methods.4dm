@@ -124,11 +124,6 @@ C_TIME:C306(UTL_fileCreationDateTimeSet; $3)
 C_TEXT:C284(DBG__bytes; $0)
 C_REAL:C285(DBG__bytes; $1)
 C_BOOLEAN:C305(DBG__bytes; $2)
-C_TEXT:C284(FS_pathToFileName; $0)
-C_TEXT:C284(FS_pathToFileName; $1)
-C_TEXT:C284(FS_pathToFileName; $2)
-C_TEXT:C284(FS_filenameNoExtension; $0)
-C_TEXT:C284(FS_filenameNoExtension; $1)
 
 //CURL__sslParamsObj
 C_OBJECT:C1216(CURL__sslParamsObj; $1)
@@ -396,5 +391,4 @@ C_OBJECT:C1216(CURL_httpHeaderSet; $1)
 C_TEXT:C284(CURL_httpHeaderSet; $2)
 C_TEXT:C284(CURL_httpHeaderSet; $3)
 
-
-
+C_OBJECT:C1216(ERR_onErrToObject; $0)

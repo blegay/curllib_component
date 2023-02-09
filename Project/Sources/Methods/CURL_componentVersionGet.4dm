@@ -5,14 +5,14 @@
 //@scope : public
 //@deprecated : no
 //@description : This function returns the component version 
-//@parameter[0-OUT-componentVersion-TEXT] : component version (e.g. "4.00.00")
+//@parameter[0-OUT-componentVersion-TEXT] : component version (e.g. "4.00.01")
 //@notes : 
 //@example : CURL_componentVersionGet
 //@see : 
-//@version : 4.00.00
-//@author : 
+//@version : 4.00.01
+//@author : Bruno LEGAY (BLE)) - Copyrights A&C Consulting 2023
 //@history : 
-//  CREATION : Bruno LEGAY (BLE) - 26/09/2017, 17:06:48 - 1.00.00
+//  CREATION : Bruno LEGAY (BLE) - 26/09/2017, 17:06:48 - v1.00.00
 //  MODIFICATION : Bruno LEGAY (BLE) - 27/09/2017, 18:31:11 - v1.00.01
 //    - fixed bug in CURL__httpRequest when using 5 parameters
 //    - added CURL_http_headersArrayToStatus, CURL_http_headersArrayValueGet
@@ -62,18 +62,25 @@
 //  MODIFICATION : Bruno LEGAY (BLE) - 19/10/2022, 22:24:24 - v4.00.00
 //    - 4D v19 + 
 //    - https://github.com/miyako/4d-plugin-curl-v3
+//  MODIFICATION : Bruno LEGAY (BLE) - 09/02/2023, 20:07:48 - v4.00.01
+//    - fixed bug in CURL__prefDirPathGet when "/Library/Application Support/4D/" is not writable
 //@xdoc-end
 //================================================================================
 
 C_TEXT:C284($0; $vt_componentVersion)
 
-//<Modif> Bruno LEGAY (BLE) (19/10/2022)
-$vt_componentVersion:="4.00.00"
-//    - 4D v19 + 
-//    - https://github.com/miyako/4d-plugin-curl-v3
+//<Modif> Bruno LEGAY (BLE) (09/02/2023)
+// fixed bug in CURL__prefDirPathGet when "/Library/Application Support/4D/" is not writable
+// https://redmine.ac-consulting.fr/issues/3911
+$vt_componentVersion:="4.00.01"
 //<Modif>
 
 If (False:C215)
+	//<Modif> Bruno LEGAY (BLE) (19/10/2022)
+	// $vt_componentVersion:="4.00.00"
+	//    - 4D v19 + 
+	//    - https://github.com/miyako/4d-plugin-curl-v3
+	//<Modif>
 	
 	//<Modif> Bruno LEGAY (BLE) (09/04/2021)
 	// CURL_caRefresh threw an error when there was no internet connexion
