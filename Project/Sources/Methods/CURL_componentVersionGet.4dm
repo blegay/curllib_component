@@ -5,11 +5,11 @@
 //@scope : public
 //@deprecated : no
 //@description : This function returns the component version 
-//@parameter[0-OUT-componentVersion-TEXT] : component version (e.g. "4.00.01")
+//@parameter[0-OUT-componentVersion-TEXT] : component version (e.g. "4.00.02")
 //@notes : 
 //@example : CURL_componentVersionGet
 //@see : 
-//@version : 4.00.01
+//@version : 4.00.02
 //@author : Bruno LEGAY (BLE)) - Copyrights A&C Consulting 2023
 //@history : 
 //  CREATION : Bruno LEGAY (BLE) - 26/09/2017, 17:06:48 - v1.00.00
@@ -64,18 +64,26 @@
 //    - https://github.com/miyako/4d-plugin-curl-v3
 //  MODIFICATION : Bruno LEGAY (BLE) - 09/02/2023, 20:07:48 - v4.00.01
 //    - fixed bug in CURL__prefDirPathGet when "/Library/Application Support/4D/" is not writable
+//  MODIFICATION : Bruno LEGAY (BLE) - 12/03/2023, 11:37:32 - v4.00.02
+//    - added CURL_urlPathEscape
 //@xdoc-end
 //================================================================================
 
 C_TEXT:C284($0; $vt_componentVersion)
 
-//<Modif> Bruno LEGAY (BLE) (09/02/2023)
-// fixed bug in CURL__prefDirPathGet when "/Library/Application Support/4D/" is not writable
-// https://redmine.ac-consulting.fr/issues/3911
-$vt_componentVersion:="4.00.01"
+//<Modif> Bruno LEGAY (BLE) (12/03/2023)
+//  added CURL_urlPathEscape
+$vt_componentVersion:="4.00.02"
 //<Modif>
 
 If (False:C215)
+	
+	//<Modif> Bruno LEGAY (BLE) (09/02/2023)
+	// fixed bug in CURL__prefDirPathGet when "/Library/Application Support/4D/" is not writable
+	// https://redmine.ac-consulting.fr/issues/3911
+	// $vt_componentVersion:="4.00.01"
+	//<Modif>
+	
 	//<Modif> Bruno LEGAY (BLE) (19/10/2022)
 	// $vt_componentVersion:="4.00.00"
 	//    - 4D v19 + 

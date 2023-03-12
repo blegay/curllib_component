@@ -392,3 +392,6 @@ C_TEXT:C284(CURL_httpHeaderSet; $2)
 C_TEXT:C284(CURL_httpHeaderSet; $3)
 
 C_OBJECT:C1216(ERR_onErrToObject; $0)
+
+C_TEXT:C284(CURL_urlPathEscape; $0)
+C_TEXT:C284(CURL_urlPathEscape; $1)
