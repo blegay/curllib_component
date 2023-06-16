@@ -5,11 +5,11 @@
 //@scope : public
 //@deprecated : no
 //@description : This function returns the component version 
-//@parameter[0-OUT-componentVersion-TEXT] : component version (e.g. "4.00.02")
+//@parameter[0-OUT-componentVersion-TEXT] : component version (e.g. "4.00.03")
 //@notes : 
 //@example : CURL_componentVersionGet
 //@see : 
-//@version : 4.00.02
+//@version : 4.00.03
 //@author : Bruno LEGAY (BLE)) - Copyrights A&C Consulting 2023
 //@history : 
 //  CREATION : Bruno LEGAY (BLE) - 26/09/2017, 17:06:48 - v1.00.00
@@ -66,17 +66,25 @@
 //    - fixed bug in CURL__prefDirPathGet when "/Library/Application Support/4D/" is not writable
 //  MODIFICATION : Bruno LEGAY (BLE) - 12/03/2023, 11:37:32 - v4.00.02
 //    - added CURL_urlPathEscape
+//  MODIFICATION : Bruno LEGAY (BLE) - 16/06/2023, 17:44:31 - v4.00.03
+//    - changed CURL_httpObjNew (headers is not Null but an empty collection)
 //@xdoc-end
 //================================================================================
 
 C_TEXT:C284($0; $vt_componentVersion)
 
-//<Modif> Bruno LEGAY (BLE) (12/03/2023)
-//  added CURL_urlPathEscape
-$vt_componentVersion:="4.00.02"
+//<Modif> Bruno LEGAY (BLE) (16/06/2023)
+//    - changed CURL_httpObjNew (headers is not Null but an empty collection)
+$vt_componentVersion:="4.00.03"
 //<Modif>
 
 If (False:C215)
+	
+	
+	//<Modif> Bruno LEGAY (BLE) (12/03/2023)
+	//  added CURL_urlPathEscape
+	// $vt_componentVersion:="4.00.02"
+	//<Modif>
 	
 	//<Modif> Bruno LEGAY (BLE) (09/02/2023)
 	// fixed bug in CURL__prefDirPathGet when "/Library/Application Support/4D/" is not writable
