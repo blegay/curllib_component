@@ -1,7 +1,7 @@
-//%attributes = {"invisible":true,"preemptive":"capable","shared":false}
+//%attributes = {"invisible":false,"shared":true,"preemptive":"capable"}
 //================================================================================
 //@xdoc-start : en
-//@name : CURL__callback
+//@name : CURL_callback
 //@scope : private 
 //@deprecated : no
 //@description : This function is a callback callled by CURL
@@ -9,7 +9,7 @@
 //@parameter[1-IN-transferInfo-OBJECT] : transferInfo
 //@parameter[2-IN-userInfos-TEXT] : user infos
 //@notes : 
-//@example : CURL__callback
+//@example : CURL_callback
 //@see : 
 //@version : 1.00.00
 //@author : Bruno LEGAY (BLE) - Copyrights A&C Consulting - 2022
@@ -192,10 +192,10 @@ If ($vo_transferInfo#Null:C1517)
 					
 					CURL__moduleDebugDateTimeLine(6; Current method name:C684; "progressId : "+String:C10($vl_progressId)+", progress : "+String:C10($vr_progress)+", message : \""+$vt_message+"\"\r"+JSON Stringify:C1217($vo_transferInfo; *))
 					
-					// 26/05/2020 11:39:57 - curl - 04 - CURL__callback ==> progressId : 1, progress : 0
-					// 26/05/2020 11:39:58 - curl - 04 - CURL__callback ==> progressId : 1, progress : 0,2829823145649
-					// 26/05/2020 11:39:59 - curl - 04 - CURL__callback ==> progressId : 1, progress : 0,7860619849025
-					// 26/05/2020 11:39:59 - curl - 04 - CURL__httpRequestObj ==> url : "https://file-examples.com/wp-content/uploads/2017/10/file-example_PDF_1MB.pdf", error : OK (0), status line : "HTTP/1.1 200 OK", request size : 0 byte(s), response size : 1042157 byte(s), duration : 2,771s
+					// 26/05/2020 11:39:57 - curl - 04 - CURL_callback ==> progressId : 1, progress : 0
+					// 26/05/2020 11:39:58 - curl - 04 - CURL_callback ==> progressId : 1, progress : 0,2829823145649
+					// 26/05/2020 11:39:59 - curl - 04 - CURL_callback ==> progressId : 1, progress : 0,7860619849025
+					// 26/05/2020 11:39:59 - curl - 04 - CURL_httpRequestObj ==> url : "https://file-examples.com/wp-content/uploads/2017/10/file-example_PDF_1MB.pdf", error : OK (0), status line : "HTTP/1.1 200 OK", request size : 0 byte(s), response size : 1042157 byte(s), duration : 2,771s
 					
 					//%T- 
 					EXECUTE METHOD:C1007("CURL__progressUpdate"; $vb_abort; $vl_progressId; $vr_progress; $vt_message)
