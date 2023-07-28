@@ -73,6 +73,10 @@
 
 C_TEXT:C284($0; $vt_componentVersion)
 
+// C:\ProgramData\4D\com.ac-consulting\curllib-component\cacert.pem
+// https://redmine.ac-consulting.fr/issues/4483
+// TODO : bug à corriger...
+
 //<Modif> Bruno LEGAY (BLE) (16/06/2023)
 //    - changed CURL_httpObjNew (headers is not Null but an empty collection)
 $vt_componentVersion:="4.00.03"

@@ -19,6 +19,13 @@ $vt_prefDir:=CURL__prefDirPathGet
 $vt_caPath:=$vt_prefDir+"cacert.pem"
 $vt_prefPath:=$vt_prefDir+"curllibPreferences.xml"
 
+
+// C:\ProgramData\4D\com.ac-consulting\curllib-component\cacert.pem
+// https://redmine.ac-consulting.fr/issues/4483
+// TODO : bug à corriger...
+// installer un gestionnaire d'erreur et/ou s'assurer qu'on peut écrire dans ce fichier.
+
+
 BLOB TO DOCUMENT:C526($vt_caPath; $vp_pemBlobPtr->)
 $vb_ok:=(ok=1)
 

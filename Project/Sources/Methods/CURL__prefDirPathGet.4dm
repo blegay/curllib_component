@@ -15,6 +15,9 @@ $vt_prefDirName:=Replace string:C233($vt_filenameNoExt; "_"; "-"; *)
 
 C_TEXT:C284($vt_prefsAllUsers)
 $vt_prefsAllUsers:=System folder:C487(User preferences_all:K41:3)
+// C:\ProgramData\4D\com.ac-consulting\curllib-component\cacert.pem
+// https://redmine.ac-consulting.fr/issues/4483
+// TODO : bug à corriger...
 
 C_BOOLEAN:C305($vb_ok)
 $vb_ok:=False:C215
