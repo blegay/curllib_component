@@ -14,10 +14,12 @@ $vt_filenameNoExt:=$structureFile.name  // name without extension
 $vt_prefDirName:=Replace string:C233($vt_filenameNoExt; "_"; "-"; *)
 
 C_TEXT:C284($vt_prefsAllUsers)
-$vt_prefsAllUsers:=System folder:C487(User preferences_all:K41:3)
-// C:\ProgramData\4D\com.ac-consulting\curllib-component\cacert.pem
+$vt_prefsAllUsers:=System folder:C487(User preferences_user:K41:4)
+
+//$vt_prefsAllUsers:=System folder(User preferences_all)
+// "C:\ProgramData\4D\com.ac-consulting\curllib-component\curllibPreferences.xml"
+// "C:\ProgramData\4D\com.ac-consulting\curllib-component\cacert.pem"
 // https://redmine.ac-consulting.fr/issues/4483
-// TODO : bug à corriger...
 
 C_BOOLEAN:C305($vb_ok)
 $vb_ok:=False:C215
@@ -72,25 +74,25 @@ Else
 	End if 
 End if 
 
-If (Not:C34($vb_ok))
-	C_TEXT:C284($vt_prefsUser)
-	$vt_prefsUser:=System folder:C487(User preferences_user:K41:4)
-	
-	var $folderPrefs : 4D:C1709.Folder
-	$folderPrefs:=Folder:C1567($vt_prefsUser; fk platform path:K87:2).folder("4D").folder("com.ac-consulting").folder($vt_prefDirName)
-	// "/Users/ble/Library/Application Support/4D/com.ac-consulting/curllib-component"
-	
-	If ($folderPrefs.exists)
-		CURL__moduleDebugDateTimeLine(4; Current method name:C684; "dir : \""+$folderPrefs.path+"\" exists.")
-	Else 
-		CURL__moduleDebugDateTimeLine(4; Current method name:C684; "dir : \""+$folderPrefs.path+"\" does not exist, going to create it...")
-		$vb_ok:=$folderPrefs.create()
-		If (Not:C34($vb_ok))
-			CURL__moduleDebugDateTimeLine(2; Current method name:C684; "failed creating dir : \""+$folderPrefs.path+"\". [KO]")
-		End if 
-	End if 
-	
-End if 
+//If (Not($vb_ok))
+//C_TEXT($vt_prefsUser)
+//$vt_prefsUser:=System folder(User preferences_user)
+
+//var $folderPrefs : 4D.Folder
+//$folderPrefs:=Folder($vt_prefsUser; fk platform path).folder("4D").folder("com.ac-consulting").folder($vt_prefDirName)
+//// "/Users/ble/Library/Application Support/4D/com.ac-consulting/curllib-component"
+
+//If ($folderPrefs.exists)
+//CURL__moduleDebugDateTimeLine(4; Current method name; "dir : \""+$folderPrefs.path+"\" exists.")
+//Else 
+//CURL__moduleDebugDateTimeLine(4; Current method name; "dir : \""+$folderPrefs.path+"\" does not exist, going to create it...")
+//$vb_ok:=$folderPrefs.create()
+//If (Not($vb_ok))
+//CURL__moduleDebugDateTimeLine(2; Current method name; "failed creating dir : \""+$folderPrefs.path+"\". [KO]")
+//End if 
+//End if 
+
+//End if 
 
 ON ERR CALL:C155($vt_errorHandler)
 

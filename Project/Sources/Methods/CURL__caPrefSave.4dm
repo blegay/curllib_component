@@ -22,12 +22,18 @@ $vt_prefPath:=$vt_prefDir+"curllibPreferences.xml"
 
 // C:\ProgramData\4D\com.ac-consulting\curllib-component\cacert.pem
 // https://redmine.ac-consulting.fr/issues/4483
-// TODO : bug à corriger...
+// DONE : bug à corriger...
 // installer un gestionnaire d'erreur et/ou s'assurer qu'on peut écrire dans ce fichier.
 
+// if we cannot write to dir, we will get an error message
+C_TEXT:C284($vt_errorHandler)
+$vt_errorHandler:=Method called on error:C704
+ON ERR CALL:C155("ERR_onErrCall")
 
 BLOB TO DOCUMENT:C526($vt_caPath; $vp_pemBlobPtr->)
 $vb_ok:=(ok=1)
+
+ON ERR CALL:C155($vt_errorHandler)
 
 CURL__moduleDebugDateTimeLine(Choose:C955($vb_ok; 4; 2); Current method name:C684; "Certifcate Authorites (CA) certificates file : \""+$vt_caPath+"\" creation : "+Choose:C955($vb_ok; "ok"; "error"))
 
