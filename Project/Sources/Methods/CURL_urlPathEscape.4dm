@@ -20,22 +20,33 @@
 C_TEXT:C284($0; $vt_urlPathEscaped)
 C_TEXT:C284($1; $vt_urlPathUnescaped)
 
+ASSERT:C1129(Count parameters:C259>0; "require 1 parameter")
+
 $vt_urlPathUnescaped:=$1
 $vt_urlPathEscaped:=""
 
-C_COLLECTION:C1488($c_pathParts)
-$c_pathParts:=Split string:C1554($vt_urlPathUnescaped; "/")
-
-C_TEXT:C284($vt_part)
-C_LONGINT:C283($vl_count; $vl_parIndex)
-$vl_count:=$c_pathParts.length
-$vl_parIndex:=0
-For each ($vt_part; $c_pathParts)
-	$vl_parIndex:=$vl_parIndex+1
-	
-	$vt_urlPathEscaped:=$vt_urlPathEscaped+cURL_Escape($vt_part)+Choose:C955($vl_parIndex<$vl_count; "/"; "")
-	
-End for each 
+Case of 
+	: ($vt_urlPathUnescaped="")
+		
+	: ($vt_urlPathUnescaped="/")
+		$vt_urlPathEscaped:="/"
+		
+	Else 
+		C_COLLECTION:C1488($c_pathParts)
+		$c_pathParts:=Split string:C1554($vt_urlPathUnescaped; "/")
+		
+		C_TEXT:C284($vt_part)
+		C_LONGINT:C283($vl_count; $vl_parIndex)
+		$vl_count:=$c_pathParts.length
+		$vl_parIndex:=0
+		For each ($vt_part; $c_pathParts)
+			$vl_parIndex:=$vl_parIndex+1
+			
+			$vt_urlPathEscaped:=$vt_urlPathEscaped+cURL_Escape($vt_part)+Choose:C955($vl_parIndex<$vl_count; "/"; "")
+			
+		End for each 
+		
+End case 
 
 CURL__moduleDebugDateTimeLine(4; Current method name:C684; "url path (unescaped) : \""+$vt_urlPathUnescaped+"\" => url path (escaped) : \""+$vt_urlPathEscaped+"\"")
 
