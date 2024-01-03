@@ -1,13 +1,24 @@
-//%attributes = {"invisible":true,"preemptive":"capable","executedOnServer":false,"publishedWsdl":false,"shared":false,"publishedSql":false,"publishedWeb":false,"published4DMobile":{"scope":"none"},"publishedSoap":false}
+//%attributes = {"invisible":false,"preemptive":"capable","executedOnServer":false,"publishedWsdl":false,"shared":true,"publishedSql":false,"publishedWeb":false,"published4DMobile":{"scope":"none"},"publishedSoap":false}
 //================================================================================
 //@xdoc-start : en
-//@name : CURL__sslParamsObj
+//@name : CURL_sslParamsObj
 //@scope : public
 //@deprecated : no
 //@description : This method sets the default ssl options
-//@parameter[1-INOUT-options-OBJECT] : ParamDescription
+//@parameter[1-INOUT-options-OBJECT] : curl option object
 //@notes : 
-//@example : CURL__sslParamsObj
+//@example : 
+//  var $options : Object
+//  $options:=New object
+//  CURL_sslParamsObj($options)
+//
+// {
+//     "SSL_VERIFYHOST": 2,
+//     "SSL_VERIFYPEER": 1,
+//     "USE_SSL": "USESSL_ALL",
+//     "CAINFO": "Macintosh HD:Users:ble:Documents:Projets:BaseRef_v19:curllib_component:sources:curllib_component.4dbase:Resources:certs:cacert.pem"
+// }
+//
 //@see : 
 //@version : 1.00.00
 //@author : 
@@ -86,16 +97,16 @@ End if
 
 // https://curl.se/libcurl/c/CURLOPT_USE_SSL.html
 If (Not:C34(OB Is defined:C1231($vo_options; "USE_SSL")) | $vb_override)
-	OB SET:C1220($vo_options; "USE_SSL"; "CURLUSESSL_ALL")
+	OB SET:C1220($vo_options; "USE_SSL"; "USESSL_ALL")
 	
-	CURL__moduleDebugDateTimeLine(6; Current method name:C684; "CURLOPT_USE_SSL : \"CURLUSESSL_ALL\"")
+	CURL__moduleDebugDateTimeLine(6; Current method name:C684; "CURLOPT_USE_SSL : \"USESSL_ALL\"")
 	
 	// This is for enabling SSL/TLS when you use FTP, SMTP, POP3, IMAP etc.
 	
-	// "CURLUSESSL_NONE" Don't attempt to use SSL.
-	// "CURLUSESSL_TRY" : Try using SSL, proceed as normal otherwise.
-	// "CURLUSESSL_CONTROL" : Require SSL for the control connection or fail with CURLE_USE_SSL_FAILED.
-	// "CURLUSESSL_ALL" : Require SSL for all communication or fail with CURLE_USE_SSL_FAILED.
+	// "USESSL_NONE" Don't attempt to use SSL.
+	// "USESSL_TRY" : Try using SSL, proceed as normal otherwise.
+	// "USESSL_CONTROL" : Require SSL for the control connection or fail with CURLE_USE_SSL_FAILED.
+	// "USESSL_ALL" : Require SSL for all communication or fail with CURLE_USE_SSL_FAILED.
 	
 End if 
 
