@@ -68,22 +68,28 @@
 //    - added CURL_urlPathEscape
 //  MODIFICATION : Bruno LEGAY (BLE) - 16/06/2023, 17:44:31 - v4.00.03
 //    - changed CURL_httpObjNew (headers is not Null but an empty collection)
+//  MODIFICATION : Bruno LEGAY (BLE) - 03/01/2024, 21:41:19 - v4.00.04
+//    - fix privilege error reading and writing preferences files
+//    - CURL_sslParamsObj is now public
+//    - update plugin to version 4.6.2
 //@xdoc-end
 //================================================================================
 
 C_TEXT:C284($0; $vt_componentVersion)
 
-// C:\ProgramData\4D\com.ac-consulting\curllib-component\cacert.pem
-// https://redmine.ac-consulting.fr/issues/4483
-// TODO : bug à corriger...
-
-//<Modif> Bruno LEGAY (BLE) (16/06/2023)
-//    - changed CURL_httpObjNew (headers is not Null but an empty collection)
-$vt_componentVersion:="4.00.03"
+//<Modif> Bruno LEGAY (BLE) (03/01/2024)
+$vt_componentVersion:="4.00.04"
+// - fix privilege error reading and writing preferences files
+//    https://redmine.ac-consulting.fr/issues/4483
+// - CURL_sslParamsObj is now public
+// - update plugin to version 4.6.2
 //<Modif>
 
 If (False:C215)
-	
+	//<Modif> Bruno LEGAY (BLE) (16/06/2023)
+	//    - changed CURL_httpObjNew (headers is not Null but an empty collection)
+	// $vt_componentVersion:="4.00.03"
+	//<Modif>
 	
 	//<Modif> Bruno LEGAY (BLE) (12/03/2023)
 	//  added CURL_urlPathEscape

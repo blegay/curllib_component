@@ -126,7 +126,7 @@ C_REAL:C285(DBG__bytes; $1)
 C_BOOLEAN:C305(DBG__bytes; $2)
 
 //CURL__sslParamsObj
-C_OBJECT:C1216(CURL__sslParamsObj; $1)
+C_OBJECT:C1216(CURL_sslParamsObj; $1)
 
 //CURL_httpObjNew
 C_OBJECT:C1216(CURL_httpObjNew; $0)

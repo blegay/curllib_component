@@ -17,6 +17,8 @@ If (Not:C34(Bool:C1537(Storage:C1525.curl.init)))
 	
 	C_OBJECT:C1216($vo_curlVersion)
 	$vo_curlVersion:=cURL_VersionInfo
+	// {version:8.4.0,version_num:525312,host:x86_64-apple-darwin21.6.0,features:1441743773,ssl_version:(SecureTransport) OpenSSL/3.1.4,libz_version:1.2.11,protocols:[dict,file,ftp,ftps,gopher,gophers,http,https,imap,imaps,ldap,ldaps,mqtt,pop3,pop3s,rtmp,rtmpe,rtmps,rtmpt,rtmpte,rtmpts,rtsp,scp,sftp,smb,smbs,smtp,smtps,telnet,tftp],libssh_version:libssh2/1.11.0,brotli_version:1.0.9,nghttp2_version:1.58.0,zstd_version:1.5.2...
+	
 	
 	C_TEXT:C284($vt_curlVersion)
 	$vt_curlVersion:=$vo_curlVersion.version
