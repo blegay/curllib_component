@@ -72,20 +72,27 @@
 //    - fix privilege error reading and writing preferences files
 //    - CURL_sslParamsObj is now public
 //    - update plugin to version 4.6.2
+//  MODIFICATION : Bruno LEGAY (BLE) - 06/01/2024, 16:55:15 - v4.01.00
+//    - ftp class
 //@xdoc-end
 //================================================================================
 
 C_TEXT:C284($0; $vt_componentVersion)
 
-//<Modif> Bruno LEGAY (BLE) (03/01/2024)
-$vt_componentVersion:="4.00.04"
-// - fix privilege error reading and writing preferences files
-//    https://redmine.ac-consulting.fr/issues/4483
-// - CURL_sslParamsObj is now public
-// - update plugin to version 4.6.2
+//<Modif> Bruno LEGAY (BLE) (06/01/2024)
+$vt_componentVersion:="4.01.00"
+// - ftp class
 //<Modif>
 
 If (False:C215)
+	//<Modif> Bruno LEGAY (BLE) (03/01/2024)
+	// $vt_componentVersion:="4.00.04"
+	// - fix privilege error reading and writing preferences files
+	//    https://redmine.ac-consulting.fr/issues/4483
+	// - CURL_sslParamsObj is now public
+	// - update plugin to version 4.6.2
+	//<Modif>
+	
 	//<Modif> Bruno LEGAY (BLE) (16/06/2023)
 	//    - changed CURL_httpObjNew (headers is not Null but an empty collection)
 	// $vt_componentVersion:="4.00.03"
