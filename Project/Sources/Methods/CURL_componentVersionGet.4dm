@@ -5,11 +5,11 @@
 //@scope : public
 //@deprecated : no
 //@description : This function returns the component version 
-//@parameter[0-OUT-componentVersion-TEXT] : component version (e.g. "4.00.03")
+//@parameter[0-OUT-componentVersion-TEXT] : component version (e.g. "4.01.00")
 //@notes : 
 //@example : CURL_componentVersionGet
 //@see : 
-//@version : 4.00.03
+//@version : 4.01.00
 //@author : Bruno LEGAY (BLE)) - Copyrights A&C Consulting 2023
 //@history : 
 //  CREATION : Bruno LEGAY (BLE) - 26/09/2017, 17:06:48 - v1.00.00
@@ -73,6 +73,7 @@
 //    - CURL_sslParamsObj is now public
 //    - update plugin to version 4.6.2
 //  MODIFICATION : Bruno LEGAY (BLE) - 06/01/2024, 16:55:15 - v4.01.00
+//    - added CURL_ftpNew()
 //    - ftp class
 //@xdoc-end
 //================================================================================
@@ -81,6 +82,7 @@ C_TEXT:C284($0; $vt_componentVersion)
 
 //<Modif> Bruno LEGAY (BLE) (06/01/2024)
 $vt_componentVersion:="4.01.00"
+// - added CURL_ftpNew()
 // - ftp class
 //<Modif>
 

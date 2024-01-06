@@ -1,4 +1,4 @@
-//%attributes = {"invisible":true,"preemptive":"incapable","shared":false}
+//%attributes = {"invisible":false,"preemptive":"incapable","shared":true}
 C_POINTER:C301(UTL_initAuto; $1)
 C_TEXT:C284(UTL_initAuto; $2)
 C_TEXT:C284(UTL_initAuto; $3)
@@ -395,3 +395,10 @@ C_OBJECT:C1216(ERR_onErrToObject; $0)
 
 C_TEXT:C284(CURL_urlPathEscape; $0)
 C_TEXT:C284(CURL_urlPathEscape; $1)
+
+C_OBJECT:C1216(CURL_ftpNew; $0)
+C_TEXT:C284(CURL_ftpNew; $1)
+C_TEXT:C284(CURL_ftpNew; $2)
+C_TEXT:C284(CURL_ftpNew; $3)
+C_TEXT:C284(CURL_ftpNew; $4)
+C_TEXT:C284(CURL_ftpNew; $5)
