@@ -65,7 +65,7 @@ If ($vl_nbParam>3)
 		: ($vl_nbParam=4)
 			
 			//var $ftp : cs.ftp
-			$vo_ftp:=cs:C1710.ftp.new($vt_protocol; $vt_host; $vt_login; $vt_password)
+			$vo_ftp:=cs:C1710.ftp.new($vt_protocol; $vt_host; $vt_login; $vt_password; "")
 			
 		Else 
 			$vt_dir:=$5

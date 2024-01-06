@@ -33,7 +33,9 @@ Class constructor($protocol : Text; $host : Text; $login : Text; $password : Tex
 	End if 
 	
 	This:C1470.cwd:="/"
-	This:C1470.setCurrentWorkingDir($dir)
+	If (Count parameters:C259>4)
+		This:C1470.setCurrentWorkingDir($dir)
+	End if 
 	
 	This:C1470.progress:=False:C215
 	This:C1470.progressAbortable:=False:C215
