@@ -625,6 +625,7 @@ Function getFileInfos($filename : Text)->$result : Object
 	$result.errorMessage:="unkown error"
 	$result.errorDetail:=New object:C1471
 	$result.fileInfo:=Null:C1517
+	$result.fileExists:=Null:C1517
 	
 	If ($filename#"")
 		
@@ -651,7 +652,6 @@ Function getFileInfos($filename : Text)->$result : Object
 		// 350 Restarting at 0. Send STORE or RETRIEVE to initiate transfer\r\n
 		// Accept-ranges: bytes\r\n
 		
-		
 		$result.errorDetail:=$error
 		
 		If ($error.status=0)
@@ -660,10 +660,14 @@ Function getFileInfos($filename : Text)->$result : Object
 			$result.errorMessage:=""
 			
 			$result.fileInfo:=OB Copy:C1225($error.fileInfo)
+			$result.fileExists:=True:C214
 			//$result.ftpparse:=$error.ftpparse
 			
 			CURL__moduleDebugDateTimeLine(4; Current method name:C684; "cURL_FTP_GetFileInfo \""+$filename+"\", options : "+JSON Stringify:C1217(This:C1470._toDebug($options))+", error : "+JSON Stringify:C1217($error))
 		Else 
+			If ($error.status=78)
+				$result.fileExists:=False:C215
+			End if 
 			$result.errorCode:=$error.status
 			$result.errorMessage:="curl "+This:C1470.protocol+" cURL_FTP_GetFileInfo \""+$filename+"\", error : "+String:C10($error.status)+" - "+CURL_errorToText($error.status)
 			CURL__moduleDebugDateTimeLine(2; Current method name:C684; "cURL_FTP_GetFileInfo \""+$filename+"\", error : "+String:C10($error.status)+", options : "+JSON Stringify:C1217(This:C1470._toDebug($options))+", error : "+JSON Stringify:C1217($error))
@@ -799,7 +803,7 @@ Function printDir($dirName : Text)->$result : Object
 	
 	var $error : Object
 	
-	CURL__moduleDebugDateTimeLine(4; Current method name:C684; "create dir : \""+$dirName+"\", options : "+JSON Stringify:C1217(This:C1470._toDebug($options))+"...")
+	CURL__moduleDebugDateTimeLine(4; Current method name:C684; "print dir : \""+$dirName+"\", options : "+JSON Stringify:C1217(This:C1470._toDebug($options))+"...")
 	
 	//%W-533.4
 	$error:=cURL_FTP_PrintDir($options)
