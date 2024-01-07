@@ -2,6 +2,8 @@
 
 Class constructor($protocol : Text; $host : Text; $login : Text; $password : Text; $dir : Text)
 	
+	CURL__init
+	
 	//This.protocol:=$protocol  // "ftp", "sftp", "ftps"
 	This:C1470.host:=$host
 	Case of 
