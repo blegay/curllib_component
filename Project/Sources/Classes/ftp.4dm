@@ -864,13 +864,21 @@ Function rename($oldName : Text; $newName : Text)->$result : Object
 	
 Function _defaultOptions($remoteFilename : Text)->$options : Object
 	
-	If ($remoteFilename=Null:C1517)
-		$remoteFilename:=""
-	End if 
+	var $remotePath : Text
+	Case of 
+		: (Count parameters:C259=0)
+			$remotePath:=This:C1470.cwd
+			
+		: ($remoteFilename=Null:C1517)
+			$remotePath:=This:C1470.cwd
+			
+		Else 
+			$remotePath:=This:C1470.cwd+$remoteFilename
+	End case 
 	
 	$options:=OB Copy:C1225(This:C1470.defaultOptions)
 	
-	$options.URL:=This:C1470.protocol+"://"+This:C1470.host+Choose:C955(This:C1470.port>0; ":"+String:C10(This:C1470.port); "")+CURL_urlPathEscape(This:C1470.cwd+$remoteFilename)
+	$options.URL:=This:C1470.protocol+"://"+This:C1470.host+Choose:C955(This:C1470.port>0; ":"+String:C10(This:C1470.port); "")+CURL_urlPathEscape($remotePath)
 	$options.USERNAME:=This:C1470.login
 	$options.PASSWORD:=This:C1470.password
 	
@@ -937,6 +945,7 @@ Function _progressDeinit()
 Function _toDebug($options : Object)->$optionsDebug : Object
 	
 	$optionsDebug:=OB Copy:C1225($options)
-	$optionsDebug.PASSWORD:=DBG_passwordDebug($optionsDebug.PASSWORD)
-	
+	If ($optionsDebug.PASSWORD#Null:C1517)
+		$optionsDebug.PASSWORD:=DBG_passwordDebug($optionsDebug.PASSWORD)
+	End if 
 	
