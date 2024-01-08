@@ -1,0 +1,479 @@
+{
+	"_method_": {
+		"CURL_httpObjHeaderToArrCombined": {
+			"Syntax": "**CURL_httpObjHeaderToArrCombined**()",
+			"Params": [],
+			"Summary": ""
+		},
+		"CURL_httpRequestNew": {
+			"Syntax": "**CURL_httpRequestNew**()",
+			"Params": [],
+			"Summary": ""
+		},
+		"CURL_debugDirGet": {
+			"Syntax": "**CURL_debugDirGet**()",
+			"Params": [],
+			"Summary": ""
+		},
+		"CURL_http_HEAD": {
+			"Syntax": "**CURL_http_HEAD**()",
+			"Params": [],
+			"Summary": ""
+		},
+		"CURL_errorToText": {
+			"Syntax": "**CURL_errorToText**()",
+			"Params": [],
+			"Summary": ""
+		},
+		"CURL_http_PUT": {
+			"Syntax": "**CURL_http_PUT**()",
+			"Params": [],
+			"Summary": ""
+		},
+		"CURL_urlPathEscape": {
+			"Syntax": "**CURL_urlPathEscape**()",
+			"Params": [],
+			"Summary": ""
+		},
+		"CURL_curlOptionsProxySet": {
+			"Syntax": "**CURL_curlOptionsProxySet**()",
+			"Params": [],
+			"Summary": ""
+		},
+		"CURL_dateStringToEpoch": {
+			"Syntax": "**CURL_dateStringToEpoch**()",
+			"Params": [],
+			"Summary": ""
+		},
+		"CURL_httpHeaderGet": {
+			"Syntax": "**CURL_httpHeaderGet**()",
+			"Params": [],
+			"Summary": ""
+		},
+		"CURL_http_headersCollValueGet": {
+			"Syntax": "**CURL_http_headersCollValueGet**()",
+			"Params": [],
+			"Summary": ""
+		},
+		"CURL_httpObjHeaderSet": {
+			"Syntax": "**CURL_httpObjHeaderSet**()",
+			"Params": [],
+			"Summary": ""
+		},
+		"CURL_httpHeadersCollValueGet": {
+			"Syntax": "**CURL_httpHeadersCollValueGet**()",
+			"Params": [],
+			"Summary": ""
+		},
+		"CURL_httpHeadersToArrCombined": {
+			"Syntax": "**CURL_httpHeadersToArrCombined**()",
+			"Params": [],
+			"Summary": ""
+		},
+		"CURL_assertSet": {
+			"Syntax": "**CURL_assertSet**()",
+			"Params": [],
+			"Summary": ""
+		},
+		"CURL_http_GET": {
+			"Syntax": "**CURL_http_GET**()",
+			"Params": [],
+			"Summary": ""
+		},
+		"CURL_sslParamsObj": {
+			"Syntax": "**CURL_sslParamsObj**()",
+			"Params": [],
+			"Summary": ""
+		},
+		"CURL_urlEscape": {
+			"Syntax": "**CURL_urlEscape**()",
+			"Params": [],
+			"Summary": ""
+		},
+		"CURL_httpObjCall": {
+			"Syntax": "**CURL_httpObjCall**()",
+			"Params": [],
+			"Summary": ""
+		},
+		"CURL_caRefreshTest": {
+			"Syntax": "**CURL_caRefreshTest**()",
+			"Params": [],
+			"Summary": ""
+		},
+		"CURL_caRefresh": {
+			"Syntax": "**CURL_caRefresh**()",
+			"Params": [],
+			"Summary": ""
+		},
+		"CURL_ftpNew": {
+			"Syntax": "**CURL_ftpNew**()",
+			"Params": [],
+			"Summary": ""
+		},
+		"CURL_curlOptionsObjTimeoutSet": {
+			"Syntax": "**CURL_curlOptionsObjTimeoutSet**()",
+			"Params": [],
+			"Summary": ""
+		},
+		"CURL_httpRequestStatusGet": {
+			"Syntax": "**CURL_httpRequestStatusGet**()",
+			"Params": [],
+			"Summary": ""
+		},
+		"CURL_httpObjNew": {
+			"Syntax": "**CURL_httpObjNew**()",
+			"Params": [],
+			"Summary": ""
+		},
+		"CURL_componentVersionGet": {
+			"Syntax": "**CURL_componentVersionGet**()",
+			"Params": [],
+			"Summary": ""
+		},
+		"CURL_httpRequestCall": {
+			"Syntax": "**CURL_httpRequestCall**()",
+			"Params": [],
+			"Summary": ""
+		},
+		"CURL_urlUnescape": {
+			"Syntax": "**CURL_urlUnescape**()",
+			"Params": [],
+			"Summary": ""
+		},
+		"CURL_curlOptionsAuthSet": {
+			"Syntax": "**CURL_curlOptionsAuthSet**()",
+			"Params": [],
+			"Summary": ""
+		},
+		"CURL_pluginVersionGet": {
+			"Syntax": "**CURL_pluginVersionGet**()",
+			"Params": [],
+			"Summary": ""
+		},
+		"CURL_debugDirSet": {
+			"Syntax": "**CURL_debugDirSet**()",
+			"Params": [],
+			"Summary": ""
+		},
+		"CURL_httpObjStatusGet": {
+			"Syntax": "**CURL_httpObjStatusGet**()",
+			"Params": [],
+			"Summary": ""
+		},
+		"CURL_http_POST": {
+			"Syntax": "**CURL_http_POST**()",
+			"Params": [],
+			"Summary": ""
+		},
+		"CURL_callback": {
+			"Syntax": "**CURL_callback**()",
+			"Params": [],
+			"Summary": ""
+		},
+		"Compiler_Methods": {
+			"Syntax": "**Compiler_Methods**()",
+			"Params": [],
+			"Summary": ""
+		},
+		"CURL_httpObjRequestBodySet": {
+			"Syntax": "**CURL_httpObjRequestBodySet**()",
+			"Params": [],
+			"Summary": ""
+		},
+		"CURL_httpObjResponseBodyGet": {
+			"Syntax": "**CURL_httpObjResponseBodyGet**()",
+			"Params": [],
+			"Summary": ""
+		},
+		"CURL_assertGet": {
+			"Syntax": "**CURL_assertGet**()",
+			"Params": [],
+			"Summary": ""
+		},
+		"CURL_httpHeadersCollValueSet": {
+			"Syntax": "**CURL_httpHeadersCollValueSet**()",
+			"Params": [],
+			"Summary": ""
+		},
+		"CURL_http_DELETE": {
+			"Syntax": "**CURL_http_DELETE**()",
+			"Params": [],
+			"Summary": ""
+		},
+		"CURL_curlOptionsObjTimeoutConnS": {
+			"Syntax": "**CURL_curlOptionsObjTimeoutConnS**()",
+			"Params": [],
+			"Summary": ""
+		},
+		"CURL_httpHeaderSet": {
+			"Syntax": "**CURL_httpHeaderSet**()",
+			"Params": [],
+			"Summary": ""
+		},
+		"CURL_http_headersCollValueSet": {
+			"Syntax": "**CURL_http_headersCollValueSet**()",
+			"Params": [],
+			"Summary": ""
+		},
+		"CURL_httpObjHeaderGet": {
+			"Syntax": "**CURL_httpObjHeaderGet**()",
+			"Params": [],
+			"Summary": ""
+		}
+	},
+	"cs.curl": {
+		"ftp": {
+			"new()": {
+				"Syntax": "**.new**( *protocol* : Text; *host* : Text; *login* : Text; *password* : Text; *dir* : Text )",
+				"Params": [
+					[
+						"protocol",
+						"Text",
+						"->"
+					],
+					[
+						"host",
+						"Text",
+						"->"
+					],
+					[
+						"login",
+						"Text",
+						"->"
+					],
+					[
+						"password",
+						"Text",
+						"->"
+					],
+					[
+						"dir",
+						"Text",
+						"->"
+					]
+				],
+				"Summary": ""
+			}
+		}
+	},
+	"ftp": {
+		"toDebug()": {
+			"Syntax": "**.toDebug**( *options* : Object )->debug : Object",
+			"Params": [
+				[
+					"options",
+					"Object",
+					"->"
+				],
+				[
+					"debug",
+					"Object",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"printDir()": {
+			"Syntax": "**.printDir**( *dirName* : Text; *createMissingDirs* : Boolean )->result : Object",
+			"Params": [
+				[
+					"dirName",
+					"Text",
+					"->"
+				],
+				[
+					"createMissingDirs",
+					"Boolean",
+					"->"
+				],
+				[
+					"result",
+					"Object",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"makeDir()": {
+			"Syntax": "**.makeDir**( *dirName* : Text )->result : Object",
+			"Params": [
+				[
+					"dirName",
+					"Text",
+					"->"
+				],
+				[
+					"result",
+					"Object",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"system()": {
+			"Syntax": "**.system**()->result : Object",
+			"Params": [
+				[
+					"result",
+					"Object",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"getCurrentWorkingDir()": {
+			"Syntax": "**.getCurrentWorkingDir**()->dir : Text",
+			"Params": [
+				[
+					"dir",
+					"Text",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"delete()": {
+			"Syntax": "**.delete**( *remoteFilename* : Text )->result : Object",
+			"Params": [
+				[
+					"remoteFilename",
+					"Text",
+					"->"
+				],
+				[
+					"result",
+					"Object",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"getFileInfos()": {
+			"Syntax": "**.getFileInfos**( *filename* : Text )->result : Object",
+			"Params": [
+				[
+					"filename",
+					"Text",
+					"->"
+				],
+				[
+					"result",
+					"Object",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"receive()": {
+			"Syntax": "**.receive**( *remoteFilename* : Text; *file* : 4D.File )->result : Object",
+			"Params": [
+				[
+					"remoteFilename",
+					"Text",
+					"->"
+				],
+				[
+					"file",
+					"4D.File",
+					"->"
+				],
+				[
+					"result",
+					"Object",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"send()": {
+			"Syntax": "**.send**( *file* : 4D.File; *remoteFilename* : Text )->result : Object",
+			"Params": [
+				[
+					"file",
+					"4D.File",
+					"->"
+				],
+				[
+					"remoteFilename",
+					"Text",
+					"->"
+				],
+				[
+					"result",
+					"Object",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"removeDir()": {
+			"Syntax": "**.removeDir**( *dirName* : Text )->result : Object",
+			"Params": [
+				[
+					"dirName",
+					"Text",
+					"->"
+				],
+				[
+					"result",
+					"Object",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"rename()": {
+			"Syntax": "**.rename**( *oldName* : Text; *newName* : Text )->result : Object",
+			"Params": [
+				[
+					"oldName",
+					"Text",
+					"->"
+				],
+				[
+					"newName",
+					"Text",
+					"->"
+				],
+				[
+					"result",
+					"Object",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"getDirList()": {
+			"Syntax": "**.getDirList**()->result : Object",
+			"Params": [
+				[
+					"result",
+					"Object",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"setCurrentWorkingDir()": {
+			"Syntax": "**.setCurrentWorkingDir**( *dir* : Text; *createMissingDirs* : Boolean )->result : Object",
+			"Params": [
+				[
+					"dir",
+					"Text",
+					"->"
+				],
+				[
+					"createMissingDirs",
+					"Boolean",
+					"->"
+				],
+				[
+					"result",
+					"Object",
+					"<-"
+				]
+			],
+			"Summary": ""
+		}
+	}
+}

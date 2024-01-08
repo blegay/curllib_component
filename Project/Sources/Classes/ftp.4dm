@@ -1,6 +1,8 @@
 
-
+//Class: before
 Class constructor($protocol : Text; $host : Text; $login : Text; $password : Text; $dir : Text)
+	//Class: before
+	// MARK: - fzf
 	
 	CURL__init
 	
@@ -39,7 +41,7 @@ Class constructor($protocol : Text; $host : Text; $login : Text; $password : Tex
 	//     CHECK_CURLOPT_VALUE("USESSL_CONTROL",CURLUSESSL_CONTROL)
 	//     CHECK_CURLOPT_VALUE("USESSL_ALL",CURLUSESSL_ALL)
 	If ($protocol="ftp")
-		This:C1470.defaultOptions.USE_SSL:="USESSL_TRY"
+		This:C1470.defaultOptions.USE_SSL:="USESSL_NONE"
 	Else 
 		This:C1470.defaultOptions.USE_SSL:="USESSL_ALL"
 	End if 
@@ -79,6 +81,7 @@ Class constructor($protocol : Text; $host : Text; $login : Text; $password : Tex
 	This:C1470.progressId:=0
 	
 Function setCurrentWorkingDir($dir : Text; $createMissingDirs : Boolean)->$result : Object
+	// hello
 	
 	// $createMissingDirs : default false
 	
@@ -92,15 +95,14 @@ Function setCurrentWorkingDir($dir : Text; $createMissingDirs : Boolean)->$resul
 	
 	If (Length:C16($dir)>0)
 		
+		// should always end with "/"
 		If (Substring:C12($dir; Length:C16($dir); 1)#"/")
 			$dir:=$dir+"/"
 		End if 
 		
 		If (Substring:C12($dir; 1; 1)="/")  // absolute dir
-			//This.cwd:=$dir
 		Else   // relative dir
 			$dir:=This:C1470.cwd+$dir
-			//This.cwd:=$dir
 		End if 
 		
 		If (Count parameters:C259>1)
@@ -117,7 +119,7 @@ Function setCurrentWorkingDir($dir : Text; $createMissingDirs : Boolean)->$resul
 Function getCurrentWorkingDir->$dir : Text
 	$dir:=This:C1470.cwd
 	
-Function send($file : 4D:C1709.file; $remoteFilename : Text)->$result : Object
+Function send($file : 4D:C1709.File; $remoteFilenameParam : Text)->$result : Object
 	
 	$result:=New object:C1471
 	$result.success:=False:C215
@@ -128,7 +130,12 @@ Function send($file : 4D:C1709.file; $remoteFilename : Text)->$result : Object
 	$result.command:=""
 	
 	If ($file.exists)
+		var $remoteFilename : Text
+		
 		Case of 
+			: (Count parameters:C259>1)
+				$remoteFilename:=$remoteFilenameParam
+				
 			: ($remoteFilename=Null:C1517)
 				$remoteFilename:=$file.fullName
 				
@@ -140,6 +147,7 @@ Function send($file : 4D:C1709.file; $remoteFilename : Text)->$result : Object
 		$options:=This:C1470._defaultOptions($remoteFilename)
 		
 		$options.FTP_CREATE_MISSING_DIRS:=1
+		$options.RESUME_FROM:=0
 		
 		$options.READDATA:=$file.platformPath
 		
@@ -185,7 +193,7 @@ Function send($file : 4D:C1709.file; $remoteFilename : Text)->$result : Object
 		CURL__moduleDebugDateTimeLine(4; Current method name:C684; "file : \""+$file.path+"\" not found")
 	End if 
 	
-Function receive($remoteFilename : Text; $file : 4D:C1709.file)->$result : Object
+Function receive($remoteFilename : Text; $file : 4D:C1709.File)->$result : Object
 	
 	$result:=New object:C1471
 	$result.success:=False:C215
@@ -203,6 +211,8 @@ Function receive($remoteFilename : Text; $file : 4D:C1709.file)->$result : Objec
 		
 		var $options : Object
 		$options:=This:C1470._defaultOptions($remoteFilename)
+		
+		$options.RESUME_FROM:=0
 		
 		$options.WRITEDATA:=$file.platformPath
 		
@@ -663,6 +673,9 @@ Function getDirList()->$result : Object
 		$result.ftpparse:=$error.ftpparse.copy()
 		//$result.ftpparse:=$error.ftpparse
 		
+		// sort by filename/path
+		$result.ftpparse:=$result.ftpparse.orderBy("path asc")
+		
 		// if all names start with a space, it is probably a bug (seen with a "ProFTPD Server (ProFTPD)")
 		// so remove leading space from each path...
 		If ($result.ftpparse.query("path = :1"; " @").length=$result.ftpparse.length)
@@ -979,23 +992,35 @@ Function toDebug($options : Object)->$debug : Object
 			
 	End case 
 	
-Function _defaultOptions($remoteFilename : Text)->$options : Object
+Function toUrl($remotePath : Text)->$url : Text
 	
-	var $remotePath : Text
+	var $remotePathEscaped : Text
+	If (Count parameters:C259=0)
+		$remotePathEscaped:=CURL_urlPathEscape(This:C1470.cwd)
+	Else 
+		$remotePathEscaped:=CURL_urlPathEscape(This:C1470.cwd+$remotePath)
+	End if 
+	
+	$url:=This:C1470.protocol+"://"+This:C1470.host+Choose:C955(This:C1470.port>0; ":"+String:C10(This:C1470.port); "")+$remotePathEscaped
+	
+Function _defaultOptions($remoteFilenameParam : Text)->$options : Object
+	
+	var $remoteFilename : Text
 	Case of 
 		: (Count parameters:C259=0)
-			$remotePath:=This:C1470.cwd
+			$remoteFilename:=""
 			
 		: ($remoteFilename=Null:C1517)
-			$remotePath:=This:C1470.cwd
+			$remoteFilename:=""
 			
 		Else 
-			$remotePath:=This:C1470.cwd+$remoteFilename
+			$remoteFilename:=$remoteFilenameParam
 	End case 
 	
 	$options:=OB Copy:C1225(This:C1470.defaultOptions)
 	
-	$options.URL:=This:C1470._toUrl($remotePath)
+	$options.URL:=This:C1470.toUrl($remoteFilename)
+	
 	If (This:C1470.login#Null:C1517)
 		$options.USERNAME:=This:C1470.login
 	End if 
@@ -1032,8 +1057,6 @@ Function _defaultOptions($remoteFilename : Text)->$options : Object
 		
 	End if 
 	
-Function _toUrl($remotePath : Text)->$url : Text
-	$url:=This:C1470.protocol+"://"+This:C1470.host+Choose:C955(This:C1470.port>0; ":"+String:C10(This:C1470.port); "")+CURL_urlPathEscape($remotePath)
 	
 Function _debugDefaultDirGet()->$folder : 4D:C1709.Folder
 	
