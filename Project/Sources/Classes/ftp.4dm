@@ -32,14 +32,6 @@ Class constructor($protocol : Text; $host : Text; $login : Text; $password : Tex
 	//End if 
 	
 	This:C1470.defaultOptions:=New object:C1471
-	//If ($protocol#"ftp")
-	
-	This:C1470.defaultOptions.SSL_VERIFYPEER:=2
-	This:C1470.defaultOptions.SSL_VERIFYHOST:=1
-	CURL_sslParamsObj(This:C1470.defaultOptions)
-	If ($protocol="ftp")
-		This:C1470.defaultOptions.USE_SSL:="USESSL_TRY"
-	End if 
 	
 	//   /* USE_SSL */
 	//     CHECK_CURLOPT_VALUE("USESSL_NONE",CURLUSESSL_NONE)
@@ -67,8 +59,10 @@ Class constructor($protocol : Text; $host : Text; $login : Text; $password : Tex
 	//     CHECK_CURLOPT_VALUE("SSLVERSION_MAX_TLSv1_2",CURL_SSLVERSION_MAX_TLSv1_2)
 	//     CHECK_CURLOPT_VALUE("SSLVERSION_MAX_TLSv1_3",CURL_SSLVERSION_MAX_TLSv1_3)
 	
+	This:C1470.defaultOptions.SSL_VERIFYPEER:=2
+	This:C1470.defaultOptions.SSL_VERIFYHOST:=1
 	
-	//End if 
+	CURL_sslParamsObj(This:C1470.defaultOptions)
 	
 	This:C1470.debug:=False:C215
 	This:C1470.debugDir:=Null:C1517
