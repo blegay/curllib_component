@@ -120,7 +120,7 @@ Function setCurrentWorkingDir($dir : Text; $createMissingDirs : Boolean)->$resul
 Function getCurrentWorkingDir->$dir : Text
 	$dir:=This:C1470.cwd
 	
-Function send($file : 4D:C1709.File; $remoteFilename : Text)->$result : Object
+Function send($file : 4D:C1709.File; $remoteFilenameParam : Text)->$result : Object
 	
 	
 	$result:=New object:C1471
@@ -132,7 +132,12 @@ Function send($file : 4D:C1709.File; $remoteFilename : Text)->$result : Object
 	$result.command:=""
 	
 	If ($file.exists)
+		var $remoteFilename : Text
+		
 		Case of 
+			: (Count parameters:C259>1)
+				$remoteFilename:=$remoteFilenameParam
+				
 			: ($remoteFilename=Null:C1517)
 				$remoteFilename:=$file.fullName
 				
