@@ -41,7 +41,7 @@ Class constructor($protocol : Text; $host : Text; $login : Text; $password : Tex
 	//     CHECK_CURLOPT_VALUE("USESSL_CONTROL",CURLUSESSL_CONTROL)
 	//     CHECK_CURLOPT_VALUE("USESSL_ALL",CURLUSESSL_ALL)
 	If ($protocol="ftp")
-		This:C1470.defaultOptions.USE_SSL:="USESSL_TRY"
+		This:C1470.defaultOptions.USE_SSL:="USESSL_NONE"
 	Else 
 		This:C1470.defaultOptions.USE_SSL:="USESSL_ALL"
 	End if 
