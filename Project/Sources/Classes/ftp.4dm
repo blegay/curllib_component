@@ -672,6 +672,9 @@ Function getDirList()->$result : Object
 		$result.ftpparse:=$error.ftpparse.copy()
 		//$result.ftpparse:=$error.ftpparse
 		
+		// sort by filename/path
+		$result.ftpparse:=$result.ftpparse.orderBy("path asc")
+		
 		// if all names start with a space, it is probably a bug (seen with a "ProFTPD Server (ProFTPD)")
 		// so remove leading space from each path...
 		If ($result.ftpparse.query("path = :1"; " @").length=$result.ftpparse.length)
