@@ -28,11 +28,41 @@ Class constructor($protocol : Text; $host : Text; $login : Text; $password : Tex
 	This:C1470.password:=$password
 	
 	This:C1470.defaultOptions:=New object:C1471
-	If ($protocol#"ftp")
-		This:C1470.defaultOptions.SSL_VERIFYPEER:=2
-		This:C1470.defaultOptions.SSL_VERIFYHOST:=1
-		CURL_sslParamsObj(This:C1470.defaultOptions)
+	//If ($protocol#"ftp")
+	
+	This:C1470.defaultOptions.SSL_VERIFYPEER:=2
+	This:C1470.defaultOptions.SSL_VERIFYHOST:=1
+	CURL_sslParamsObj(This:C1470.defaultOptions)
+	If ($protocol="ftp")
+		This:C1470.defaultOptions.USE_SSL:="USESSL_TRY"
 	End if 
+	
+	//   /* USE_SSL */
+	//     CHECK_CURLOPT_VALUE("USESSL_NONE",CURLUSESSL_NONE)
+	//     CHECK_CURLOPT_VALUE("USESSL_TRY",CURLUSESSL_TRY)
+	//     CHECK_CURLOPT_VALUE("USESSL_CONTROL",CURLUSESSL_CONTROL)
+	//     CHECK_CURLOPT_VALUE("USESSL_ALL",CURLUSESSL_ALL)
+	// 
+	//     /* SSLVERSION, PROXY_SSLVERSION */
+	//     CHECK_CURLOPT_VALUE("SSLVERSION_DEFAULT",CURL_SSLVERSION_DEFAULT)
+	//     CHECK_CURLOPT_VALUE("SSLVERSION_TLSv1",CURL_SSLVERSION_TLSv1)
+	//     CHECK_CURLOPT_VALUE("SSLVERSION_SSLv2",CURL_SSLVERSION_SSLv2)
+	//     CHECK_CURLOPT_VALUE("SSLVERSION_SSLv3",CURL_SSLVERSION_SSLv3)
+	//     CHECK_CURLOPT_VALUE("SSLVERSION_TLSv1_0",CURL_SSLVERSION_TLSv1_0)
+	//     CHECK_CURLOPT_VALUE("SSLVERSION_TLSv1_1",CURL_SSLVERSION_TLSv1_1)
+	//     CHECK_CURLOPT_VALUE("SSLVERSION_TLSv1_2",CURL_SSLVERSION_TLSv1_2)
+	//     CHECK_CURLOPT_VALUE("SSLVERSION_TLSv1_3",CURL_SSLVERSION_TLSv1_3)
+	//     CHECK_CURLOPT_VALUE("SSLVERSION_MAX_DEFAULT",CURL_SSLVERSION_MAX_DEFAULT)
+	//     CHECK_CURLOPT_VALUE("SSLVERSION_MAX_TLSv1_0",CURL_SSLVERSION_MAX_TLSv1_0)
+	//     CHECK_CURLOPT_VALUE("SSLVERSION_MAX_TLSv1_1",CURL_SSLVERSION_MAX_TLSv1_1)
+	//     CHECK_CURLOPT_VALUE("SSLVERSION_MAX_TLSv1_2",CURL_SSLVERSION_MAX_TLSv1_2)
+	//     CHECK_CURLOPT_VALUE("SSLVERSION_MAX_TLSv1_3",CURL_SSLVERSION_MAX_TLSv1_3)
+	
+	
+	//End if 
+	
+	This:C1470.debug:=False:C215
+	This:C1470.debugDir:=Null:C1517
 	
 	This:C1470.cwd:="/"
 	If (Count parameters:C259>4)
@@ -85,6 +115,8 @@ Function send($file : 4D:C1709.file; $remoteFilename : Text)->$result : Object
 	$result.errorCode:=-1
 	$result.errorMessage:="unkown error"
 	$result.errorDetail:=New object:C1471
+	$result.options:=Null:C1517
+	$result.command:=""
 	
 	If ($file.exists)
 		Case of 
@@ -101,6 +133,9 @@ Function send($file : 4D:C1709.file; $remoteFilename : Text)->$result : Object
 		$options.FTP_CREATE_MISSING_DIRS:=1
 		
 		$options.READDATA:=$file.platformPath
+		
+		$result.options:=This:C1470._toDebug($options)
+		$result.command:="cURL_FTP_Send"
 		
 		var $error : Object
 		var $data : Blob
@@ -148,6 +183,8 @@ Function receive($remoteFilename : Text; $file : 4D:C1709.file)->$result : Objec
 	$result.errorCode:=-1
 	$result.errorMessage:="unkown error"
 	$result.errorDetail:=New object:C1471
+	$result.options:=Null:C1517
+	$result.command:=""
 	
 	If (Not:C34($file.exists))
 		
@@ -159,6 +196,9 @@ Function receive($remoteFilename : Text; $file : 4D:C1709.file)->$result : Objec
 		$options:=This:C1470._defaultOptions($remoteFilename)
 		
 		$options.WRITEDATA:=$file.platformPath
+		
+		$result.options:=This:C1470._toDebug($options)
+		$result.command:="cURL_FTP_Receive"
 		
 		var $error : Object
 		var $data : Blob
@@ -204,9 +244,14 @@ Function delete($remoteFilename : Text)->$result : Object
 	$result.errorCode:=-1
 	$result.errorMessage:="unkown error"
 	$result.errorDetail:=New object:C1471
+	$result.options:=Null:C1517
+	$result.command:=""
 	
 	var $options : Object
 	$options:=This:C1470._defaultOptions($remoteFilename)
+	
+	$result.options:=This:C1470._toDebug($options)
+	$result.command:="cURL_FTP_Delete"
 	
 	var $error : Object
 	
@@ -229,16 +274,22 @@ Function delete($remoteFilename : Text)->$result : Object
 		CURL__moduleDebugDateTimeLine(2; Current method name:C684; "cURL_FTP_Delete error : "+String:C10($error.status)+", remote filename : \""+$remoteFilename+"\", options : "+JSON Stringify:C1217(This:C1470._toDebug($options))+", error : "+JSON Stringify:C1217($error))
 	End if 
 	
-Function system($systemPtr : Pointer)->$result : Object
+Function system()->$result : Object
 	
 	$result:=New object:C1471
 	$result.success:=False:C215
 	$result.errorCode:=-1
 	$result.errorMessage:="unkown error"
 	$result.errorDetail:=New object:C1471
+	$result.system:=""
+	$result.options:=Null:C1517
+	$result.command:=""
 	
 	var $options : Object
 	$options:=This:C1470._defaultOptions()
+	
+	$result.options:=This:C1470._toDebug($options)
+	$result.command:="cURL_FTP_System"
 	
 	var $error : Object
 	var $system : Text
@@ -252,9 +303,9 @@ Function system($systemPtr : Pointer)->$result : Object
 	
 	$result.errorDetail:=$error
 	
-	$systemPtr->:=$system
 	
 	If ($error.status=0)
+		$result.system:=$system
 		
 		If ($system="")  // bug in plugin v4.6.2 ?
 			
@@ -281,7 +332,7 @@ Function system($systemPtr : Pointer)->$result : Object
 					ARRAY LONGINT:C221($tl_len; 0)
 					If (Match regex:C1019($regex; $systemLine; 1; $tl_pos; $tl_len))
 						$system:=Substring:C12($systemLine; $tl_pos{1}; $tl_len{1})
-						$systemPtr->:=$system
+						$result.system:=$system
 						CURL__moduleDebugDateTimeLine(2; Current method name:C684; "system : \""+$system+"\", workaround, data extracted from error.headerInfo \r"+Replace string:C233($error.headerInfo; "\r\n"; "\r"; *))
 					End if 
 					ARRAY LONGINT:C221($tl_pos; 0)
@@ -309,11 +360,16 @@ Function getDirList()->$result : Object
 	$result.errorDetail:=New object:C1471
 	$result.dirList:=""
 	$result.ftpparse:=Null:C1517
+	$result.options:=Null:C1517
+	$result.command:=""
 	
 	var $options : Object
 	$options:=This:C1470._defaultOptions()
 	
 	$options.FTP_USE_MLSD:=True:C214
+	
+	$result.options:=This:C1470._toDebug($options)
+	$result.command:="cURL_FTP_GetDirList"
 	
 	If (False:C215)
 		// LIST
@@ -618,7 +674,6 @@ Function getDirList()->$result : Object
 	
 Function getFileInfos($filename : Text)->$result : Object
 	
-	
 	$result:=New object:C1471
 	$result.success:=False:C215
 	$result.errorCode:=-1
@@ -626,11 +681,16 @@ Function getFileInfos($filename : Text)->$result : Object
 	$result.errorDetail:=New object:C1471
 	$result.fileInfo:=Null:C1517
 	$result.fileExists:=Null:C1517
+	$result.options:=Null:C1517
+	$result.command:=""
 	
 	If ($filename#"")
 		
 		var $options : Object
 		$options:=This:C1470._defaultOptions($filename)
+		
+		$result.options:=This:C1470._toDebug($options)
+		$result.command:="cURL_FTP_GetFileInfo"
 		
 		var $error : Object
 		
@@ -686,6 +746,8 @@ Function makeDir($dirName : Text)->$result : Object
 	$result.errorCode:=-1
 	$result.errorMessage:="unkown error"
 	$result.errorDetail:=New object:C1471
+	$result.options:=Null:C1517
+	$result.command:=""
 	
 	If ($dirName#"")
 		
@@ -693,6 +755,9 @@ Function makeDir($dirName : Text)->$result : Object
 		$options:=This:C1470._defaultOptions($dirName)
 		
 		$options.FTP_CREATE_MISSING_DIRS:=1
+		
+		$result.options:=This:C1470._toDebug($options)
+		$result.command:="cURL_FTP_MakeDir"
 		
 		var $error : Object
 		
@@ -728,11 +793,16 @@ Function removeDir($dirName : Text)->$result : Object
 	$result.errorCode:=-1
 	$result.errorMessage:="unkown error"
 	$result.errorDetail:=New object:C1471
+	$result.options:=Null:C1517
+	$result.command:=""
 	
 	If ($dirName#"")
 		
 		var $options : Object
 		$options:=This:C1470._defaultOptions($dirName)
+		
+		$result.options:=This:C1470._toDebug($options)
+		$result.command:="cURL_FTP_RemoveDir"
 		
 		var $error : Object
 		
@@ -784,6 +854,8 @@ Function printDir($dirName : Text)->$result : Object
 	$result.errorDetail:=New object:C1471
 	$result.dirList:=""
 	$result.ftpparse:=Null:C1517
+	$result.options:=Null:C1517
+	$result.command:=""
 	
 	var $dir : Text
 	$dir:=$dirName
@@ -800,6 +872,9 @@ Function printDir($dirName : Text)->$result : Object
 	$options:=This:C1470._defaultOptions($dir)
 	
 	$options.FTP_CREATE_MISSING_DIRS:=1
+	
+	$result.options:=This:C1470._toDebug($options)
+	$result.command:="cURL_FTP_PrintDir"
 	
 	var $error : Object
 	
@@ -833,12 +908,18 @@ Function rename($oldName : Text; $newName : Text)->$result : Object
 	$result.errorCode:=-1
 	$result.errorMessage:="unkown error"
 	$result.errorDetail:=New object:C1471
+	$result.options:=Null:C1517
+	$result.command:=""
+	
 	
 	If (($oldName#"") & ($newName#""))
 		
 		var $options : Object
 		$options:=This:C1470._defaultOptions($oldName)
 		$options.RENAME_TO:=$newName
+		
+		$result.options:=This:C1470._toDebug($options)
+		$result.command:="cURL_FTP_Rename"
 		
 		var $error : Object
 		
@@ -888,16 +969,25 @@ Function _defaultOptions($remoteFilename : Text)->$options : Object
 	$options.USERNAME:=This:C1470.login
 	$options.PASSWORD:=This:C1470.password
 	
-	If (Bool:C1537($options.debug))
+	If (Bool:C1537(This:C1470.debug))
 		
 		var $folder : 4D:C1709.Folder
-		If (OB Instance of:C1731($options.debugDir; 4D:C1709.Folder))
-			$folder:=$options.debugDir
-			If (Not:C34($folder.exists))
-				$folder.create()
-			End if 
-		Else 
-			$folder:=Folder:C1567(Temporary folder:C486; fk posix path:K87:1)
+		
+		Case of 
+			: (This:C1470.debugDir=Null:C1517)
+				$folder:=This:C1470._debugDefaultDirGet()
+				This:C1470.debugDir:=$folder
+				
+			: (OB Instance of:C1731(This:C1470.debugDir; 4D:C1709.Folder))
+				$folder:=This:C1470.debugDir
+				
+			Else 
+				$folder:=This:C1470._debugDefaultDirGet()
+				This:C1470.debugDir:=$folder
+				
+		End case 
+		If (Not:C34($folder.exists))
+			$folder.create()
 		End if 
 		
 		var $timestamp : Text
@@ -912,6 +1002,10 @@ Function _defaultOptions($remoteFilename : Text)->$options : Object
 		$options.DEBUG:=$debugDir.platformPath
 		
 	End if 
+	
+Function _debugDefaultDirGet()->$folder : 4D:C1709.Folder
+	
+	$folder:=Folder:C1567(Temporary folder:C486; fk platform path:K87:2).folder("curllib_component_ftp")
 	
 Function _progressInit($options : Object)
 	
