@@ -95,15 +95,14 @@ Function setCurrentWorkingDir($dir : Text; $createMissingDirs : Boolean)->$resul
 	
 	If (Length:C16($dir)>0)
 		
+		// should always end with "/"
 		If (Substring:C12($dir; Length:C16($dir); 1)#"/")
 			$dir:=$dir+"/"
 		End if 
 		
 		If (Substring:C12($dir; 1; 1)="/")  // absolute dir
-			//This.cwd:=$dir
 		Else   // relative dir
 			$dir:=This:C1470.cwd+$dir
-			//This.cwd:=$dir
 		End if 
 		
 		If (Count parameters:C259>1)
@@ -121,7 +120,6 @@ Function getCurrentWorkingDir->$dir : Text
 	$dir:=This:C1470.cwd
 	
 Function send($file : 4D:C1709.File; $remoteFilenameParam : Text)->$result : Object
-	
 	
 	$result:=New object:C1471
 	$result.success:=False:C215
@@ -995,30 +993,31 @@ Function toUrl($remotePath : Text)->$url : Text
 	
 	var $remotePathEscaped : Text
 	If (Count parameters:C259=0)
-		$remotePathEscaped:=CURL_urlPathEscape("")
+		$remotePathEscaped:=CURL_urlPathEscape(This:C1470.cwd)
 	Else 
-		$remotePathEscaped:=CURL_urlPathEscape($remotePath)
+		$remotePathEscaped:=CURL_urlPathEscape(This:C1470.cwd+$remotePath)
 	End if 
 	
 	$url:=This:C1470.protocol+"://"+This:C1470.host+Choose:C955(This:C1470.port>0; ":"+String:C10(This:C1470.port); "")+$remotePathEscaped
 	
-Function _defaultOptions($remoteFilename : Text)->$options : Object
+Function _defaultOptions($remoteFilenameParam : Text)->$options : Object
 	
-	var $remotePath : Text
+	var $remoteFilenameParam : Text
 	Case of 
 		: (Count parameters:C259=0)
-			$remotePath:=This:C1470.cwd
+			$remoteFilename:=""
 			
 		: ($remoteFilename=Null:C1517)
-			$remotePath:=This:C1470.cwd
+			$remoteFilename:=""
 			
 		Else 
-			$remotePath:=This:C1470.cwd+$remoteFilename
+			$remoteFilename:=$remoteFilenameParam
 	End case 
 	
 	$options:=OB Copy:C1225(This:C1470.defaultOptions)
 	
-	$options.URL:=This:C1470.toUrl($remotePath)
+	$options.URL:=This:C1470.toUrl($remoteFilename)
+	
 	If (This:C1470.login#Null:C1517)
 		$options.USERNAME:=This:C1470.login
 	End if 
