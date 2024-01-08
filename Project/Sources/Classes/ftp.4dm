@@ -1005,7 +1005,7 @@ Function toUrl($remotePath : Text)->$url : Text
 	
 Function _defaultOptions($remoteFilenameParam : Text)->$options : Object
 	
-	var $remoteFilenameParam : Text
+	var $remoteFilename : Text
 	Case of 
 		: (Count parameters:C259=0)
 			$remoteFilename:=""
