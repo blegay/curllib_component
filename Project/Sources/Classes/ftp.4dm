@@ -147,6 +147,7 @@ Function send($file : 4D:C1709.File; $remoteFilenameParam : Text)->$result : Obj
 		$options:=This:C1470._defaultOptions($remoteFilename)
 		
 		$options.FTP_CREATE_MISSING_DIRS:=1
+		$options.RESUME_FROM:=0
 		
 		$options.READDATA:=$file.platformPath
 		
@@ -210,6 +211,8 @@ Function receive($remoteFilename : Text; $file : 4D:C1709.File)->$result : Objec
 		
 		var $options : Object
 		$options:=This:C1470._defaultOptions($remoteFilename)
+		
+		$options.RESUME_FROM:=0
 		
 		$options.WRITEDATA:=$file.platformPath
 		
