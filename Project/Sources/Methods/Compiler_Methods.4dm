@@ -1,4 +1,4 @@
-//%attributes = {"invisible":false,"preemptive":"incapable","shared":true}
+//%attributes = {"invisible":true,"preemptive":"incapable","shared":false}
 C_POINTER:C301(UTL_initAuto; $1)
 C_TEXT:C284(UTL_initAuto; $2)
 C_TEXT:C284(UTL_initAuto; $3)
