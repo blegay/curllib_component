@@ -1,6 +1,8 @@
 
-
+//Class: before
 Class constructor($protocol : Text; $host : Text; $login : Text; $password : Text; $dir : Text)
+	//Class: before
+	// MARK: - fzf
 	
 	CURL__init
 	
@@ -79,6 +81,7 @@ Class constructor($protocol : Text; $host : Text; $login : Text; $password : Tex
 	This:C1470.progressId:=0
 	
 Function setCurrentWorkingDir($dir : Text; $createMissingDirs : Boolean)->$result : Object
+	// hello
 	
 	// $createMissingDirs : default false
 	
@@ -117,7 +120,8 @@ Function setCurrentWorkingDir($dir : Text; $createMissingDirs : Boolean)->$resul
 Function getCurrentWorkingDir->$dir : Text
 	$dir:=This:C1470.cwd
 	
-Function send($file : 4D:C1709.file; $remoteFilename : Text)->$result : Object
+Function send($file : 4D:C1709.File; $remoteFilename : Text)->$result : Object
+	
 	
 	$result:=New object:C1471
 	$result.success:=False:C215
@@ -185,7 +189,7 @@ Function send($file : 4D:C1709.file; $remoteFilename : Text)->$result : Object
 		CURL__moduleDebugDateTimeLine(4; Current method name:C684; "file : \""+$file.path+"\" not found")
 	End if 
 	
-Function receive($remoteFilename : Text; $file : 4D:C1709.file)->$result : Object
+Function receive($remoteFilename : Text; $file : 4D:C1709.File)->$result : Object
 	
 	$result:=New object:C1471
 	$result.success:=False:C215
@@ -979,6 +983,17 @@ Function toDebug($options : Object)->$debug : Object
 			
 	End case 
 	
+Function toUrl($remotePath : Text)->$url : Text
+	
+	var $remotePathEscaped : Text
+	If (Count parameters:C259=0)
+		$remotePathEscaped:=CURL_urlPathEscape("")
+	Else 
+		$remotePathEscaped:=CURL_urlPathEscape($remotePath)
+	End if 
+	
+	$url:=This:C1470.protocol+"://"+This:C1470.host+Choose:C955(This:C1470.port>0; ":"+String:C10(This:C1470.port); "")+$remotePathEscaped
+	
 Function _defaultOptions($remoteFilename : Text)->$options : Object
 	
 	var $remotePath : Text
@@ -995,7 +1010,7 @@ Function _defaultOptions($remoteFilename : Text)->$options : Object
 	
 	$options:=OB Copy:C1225(This:C1470.defaultOptions)
 	
-	$options.URL:=This:C1470._toUrl($remotePath)
+	$options.URL:=This:C1470.toUrl($remotePath)
 	If (This:C1470.login#Null:C1517)
 		$options.USERNAME:=This:C1470.login
 	End if 
@@ -1032,8 +1047,6 @@ Function _defaultOptions($remoteFilename : Text)->$options : Object
 		
 	End if 
 	
-Function _toUrl($remotePath : Text)->$url : Text
-	$url:=This:C1470.protocol+"://"+This:C1470.host+Choose:C955(This:C1470.port>0; ":"+String:C10(This:C1470.port); "")+CURL_urlPathEscape($remotePath)
 	
 Function _debugDefaultDirGet()->$folder : 4D:C1709.Folder
 	
