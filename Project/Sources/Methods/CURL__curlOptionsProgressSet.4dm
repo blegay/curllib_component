@@ -65,7 +65,7 @@
   //  //             "FOLLOWLOCATION": 1,
   //  //             "SSL_VERIFYHOST": 2,
   //  //             "SSL_VERIFYPEER": 1,
-  //  //             "USE_SSL": "CURLUSESSL_ALL",
+  //  //             "USE_SSL": "USESSL_ALL",
   //  //             "CAINFO": "Macintosh HD:Library:Application Support:4D:com.ac-consulting:curllib-component:cacert.pem",
   //  //             "CONNECTTIMEOUT": 10,
   //  //             "TIMEOUT": 120,

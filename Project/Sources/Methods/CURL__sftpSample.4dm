@@ -38,7 +38,7 @@ $options.SSL_VERIFYHOST:=0
 // par exemple ce fichier "https://curl.se/ca/cacert.pem"
 // $vo_curlOpts.SSL_VERIFYPEER:=1
 // $vo_curlOpts.SSL_VERIFYHOST:=2
-// $vo_curlOpts.USE_SSL:="CURLUSESSL_ALL"
+// $vo_curlOpts.USE_SSL:="USESSL_ALL"
 // $vo_curlOpts.CAINFO:="Macintosh HD:Users:...:Resources:certs:cacert.pem"
 
 // $options.UPLOAD:=1  // nécessaire ?
