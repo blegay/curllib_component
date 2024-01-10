@@ -11,20 +11,18 @@ Class constructor($protocol : Text; $host : Text; $login : Text; $password : Tex
 	Case of 
 		: ($protocol="ftp")
 			This:C1470.protocol:="ftp"
-			This:C1470.port:=21
 			
 		: ($protocol="sftp")
 			This:C1470.protocol:="sftp"
-			This:C1470.port:=22
 			
 		: ($protocol="ftps")
 			This:C1470.protocol:="ftps"
-			This:C1470.port:=990  // default to implicit ftps, but can also be 21 for explicit ftps
 			
 		Else 
 			This:C1470.protocol:="ftp"
-			This:C1470.port:=21
 	End case 
+	
+	This:C1470.port:=This:C1470._defaultPort(This:C1470.protocol)
 	
 	//If (Count parameters>2)
 	This:C1470.login:=$login
@@ -92,6 +90,8 @@ Function setCurrentWorkingDir($dir : Text; $createMissingDirs : Boolean)->$resul
 	$result.errorDetail:=New object:C1471
 	$result.dirList:=""
 	$result.ftpparse:=Null:C1517
+	$result.options:=Null:C1517
+	$result.command:=""
 	
 	If (Length:C16($dir)>0)
 		
@@ -118,6 +118,29 @@ Function setCurrentWorkingDir($dir : Text; $createMissingDirs : Boolean)->$resul
 	
 Function getCurrentWorkingDir->$dir : Text
 	$dir:=This:C1470.cwd
+	
+Function setCurrentWorkingDirToParent()->$result : Object
+	var $pathColl : Collection
+	$pathColl:=Split string:C1554(This:C1470.cwd; "/"; sk ignore empty strings:K86:1)
+	
+	var $cwd : Text
+	If ($pathColl.length>0)
+		var $last : Text
+		$last:=$pathColl.pop()
+		
+		If ($pathColl.length>0)
+			$cwd:="/"+$pathColl.join("/")+"/"
+		Else 
+			$cwd:="/"
+		End if 
+		$result:=This:C1470.setCurrentWorkingDir($cwd)
+	Else 
+		$cwd:="/"
+		$result:=This:C1470.setCurrentWorkingDir($cwd)
+		$result.success:=False:C215
+		$result.errorCode:=-2
+		$result.errorMessage:="already at \"/\""
+	End if 
 	
 Function send($file : 4D:C1709.File; $remoteFilenameParam : Text)->$result : Object
 	
@@ -883,9 +906,6 @@ Function printDir($dirName : Text; $createMissingDirs : Boolean)->$result : Obje
 	var $dir : Text
 	$dir:=$dirName
 	If ($dir#"")
-		If (Substring:C12($dir; 1; 1)="/")
-			$dir:=Substring:C12($dir; 2)
-		End if 
 		If (Substring:C12($dir; Length:C16($dir); 1)#"/")
 			$dir:=$dir+"/"
 		End if 
@@ -994,14 +1014,31 @@ Function toDebug($options : Object)->$debug : Object
 	
 Function toUrl($remotePath : Text)->$url : Text
 	
-	var $remotePathEscaped : Text
-	If (Count parameters:C259=0)
-		$remotePathEscaped:=CURL_urlPathEscape(This:C1470.cwd)
-	Else 
-		$remotePathEscaped:=CURL_urlPathEscape(This:C1470.cwd+$remotePath)
-	End if 
+	var $portStr : Text
+	Case of 
+		: (This:C1470._defaultPort(This:C1470.protocol)=This:C1470.port)  // This.protocol="ftp" and This.port=21
+			$portStr:=""
+			
+		: (This:C1470.port>0)
+			$portStr:=":"+String:C10(This:C1470.port)
+			
+		Else 
+			$portStr:=""
+	End case 
 	
-	$url:=This:C1470.protocol+"://"+This:C1470.host+Choose:C955(This:C1470.port>0; ":"+String:C10(This:C1470.port); "")+$remotePathEscaped
+	var $remotePathEscaped : Text
+	Case of 
+		: (Count parameters:C259=0)
+			$remotePathEscaped:=CURL_urlPathEscape(This:C1470.cwd)
+			
+		: (Substring:C12($remotePath; 1; 1)="/")
+			$remotePathEscaped:=CURL_urlPathEscape($remotePath)
+			
+		Else 
+			$remotePathEscaped:=CURL_urlPathEscape(This:C1470.cwd+$remotePath)
+	End case 
+	
+	$url:=This:C1470.protocol+"://"+This:C1470.host+$portStr+$remotePathEscaped
 	
 Function _defaultOptions($remoteFilenameParam : Text)->$options : Object
 	
@@ -1057,7 +1094,6 @@ Function _defaultOptions($remoteFilenameParam : Text)->$options : Object
 		
 	End if 
 	
-	
 Function _debugDefaultDirGet()->$folder : 4D:C1709.Folder
 	
 	$folder:=Folder:C1567(Temporary folder:C486; fk platform path:K87:2).folder("curllib_component_ftp")
@@ -1071,6 +1107,22 @@ Function _debugDefaultDirName()->$dirName : Text
 	$timestamp:=Replace string:C233($timestamp; "."; "-"; *)  // 2016-12-12T13-31-29-477Z
 	
 	$dirName:="debug_"+$timestamp+"_"+Lowercase:C14(Generate UUID:C1066)
+	
+Function _defaultPort($protocol : Text)->$port : Integer
+	
+	Case of 
+		: ($protocol="ftp")
+			$port:=21
+			
+		: ($protocol="sftp")
+			$port:=22
+			
+		: ($protocol="ftps")
+			$port:=990  // default to implicit ftps, but can also be 21 for explicit ftps
+			
+		Else 
+			$port:=21
+	End case 
 	
 Function _progressInit($options : Object)
 	

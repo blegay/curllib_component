@@ -5,12 +5,12 @@
 //@scope : public
 //@deprecated : no
 //@description : This function returns the component version 
-//@parameter[0-OUT-componentVersion-TEXT] : component version (e.g. "4.01.00")
+//@parameter[0-OUT-componentVersion-TEXT] : component version (e.g. "4.01.01")
 //@notes : 
 //@example : CURL_componentVersionGet
 //@see : 
-//@version : 4.01.00
-//@author : Bruno LEGAY (BLE)) - Copyrights A&C Consulting 2023
+//@version : 4.01.01
+//@author : Bruno LEGAY (BLE)) - Copyrights A&C Consulting 2024
 //@history : 
 //  CREATION : Bruno LEGAY (BLE) - 26/09/2017, 17:06:48 - v1.00.00
 //  MODIFICATION : Bruno LEGAY (BLE) - 27/09/2017, 18:31:11 - v1.00.01
@@ -75,18 +75,26 @@
 //  MODIFICATION : Bruno LEGAY (BLE) - 06/01/2024, 16:55:15 - v4.01.00
 //    - added CURL_ftpNew()
 //    - ftp class
+//  MODIFICATION : Bruno LEGAY (BLE) - 10/01/2024, 18:25:20 - v4.01.01
+//    - ftp class : new function setCurrentWorkingDirToParent()
 //@xdoc-end
 //================================================================================
 
 C_TEXT:C284($0; $vt_componentVersion)
 
-//<Modif> Bruno LEGAY (BLE) (06/01/2024)
-$vt_componentVersion:="4.01.00"
-// - added CURL_ftpNew()
-// - ftp class
+//<Modif> Bruno LEGAY (BLE) (10/01/2024)
+$vt_componentVersion:="4.01.01"
+// - ftp class : new function setCurrentWorkingDirToParent()
 //<Modif>
 
 If (False:C215)
+	
+	//<Modif> Bruno LEGAY (BLE) (06/01/2024)
+	// $vt_componentVersion:="4.01.00"
+	// - added CURL_ftpNew()
+	// - ftp class
+	//<Modif>
+	
 	//<Modif> Bruno LEGAY (BLE) (03/01/2024)
 	// $vt_componentVersion:="4.00.04"
 	// - fix privilege error reading and writing preferences files
