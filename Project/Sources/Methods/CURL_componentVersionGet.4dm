@@ -78,7 +78,7 @@
 //  MODIFICATION : Bruno LEGAY (BLE) - 10/01/2024, 18:25:20 - v4.01.01
 //    - ftp class : new function setCurrentWorkingDirToParent()
 //  MODIFICATION : Bruno LEGAY (BLE) - 10/01/2024, 18:25:20 - v4.01.02
-//    - ftp class : new function setCurrentWorkingDirToParent()
+//    - ftp class : fix bug in _progressDeinit
 //    - update plugin to version 4.6.3
 //@xdoc-end
 //================================================================================

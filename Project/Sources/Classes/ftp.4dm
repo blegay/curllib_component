@@ -1153,9 +1153,12 @@ Function _progressDeinit()
 	
 	
 	If (This:C1470.progressId#0)
+		
 		//%T-
 		EXECUTE METHOD:C1007("CURL__progressClose"; *; This:C1470.progressId)
 		//%T+
+		
+		This:C1470.progressId:=0
 		This:C1470.PRIVATE:=""
 	End if 
 	
