@@ -5,11 +5,11 @@
 //@scope : public
 //@deprecated : no
 //@description : This function returns the component version 
-//@parameter[0-OUT-componentVersion-TEXT] : component version (e.g. "4.01.01")
+//@parameter[0-OUT-componentVersion-TEXT] : component version (e.g. "4.01.02")
 //@notes : 
 //@example : CURL_componentVersionGet
 //@see : 
-//@version : 4.01.01
+//@version : 4.01.02
 //@author : Bruno LEGAY (BLE)) - Copyrights A&C Consulting 2024
 //@history : 
 //  CREATION : Bruno LEGAY (BLE) - 26/09/2017, 17:06:48 - v1.00.00
@@ -77,17 +77,26 @@
 //    - ftp class
 //  MODIFICATION : Bruno LEGAY (BLE) - 10/01/2024, 18:25:20 - v4.01.01
 //    - ftp class : new function setCurrentWorkingDirToParent()
+//  MODIFICATION : Bruno LEGAY (BLE) - 10/01/2024, 18:25:20 - v4.01.02
+//    - ftp class : new function setCurrentWorkingDirToParent()
+//    - update plugin to version 4.6.3
 //@xdoc-end
 //================================================================================
 
 C_TEXT:C284($0; $vt_componentVersion)
 
-//<Modif> Bruno LEGAY (BLE) (10/01/2024)
-$vt_componentVersion:="4.01.01"
-// - ftp class : new function setCurrentWorkingDirToParent()
+//<Modif> Bruno LEGAY (BLE) (14/05/2024)
+$vt_componentVersion:="4.01.02"
+// - ftp class : fix bug in _progressDeinit
+// - update plugin to version 4.6.3
 //<Modif>
 
 If (False:C215)
+	
+	//<Modif> Bruno LEGAY (BLE) (10/01/2024)
+	// $vt_componentVersion:="4.01.01"
+	// - ftp class : new function setCurrentWorkingDirToParent()
+	//<Modif>
 	
 	//<Modif> Bruno LEGAY (BLE) (06/01/2024)
 	// $vt_componentVersion:="4.01.00"
