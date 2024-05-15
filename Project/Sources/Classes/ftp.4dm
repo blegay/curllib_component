@@ -210,6 +210,8 @@ Function send($file : 4D:C1709.File; $remoteFilenameParam : Text)->$result : Obj
 			CURL__moduleDebugDateTimeLine(2; Current method name:C684; "cURL_FTP_Send error : "+String:C10($error.status)+", file : \""+$file.path+"\" ("+String:C10($file.size)+" bytes), options : "+JSON Stringify:C1217(This:C1470.toDebug($options))+", error : "+JSON Stringify:C1217($error))
 		End if 
 		
+		This:C1470._logDebugDir("send"; $result)
+		
 	Else   // File not found
 		$result.errorCode:=-43
 		$result.errorMessage:="file : \""+$file.path+"\" not found"
@@ -273,6 +275,8 @@ Function receive($remoteFilename : Text; $file : 4D:C1709.File)->$result : Objec
 			CURL__moduleDebugDateTimeLine(2; Current method name:C684; "cURL_FTP_Receive error : "+String:C10($error.status)+", file : \""+$file.path+"\", options : "+JSON Stringify:C1217(This:C1470.toDebug($options))+", error : "+JSON Stringify:C1217($error))
 		End if 
 		
+		This:C1470._logDebugDir("receive"; $result)
+		
 	Else   // File already exist
 		$result.errorCode:=-43
 		$result.errorMessage:="file : \""+$file.path+"\" already exist"
@@ -315,6 +319,8 @@ Function delete($remoteFilename : Text)->$result : Object
 		$result.errorMessage:="curl "+This:C1470.protocol+" cURL_FTP_Delete error : "+String:C10($error.status)+" - "+CURL_errorToText($error.status)
 		CURL__moduleDebugDateTimeLine(2; Current method name:C684; "cURL_FTP_Delete error : "+String:C10($error.status)+", remote filename : \""+$remoteFilename+"\", options : "+JSON Stringify:C1217(This:C1470.toDebug($options))+", error : "+JSON Stringify:C1217($error))
 	End if 
+	
+	This:C1470._logDebugDir("delete"; $result)
 	
 Function system()->$result : Object
 	
@@ -392,6 +398,8 @@ Function system()->$result : Object
 		$result.errorMessage:="curl "+This:C1470.protocol+" cURL_FTP_System error : "+String:C10($error.status)+" - "+CURL_errorToText($error.status)
 		CURL__moduleDebugDateTimeLine(2; Current method name:C684; "cURL_FTP_System error : "+String:C10($error.status)+", options : "+JSON Stringify:C1217(This:C1470.toDebug($options))+", error : "+JSON Stringify:C1217($error))
 	End if 
+	
+	This:C1470._logDebugDir("system"; $result)
 	
 Function getDirList()->$result : Object
 	
@@ -717,6 +725,8 @@ Function getDirList()->$result : Object
 		CURL__moduleDebugDateTimeLine(2; Current method name:C684; "cURL_FTP_System error : "+String:C10($error.status)+", options : "+JSON Stringify:C1217(This:C1470.toDebug($options))+", error : "+JSON Stringify:C1217($error))
 	End if 
 	
+	This:C1470._logDebugDir("getDirList"; $result)
+	
 Function getFileInfos($filename : Text)->$result : Object
 	
 	$result:=New object:C1471
@@ -778,6 +788,8 @@ Function getFileInfos($filename : Text)->$result : Object
 			CURL__moduleDebugDateTimeLine(2; Current method name:C684; "cURL_FTP_GetFileInfo \""+$filename+"\", error : "+String:C10($error.status)+", options : "+JSON Stringify:C1217(This:C1470.toDebug($options))+", error : "+JSON Stringify:C1217($error))
 		End if 
 		
+		This:C1470._logDebugDir("getFileInfos"; $result)
+		
 	Else   // empty file name
 		$result.errorCode:=-43
 		$result.errorMessage:="empty file name"
@@ -824,6 +836,8 @@ Function makeDir($dirName : Text)->$result : Object
 			$result.errorMessage:="curl "+This:C1470.protocol+" cURL_FTP_MakeDir error : "+String:C10($error.status)+" - "+CURL_errorToText($error.status)
 			CURL__moduleDebugDateTimeLine(2; Current method name:C684; "cURL_FTP_MakeDir error : "+String:C10($error.status)+", dir : \""+$dirName+"\", options : "+JSON Stringify:C1217(This:C1470.toDebug($options))+", error : "+JSON Stringify:C1217($error))
 		End if 
+		
+		This:C1470._logDebugDir("makeDir"; $result)
 		
 	Else   // empty dir name
 		$result.errorCode:=-43
@@ -890,6 +904,8 @@ Function removeDir($dirName : Text)->$result : Object
 		CURL__moduleDebugDateTimeLine(4; Current method name:C684; "empty dir name")
 	End if 
 	
+	This:C1470._logDebugDir("removeDir"; $result)
+	
 Function printDir($dirName : Text; $createMissingDirs : Boolean)->$result : Object
 	// $createMissingDirs : default true
 	
@@ -947,6 +963,8 @@ Function printDir($dirName : Text; $createMissingDirs : Boolean)->$result : Obje
 		CURL__moduleDebugDateTimeLine(2; Current method name:C684; "cURL_FTP_RemoveDir error : "+String:C10($error.status)+", dir : \""+$dirName+"\", options : "+JSON Stringify:C1217(This:C1470.toDebug($options))+", error : "+JSON Stringify:C1217($error))
 	End if 
 	
+	This:C1470._logDebugDir("printDir"; $result)
+	
 Function rename($oldName : Text; $newName : Text)->$result : Object
 	
 	$result:=New object:C1471
@@ -956,7 +974,6 @@ Function rename($oldName : Text; $newName : Text)->$result : Object
 	$result.errorDetail:=New object:C1471
 	$result.options:=Null:C1517
 	$result.command:=""
-	
 	
 	If (($oldName#"") & ($newName#""))
 		
@@ -988,6 +1005,8 @@ Function rename($oldName : Text; $newName : Text)->$result : Object
 			$result.errorMessage:="curl "+This:C1470.protocol+" cURL_FTP_Rename \""+$oldName+"\" => \""+$newName+"\", error : "+String:C10($error.status)+" - "+CURL_errorToText($error.status)
 			CURL__moduleDebugDateTimeLine(2; Current method name:C684; "cURL_FTP_Rename \""+$oldName+"\" => \""+$newName+"\", error : "+String:C10($error.status)+", options : "+JSON Stringify:C1217(This:C1470.toDebug($options))+", error : "+JSON Stringify:C1217($error))
 		End if 
+		
+		This:C1470._logDebugDir("rename"; $result)
 		
 	Else   // empty file name
 		$result.errorCode:=-43
@@ -1162,5 +1181,10 @@ Function _progressDeinit()
 		This:C1470.PRIVATE:=""
 	End if 
 	
+Function _logDebugDir($context : Text; $result : Object)
+	
+	If (String:C10($result.options.DEBUG)#"")
+		CURL__moduleDebugDateTimeLine(Choose:C955($result.success; 4; 2); Current method name:C684; $context+" debug dir : \""+$result.options.DEBUG+"\". "+Choose:C955($result.success; "[OK]"; "[KO]"))
+	End if 
 	
 	
