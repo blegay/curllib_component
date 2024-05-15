@@ -170,11 +170,6 @@
 			"Params": [],
 			"Summary": ""
 		},
-		"Compiler_Methods": {
-			"Syntax": "**Compiler_Methods**()",
-			"Params": [],
-			"Summary": ""
-		},
 		"CURL_httpObjRequestBodySet": {
 			"Syntax": "**CURL_httpObjRequestBodySet**()",
 			"Params": [],
@@ -257,6 +252,22 @@
 		}
 	},
 	"ftp": {
+		"toUrl()": {
+			"Syntax": "**.toUrl**( *remotePath* : Text )->url : Text",
+			"Params": [
+				[
+					"remotePath",
+					"Text",
+					"->"
+				],
+				[
+					"url",
+					"Text",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
 		"toDebug()": {
 			"Syntax": "**.toDebug**( *options* : Object )->debug : Object",
 			"Params": [
@@ -348,6 +359,17 @@
 			],
 			"Summary": ""
 		},
+		"setCurrentWorkingDirToParent()": {
+			"Syntax": "**.setCurrentWorkingDirToParent**()->result : Object",
+			"Params": [
+				[
+					"result",
+					"Object",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
 		"getFileInfos()": {
 			"Syntax": "**.getFileInfos**( *filename* : Text )->result : Object",
 			"Params": [
@@ -386,7 +408,7 @@
 			"Summary": ""
 		},
 		"send()": {
-			"Syntax": "**.send**( *file* : 4D.File; *remoteFilename* : Text )->result : Object",
+			"Syntax": "**.send**( *file* : 4D.File; *remoteFilenameParam* : Text )->result : Object",
 			"Params": [
 				[
 					"file",
@@ -394,7 +416,7 @@
 					"->"
 				],
 				[
-					"remoteFilename",
+					"remoteFilenameParam",
 					"Text",
 					"->"
 				],
