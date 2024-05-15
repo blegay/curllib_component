@@ -35,6 +35,12 @@ $vo_curlVersion:=cURL_VersionInfo
 //$vo_curlVersion:=JSON Parse($vt_curlVersionJson)
 //<Modif>
 
+If (False:C215)  // curl plugin v3 (v4.6.3) => crash 4D Server v19
+	// {
+	//     "version": "8.6.0",
+	
+End if 
+
 If (False:C215)  // curl plugin v3 (v4.6.2)
 	// {
 	//     "version": "8.4.0",
@@ -80,6 +86,50 @@ If (False:C215)  // curl plugin v3 (v4.6.2)
 	//     "nghttp2_version": "1.58.0",
 	//     "zstd_version": "1.5.2"
 	// }
+End if 
+
+
+If (False:C215)  // curl plugin v3 (v4.4.12)
+	//  {
+	//    "version":  "7.81.0",
+	//    "version_num":  479488,
+	//    "host":  "x86_64-apple-darwin18.7.0",
+	//    "features":  368035741,
+	//    "ssl_version":  "(SecureTransport)  OpenSSL/1.1.1m",
+	//    "libz_version":  "1.2.11",
+	//    "protocols":  [
+	//      "dict",
+	//      "file",
+	//      "ftp",
+	//      "ftps",
+	//      "gopher",
+	//      "gophers",
+	//      "http",
+	//      "https",
+	//      "imap",
+	//      "imaps",
+	//      "ldap",
+	//      "ldaps",
+	//      "mqtt",
+	//      "pop3",
+	//      "pop3s",
+	//      "rtmp",
+	//      "rtsp",
+	//      "scp",
+	//      "sftp",
+	//      "smb",
+	//      "smbs",
+	//      "smtp",
+	//      "smtps",
+	//      "telnet",
+	//      "tftp"
+	//    ],
+	//    "libidn":  "2.3.2",
+	//    "libssh_version":  "libssh2/1.10.0",
+	//    "brotli_version":  "1.0.9",
+	//    "nghttp2_version":  "1.46.0",
+	//    "zstd_version":  "1.5.2"
+	//  }
 End if 
 
 If (False:C215)  // curl plugin v3
