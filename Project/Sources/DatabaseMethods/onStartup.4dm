@@ -31,8 +31,8 @@ CURL_assertSet(True:C214)
 
 Case of 
 	: (Is compiled mode:C492)
-	: (UTL_isHeadless)
-	: (UTL_launchedAsService)
+	: (Storage:C1525.curl.isHeadless)
+	: (Storage:C1525.curl.launchedAsService)
 	Else 
 		CURL__caCertUpdateInResDir
 End case 

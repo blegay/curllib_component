@@ -5,11 +5,11 @@
 //@scope : public
 //@deprecated : no
 //@description : This function returns the component version 
-//@parameter[0-OUT-componentVersion-TEXT] : component version (e.g. "4.01.03")
+//@parameter[0-OUT-componentVersion-TEXT] : component version (e.g. "4.01.04")
 //@notes : 
 //@example : CURL_componentVersionGet
 //@see : 
-//@version : 4.01.03
+//@version : 4.01.04
 //@author : Bruno LEGAY (BLE)) - Copyrights A&C Consulting 2024
 //@history : 
 //  CREATION : Bruno LEGAY (BLE) - 26/09/2017, 17:06:48 - v1.00.00
@@ -82,17 +82,25 @@
 //    - update plugin to version 4.6.3 (rollabck)
 //  MODIFICATION : Bruno LEGAY (BLE) - 10/01/2024, 16:43:25 - v4.01.03
 //    - ajout de commentaires et de debug
+//  MODIFICATION : Bruno LEGAY (BLE) - 16/05/2024, 16:35:11 - v4.01.04
+//    - fixed infinite beachball on 4D Server (workaround : no progress callback)
+//        cf https://support.4d.com/Cases/73787
 //@xdoc-end
 //================================================================================
 
 C_TEXT:C284($0; $vt_componentVersion)
 
-//<Modif> Bruno LEGAY (BLE) (15/05/2024)
-$vt_componentVersion:="4.01.03"
-// - ajout de commentaires et de debug
+//<Modif> Bruno LEGAY (BLE) (16/05/2024)
+$vt_componentVersion:="4.01.04"
+// - fixed infinite beachball on 4D Server (workaround : no progress callback)
+//     cf https://support.4d.com/Cases/73787
 //<Modif>
 
 If (False:C215)
+	//<Modif> Bruno LEGAY (BLE) (15/05/2024)
+	// $vt_componentVersion:="4.01.03"
+	// - ajout de commentaires et de debug
+	//<Modif>
 	
 	//<Modif> Bruno LEGAY (BLE) (14/05/2024)
 	// $vt_componentVersion:="4.01.02"

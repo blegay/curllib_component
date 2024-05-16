@@ -75,7 +75,11 @@ Class constructor($protocol : Text; $host : Text; $login : Text; $password : Tex
 	This:C1470.progress:=False:C215
 	This:C1470.progressAbortable:=False:C215
 	This:C1470.progressTitle:=""
-	This:C1470.progressCallback:="CURL_callback"
+	
+	//https://support.4d.com/Cases/73787
+	This:C1470.progressCallback:=Choose:C955(Storage:C1525.curl.progressAllowed; "CURL_callback"; "")
+	//This.progressCallback:="CURL_callback"
+	
 	This:C1470.progressId:=0
 	
 Function setCurrentWorkingDir($dir : Text; $createMissingDirs : Boolean)->$result : Object
@@ -1145,17 +1149,11 @@ Function _defaultPort($protocol : Text)->$port : Integer
 	
 Function _progressInit($options : Object)
 	
-	If (This:C1470.progress)
-		C_BOOLEAN:C305($vb_isPreemptive; $vb_isHeadless; $vb_launchedAsService)
+	If (This:C1470.progress & Storage:C1525.curl.progressAllowed)
+		C_BOOLEAN:C305($vb_isPreemptive)
 		$vb_isPreemptive:=UTL_processIsPreemptive
-		$vb_isHeadless:=UTL_isHeadless
-		$vb_launchedAsService:=UTL_launchedAsService
-		C_LONGINT:C283($vl_progressId)
-		$vl_progressId:=0
 		
-		If ($vb_isPreemptive | $vb_isHeadless | $vb_launchedAsService)
-			
-		Else 
+		If (Not:C34($vb_isPreemptive))
 			var $progressId : Integer
 			
 			//%T-
@@ -1169,7 +1167,6 @@ Function _progressInit($options : Object)
 	End if 
 	
 Function _progressDeinit()
-	
 	
 	If (This:C1470.progressId#0)
 		

@@ -1,5 +1,4 @@
 //%attributes = {"preemptive":"capable","shared":false,"invisible":true}
-
 //================================================================================
 //@xdoc-start : en
 //@name : CURL__httpRequestObj
@@ -70,8 +69,8 @@ If ($vl_nbParam>2)
 	
 	C_BOOLEAN:C305($vb_isPreemptive; $vb_isHeadless; $vb_launchedAsService)
 	$vb_isPreemptive:=UTL_processIsPreemptive
-	$vb_isHeadless:=UTL_isHeadless
-	$vb_launchedAsService:=UTL_launchedAsService
+	$vb_isHeadless:=Storage:C1525.curl.isHeadless
+	$vb_launchedAsService:=Storage:C1525.curl.launchedAsService
 	
 	EXECUTE METHOD:C1007("CURL__init")
 	
@@ -122,11 +121,11 @@ If ($vl_nbParam>2)
 	//<Modif> Bruno LEGAY (BLE) (04/04/2022)
 	If (True:C214)  // add in the debug log the curl command...
 		// curl -v -L -X POST https://test-api.service.hmrc.gov.uk/organisations/vat/123456789/returns \
-																										--http1.1 \
-																										-H "Accept: application/vnd.hmrc.1.0+json" \
-																										-H "Authorization: Bearer 0373680b2576469eb49a4af521853666" \
-																										-H "Content-Type: application/json" \
-																										--data 
+																																						--http1.1 \
+																																						-H "Accept: application/vnd.hmrc.1.0+json" \
+																																						-H "Authorization: Bearer 0373680b2576469eb49a4af521853666" \
+																																						-H "Content-Type: application/json" \
+																																						--data 
 		//$vt_cmdNewLine
 		C_TEXT:C284($vt_cmd; $vt_cmdNewLine; $vt_header)
 		$vt_cmdNewLine:=Choose:C955(Is Windows:C1573; "^"; "\\")
@@ -167,6 +166,7 @@ If ($vl_nbParam>2)
 	$vl_progressId:=0
 	Case of 
 		: ($vb_isPreemptive | $vb_isHeadless | $vb_launchedAsService)
+		: (Not:C34(Storage:C1525.curl.progressAllowed))
 		: ($vo_curlOptions.progressShow)
 			//%T-
 			EXECUTE METHOD:C1007("CURL__progressNew"; $vl_progressId; $vo_curlOptions.progressTitle; $vo_curlOptions.progressAbortable)
@@ -192,7 +192,7 @@ If ($vl_nbParam>2)
 	// CURL__moduleDebugDateTimeLine (6;Current method name;CURL__debugObjectJson ($vo_curlOptions))
 	
 	C_TEXT:C284($vt_callbackMethod; $vt_headerInfo)  //;$vt_transferInfo)
-	$vt_callbackMethod:="CURL_callback"
+	$vt_callbackMethod:=Choose:C955(Storage:C1525.curl.progressAllowed; "CURL_callback"; "")
 	//$vt_transferInfo:=""
 	$vt_headerInfo:=""
 	
@@ -214,7 +214,7 @@ If ($vl_nbParam>2)
 		", launchedAsService : "+Choose:C955($vb_launchedAsService; "true"; "false"))
 	
 	// ", transferInfo : \""+$vt_transferInfo+"\""+\
-																														
+																																						
 	If ($vo_curlOptions.request.curlOptions.DEBUG#Null:C1517)
 		C_TEXT:C284($vt_objJsonDumpPath)
 		$vt_objJsonDumpPath:=$vo_curlOptions.request.curlOptions.DEBUG+"request.json"
@@ -405,15 +405,15 @@ If ($vl_nbParam>2)
 		//$vt_redirectUrl:=CURL_httpHeadersCollValueGet ($co_responseHeaders;"Location")
 		
 		//CURL__moduleDebugDateTimeLine (4;Current method name;"url : \""+$vo_curlRequestOptions.URL+"\""+\
-																																																									", verb : \""+$vo_curlOptions.verb+"\""+\
-																																																									", redirect status : "+String($vl_status)+\
-																																																									", status line : \""+$vt_httpStatusLine+"\""+\
-																																																									", redirect count : "+String($vo_curlOptions.redirectCount)+\
-																																																									", redirect url : \""+$vt_redirectUrl+"\""+\
-																																																									", request size : "+String(BLOB size($vx_curlRequestBody))+" byte(s)"+\
-																																																									", response size : "+String(BLOB size($vx_curlResponseBody))+" byte(s)"+\
-																																																									", headers : \r"+$vt_headerInfo+\
-																																																									", duration : "+CURL__debugMilliseconds ($vl_durationMs))
+																																																																					", verb : \""+$vo_curlOptions.verb+"\""+\
+																																																																					", redirect status : "+String($vl_status)+\
+																																																																					", status line : \""+$vt_httpStatusLine+"\""+\
+																																																																					", redirect count : "+String($vo_curlOptions.redirectCount)+\
+																																																																					", redirect url : \""+$vt_redirectUrl+"\""+\
+																																																																					", request size : "+String(BLOB size($vx_curlRequestBody))+" byte(s)"+\
+																																																																					", response size : "+String(BLOB size($vx_curlResponseBody))+" byte(s)"+\
+																																																																					", headers : \r"+$vt_headerInfo+\
+																																																																					", duration : "+CURL__debugMilliseconds ($vl_durationMs))
 		
 		//If ((Length($vt_redirectUrl)>0) & ($vt_redirectUrl#$vo_curlOptions.request.curlOptions.URL))
 		
@@ -438,11 +438,11 @@ If ($vl_nbParam>2)
 		
 		//Else 
 		//CURL__moduleDebugDateTimeLine (2;Current method name;"url : \""+$vo_curlRequestOptions.URL+"\""+\
-																																																									", verb : \""+$vo_curlOptions.verb+"\""+\
-																																																									", redirect status : "+String($vl_status)+\
-																																																									", status line : \""+$vt_httpStatusLine+"\""+\
-																																																									", redirect count : "+String($vo_curlOptions.redirectCount)+\
-																																																									", too many redirects, max redirect : "+String($vl_redirectMax))
+																																																																					", verb : \""+$vo_curlOptions.verb+"\""+\
+																																																																					", redirect status : "+String($vl_status)+\
+																																																																					", status line : \""+$vt_httpStatusLine+"\""+\
+																																																																					", redirect count : "+String($vo_curlOptions.redirectCount)+\
+																																																																					", too many redirects, max redirect : "+String($vl_redirectMax))
 		//End if 
 		
 		//End if 
