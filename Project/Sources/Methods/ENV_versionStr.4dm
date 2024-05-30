@@ -96,11 +96,15 @@ If (Length:C16($va_appVers)=4)
 				$vt_versionStr:="4D v16 R"+$va_appVers[[3]]
 			End if 
 			
-		: (($va_appVersMajeur="17") | ($va_appVersMajeur="18") | ($va_appVersMajeur="19"))
+		: (Num:C11($va_appVersMajeur)>=17)
+			//: (($va_appVersMajeur="17") | ($va_appVersMajeur="18") | ($va_appVersMajeur="19") | ($va_appVersMajeur="20"))
+			
 			If ($va_appVers[[3]]="0")
 				$vt_versionStr:="4D v"+$va_appVersMajeur+"."+$va_appVers[[4]]
+				// 4D v20.5
 			Else 
 				$vt_versionStr:="4D v"+$va_appVersMajeur+" R"+$va_appVers[[3]]
+				// 4D v20R4
 			End if 
 			//<Modif>
 			
@@ -128,10 +132,8 @@ If (Length:C16($va_appVers)=4)
 	
 	$vt_versionStr:=$vt_versionStr+" (Build "+String:C10($vl_build)+")"
 	
-	//HTTP__moduleDebugDateTimeLine (4;Nom méthode courante;"Application version : \""+$va_appVers+"\" => version : \""+$vt_versionStr+"\" ("+$vt_appVersLong+")...")
 Else 
 	$vt_versionStr:=$va_appVers+" ?"
-	//HTTP__moduleDebugDateTimeLine (2;Nom méthode courante;"error Application version : \""+$va_appVers+"\" ("+$vt_appVersLong+")...")
 End if 
 
 $0:=$vt_versionStr
