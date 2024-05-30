@@ -57,3 +57,9 @@ Use (Storage:C1525)
 		"useLogsSaveDebug"; $vb_logsSaveDebugExists; \
 		"progressComponentInstalled"; $vb_progressComponentInstalled)
 End use 
+
+C_OBJECT:C1216($vo_curlVersion)
+$vo_curlVersion:=curl_pluginVersionInfo
+Use (Storage:C1525.curl)
+	Storage:C1525.curl.pluginVersionInfo:=OB Copy:C1225($vo_curlVersion; ck shared:K85:29; Storage:C1525.curl)
+End use 

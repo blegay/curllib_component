@@ -173,6 +173,7 @@ C_POINTER:C301(CURL_httpObjCall; $3)
 
 //CURL_pluginVersionGet
 C_TEXT:C284(CURL_pluginVersionGet; $0)
+C_BOOLEAN:C305(CURL_pluginVersionGet; $1)
 
 //CURL_dateStringToEpoch
 C_BOOLEAN:C305(CURL_dateStringToEpoch; $0)
@@ -402,3 +403,5 @@ C_TEXT:C284(CURL_ftpNew; $2)
 C_TEXT:C284(CURL_ftpNew; $3)
 C_TEXT:C284(CURL_ftpNew; $4)
 C_TEXT:C284(CURL_ftpNew; $5)
+
+C_OBJECT:C1216(curl_pluginVersionInfo; $0)

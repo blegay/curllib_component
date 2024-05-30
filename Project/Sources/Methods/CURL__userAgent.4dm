@@ -11,6 +11,7 @@
 // "4D-curlComponent/2.00.05 (macOS 10.14.6 (18G103)) 4D/v17.4Final-build248004 libcurl/7.62.0 OpenSSL/1.1.0g zlib/1.2.11 libssh2/1.8.0"
 // "4D-curlComponent/2.00.00 (macOS 10.12.6 (16G29)) 4D/v18.0Final-build246707 libcurl/7.62.0 OpenSSL/1.1.0g zlib/1.2.11 libssh2/1.8.0"
 // "4D-curlComponent/1.01.00 (Macintosh; OS X version 10.9.5) 4D/v15.3Final-build205412 libcurl/7.40.0 OpenSSL/1.0.2k zlib/1.2.8 libidn/1.29 libssh2/1.8.0"
+// "4D-curlComponent/4.01.04 (macOS 12.7.4 (21H1123)) 4D/v19.5Final-build283893 cURL/4.7.1 libcurl/8.7.1 (SecureTransport) OpenSSL/3.3.0 zlib/1.2.11 libssh2/1.11.0"
 //@see : 
 //@version : 1.00.00
 //@author : 
@@ -38,7 +39,7 @@ If (Storage:C1525.curl.userAgent=Null:C1517)
 	C_TEXT:C284($vt_plateformeVersStr)
 	$vt_plateformeVersStr:=ENV_plateformeStr  // "OS X version 10.8.5" "macOS 10.14.6 (18G103)"
 	
-	$vt_userAgent:="4D-curlComponent/"+CURL_componentVersionGet+" ("+$vt_plateformeVersStr+") 4D/"+$vt_4dVersion+" "+CURL_pluginVersionGet  //$vt_curlVersion
+	$vt_userAgent:="4D-curlComponent/"+CURL_componentVersionGet+" ("+$vt_plateformeVersStr+") 4D/"+$vt_4dVersion+" "+CURL_pluginVersionGet(True:C214)  //$vt_curlVersion
 	
 	//<Modif> Bruno LEGAY (BLE) (09/04/2021) - v2.00.05
 	Use (Storage:C1525.curl)

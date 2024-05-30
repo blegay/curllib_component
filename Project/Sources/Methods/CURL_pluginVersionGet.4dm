@@ -4,13 +4,18 @@
 //@name : CURL_pluginVersionGet
 //@scope : public
 //@deprecated : no
-//@description : This function returns curl plugin version (e.g. "libcurl/7.75.0 OpenSSL/1.1.1g zlib/1.2.11 libssh2/1.9.0")
+//@description : This function returns curl plugin version as text (e.g. "cURL/4.7.1 libcurl/8.7.1 (SecureTransport) OpenSSL/3.3.0 zlib/1.2.11 libssh2/1.11.0")
 //@parameter[0-OUT-paramName-TEXT] : curl plugin version
 //@notes : value returned by "cURL Get version"
-//@example : CURL_pluginVersionGet => 
+//@example : 
+// CURL_pluginVersionGet => 
+// "4.7.1 
+//
+// CURL_pluginVersionGet(true) => 
+// "cURL/4.7.1 libcurl/8.7.1 (SecureTransport) OpenSSL/3.3.0 zlib/1.2.11 libssh2/1.11.0"
 // "libcurl/8.4.0 (SecureTransport) OpenSSL/3.1.4 zlib/1.2.11 libssh2/1.11.0"
 // "libcurl/7.75.0 OpenSSL/1.1.1g zlib/1.2.11 libssh2/1.9.0"
-//@see : 
+//@see : curl_pluginVersionInfo
 //@version : 1.00.00
 //@author : Bruno LEGAY (BLE) - Copyrights A&C Consulting - 2019
 //@history : 
@@ -19,10 +24,17 @@
 //================================================================================
 
 C_TEXT:C284($0; $vt_curlPluginVersion)
+C_BOOLEAN:C305($1; $vb_long)
+
+If (Count parameters:C259=0)
+	$vb_long:=False:C215
+Else 
+	$vb_long:=$1
+End if 
 
 //<Modif> Bruno LEGAY (BLE) (04/01/2022)
 C_OBJECT:C1216($vo_curlVersion)
-$vo_curlVersion:=cURL_VersionInfo
+$vo_curlVersion:=curl_pluginVersionInfo
 
 // SET TEXT TO PASTEBOARD(JSON Stringify($vo_curlVersion))
 
@@ -211,13 +223,18 @@ If (False:C215)  // curl plugin v2
 	//   }
 End if 
 
-$vt_curlPluginVersion:="libcurl/"+$vo_curlVersion.version+\
-" "+$vo_curlVersion.ssl_version+\
-" zlib/"+$vo_curlVersion.libz_version+\
-" "+$vo_curlVersion.libssh_version
-
-// "libcurl/7.75.0 OpenSSL/1.1.1g zlib/1.2.11 libssh2/1.9.0"
-
-//$vt_curlPluginVersion:=cURL Get version
+If ($vb_long)
+	$vt_curlPluginVersion:=\
+		"cURL/"+$vo_curlVersion.pluginVersion+\
+		" libcurl/"+$vo_curlVersion.version+\
+		" "+$vo_curlVersion.ssl_version+\
+		" zlib/"+$vo_curlVersion.libz_version+\
+		" "+$vo_curlVersion.libssh_version
+	// "cURL/4.7.1 libcurl/8.7.1 (SecureTransport) OpenSSL/3.3.0 zlib/1.2.11 libssh2/1.11.0"
+	// "libcurl/7.75.0 OpenSSL/1.1.1g zlib/1.2.11 libssh2/1.9.0"
+Else 
+	$vt_curlPluginVersion:=$vo_curlVersion.pluginVersion
+	// "cURL/4.7.1"
+End if 
 
 $0:=$vt_curlPluginVersion
