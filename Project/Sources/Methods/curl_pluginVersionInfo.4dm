@@ -85,8 +85,8 @@ Else
 		$pluginName:="cURL"
 		
 		var $pluginDir : 4D:C1709.Folder
-		//$pluginDir:=Folder(Folder(fk resources folder).platformPath; fk platform path).parent.folder("Plugins")
-		$pluginDir:=Folder:C1567(fk database folder:K87:14).folder("Plugins")
+		//$pluginDir:=Folder(Folder(fk resources folder;*).platformPath; fk platform path).parent.folder("Plugins")
+		$pluginDir:=Folder:C1567(fk database folder:K87:14; *).folder("Plugins")
 		If ($pluginDir.exists)
 			
 			var $curlPluginDir : 4D:C1709.Folder
