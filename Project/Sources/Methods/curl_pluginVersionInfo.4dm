@@ -127,6 +127,7 @@ Else
 		//SET TEXT TO PASTEBOARD(JSON Stringify($curlVersionInfos; *))
 		//End if 
 		
-		CURL__moduleDebugDateTimeLine(4; Current method name:C684; "version infos : "+JSON Stringify:C1217($curlVersionInfos))
+		// do not call CURL__moduleDebugDateTimeLine because dbg component may not be inited
+		//CURL__moduleDebugDateTimeLine(4; Current method name; "version infos : "+JSON Stringify($curlVersionInfos))
 	End if 
 End if 
