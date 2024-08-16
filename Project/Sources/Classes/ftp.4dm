@@ -267,6 +267,13 @@ Function receive($remoteFilename : Text; $file : 4D:C1709.File)->$result : Objec
 		SET BLOB SIZE:C606($data; 0)
 		
 		If ($error.status=0)
+			
+			// If remote file has a 0 size, $error.status=0 but local file has not been created
+			If (Not:C34($file.exists))
+				CURL__moduleDebugDateTimeLine(4; Current method name:C684; "cURL_FTP_Receive status = 0 and no local file \""+$file.path+"\" => creating empty file (remote file size = 0 ?)")
+				$file.create()
+			End if 
+			
 			$result.success:=True:C214
 			$result.aborted:=False:C215
 			$result.errorCode:=0
