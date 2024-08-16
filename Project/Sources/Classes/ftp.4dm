@@ -234,6 +234,12 @@ Function receive($remoteFilename : Text; $file : 4D:C1709.File)->$result : Objec
 	
 	If (Not:C34($file.exists))
 		
+		// If parent folder does not exist, create it
+		If (Not:C34($file.parent.exists))
+			CURL__moduleDebugDateTimeLine(4; Current method name:C684; "cURL_FTP_Receive, parent dir \""+$file.parent.path+"\" does not exist => creating parent dir")
+			$file.parent.create()
+		End if 
+		
 		If ($remoteFilename="")
 			$remoteFilename:=$file.fullName
 		End if 
