@@ -59,7 +59,7 @@ Use (Storage:C1525)
 End use 
 
 C_OBJECT:C1216($vo_curlVersion)
-$vo_curlVersion:=curl_pluginVersionInfo
+$vo_curlVersion:=CURL_pluginVersionInfo
 Use (Storage:C1525.curl)
 	Storage:C1525.curl.pluginVersionInfo:=OB Copy:C1225($vo_curlVersion; ck shared:K85:29; Storage:C1525.curl)
 End use 

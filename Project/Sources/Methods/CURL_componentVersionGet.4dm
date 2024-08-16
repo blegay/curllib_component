@@ -86,14 +86,14 @@
 //    - fixed infinite beachball on 4D Server (workaround : no progress callback)
 //        cf https://support.4d.com/Cases/73787
 //  MODIFICATION : Bruno LEGAY (BLE) - 30/05/2024, 09:49:35 - v4.01.05
-//    - added curl_pluginVersionInfo
+//    - added CURL_pluginVersionInfo
 //@xdoc-end
 //================================================================================
 
 C_TEXT:C284($0; $vt_componentVersion)
 
 //<Modif> Bruno LEGAY (BLE) (30/05/2024)
-//    - added curl_pluginVersionInfo
+//    - added CURL_pluginVersionInfo
 $vt_componentVersion:="4.01.05"
 //<Modif>
 

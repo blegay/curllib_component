@@ -1,7 +1,7 @@
 //%attributes = {"shared":true,"preemptive":"capable","invisible":false}
 //================================================================================
 //@xdoc-start : en
-//@name : curl_pluginVersionInfo
+//@name : CURL_pluginVersionInfo
 //@scope : private 
 //@deprecated : no
 //@description : This function returns an object with plugin version info
@@ -10,10 +10,10 @@
 //@example : 
 //
 //  var $curlVersion: Object
-//  $curlVersion:=curl_pluginVersionInfo
+//  $curlVersion:=CURL_pluginVersionInfo
 //  ALERT("curl plugin version : "+$curlVersion.pluginVersion+"\rcurl library version : "+$curlVersion.version)
 //
-// curl_pluginVersionInfo
+// CURL_pluginVersionInfo
 // {
 //   "version": "8.7.1",
 //   "version_num": 526081,

@@ -404,4 +404,4 @@ C_TEXT:C284(CURL_ftpNew; $3)
 C_TEXT:C284(CURL_ftpNew; $4)
 C_TEXT:C284(CURL_ftpNew; $5)
 
-C_OBJECT:C1216(curl_pluginVersionInfo; $0)
+C_OBJECT:C1216(CURL_pluginVersionInfo; $0)

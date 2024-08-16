@@ -15,7 +15,7 @@
 // "cURL/4.7.1 libcurl/8.7.1 (SecureTransport) OpenSSL/3.3.0 zlib/1.2.11 libssh2/1.11.0"
 // "libcurl/8.4.0 (SecureTransport) OpenSSL/3.1.4 zlib/1.2.11 libssh2/1.11.0"
 // "libcurl/7.75.0 OpenSSL/1.1.1g zlib/1.2.11 libssh2/1.9.0"
-//@see : curl_pluginVersionInfo
+//@see : CURL_pluginVersionInfo
 //@version : 1.00.00
 //@author : Bruno LEGAY (BLE) - Copyrights A&C Consulting - 2019
 //@history : 
@@ -34,7 +34,7 @@ End if
 
 //<Modif> Bruno LEGAY (BLE) (04/01/2022)
 C_OBJECT:C1216($vo_curlVersion)
-$vo_curlVersion:=curl_pluginVersionInfo
+$vo_curlVersion:=CURL_pluginVersionInfo
 
 // SET TEXT TO PASTEBOARD(JSON Stringify($vo_curlVersion))
 
