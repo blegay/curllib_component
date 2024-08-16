@@ -27,7 +27,7 @@ C_POINTER:C301($4; $vp_zonePtr)
 
 $vb_ok:=False:C215
 
-ASSERT:C1129(Count parameters:C259>1; "requires 2 or more paramters")
+ASSERT:C1129(Count parameters:C259>1; "requires 2 or more parameters")
 C_LONGINT:C283($vl_nbParam)
 $vl_nbParam:=Count parameters:C259
 If ($vl_nbParam>1)

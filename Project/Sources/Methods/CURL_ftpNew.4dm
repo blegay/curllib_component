@@ -2,7 +2,7 @@
 //================================================================================
 //@xdoc-start : en
 //@name : CURL_ftpNew
-//@scope : private 
+//@scope : public 
 //@deprecated : no
 //@description : This function returns a cs.ftp class instance
 //@parameter[0-OUT-ftp-OBJECT] : cs.ftp class instance
@@ -51,7 +51,7 @@ C_TEXT:C284($3; $vt_login)
 C_TEXT:C284($4; $vt_password)
 C_TEXT:C284($5; $vt_dir)
 
-ASSERT:C1129(Count parameters:C259>3; "requires 4 paramters")
+ASSERT:C1129(Count parameters:C259>3; "requires 4 parameters")
 
 C_LONGINT:C283($vl_nbParam)
 $vl_nbParam:=Count parameters:C259
