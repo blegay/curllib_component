@@ -232,75 +232,82 @@ Function receive($remoteFilename : Text; $file : 4D:C1709.File)->$result : Objec
 	$result.options:=Null:C1517
 	$result.command:=""
 	
-	If (Not:C34($file.exists))
-		
-		// If parent folder does not exist, create it
-		If (Not:C34($file.parent.exists))
-			CURL__moduleDebugDateTimeLine(4; Current method name:C684; "cURL_FTP_Receive, parent dir \""+$file.parent.path+"\" does not exist => creating parent dir")
-			$file.parent.create()
-		End if 
-		
-		If ($remoteFilename="")
-			$remoteFilename:=$file.fullName
-		End if 
-		
-		var $options : Object
-		$options:=This:C1470._defaultOptions($remoteFilename)
-		
-		$options.RESUME_FROM:=0
-		
-		$options.WRITEDATA:=$file.platformPath
-		
-		$result.options:=This:C1470.toDebug($options)
-		$result.command:="cURL_FTP_Receive"
-		
-		var $error : Object
-		var $data : Blob
-		SET BLOB SIZE:C606($data; 0)
-		
-		CURL__moduleDebugDateTimeLine(4; Current method name:C684; "file : \""+$file.path+"\", options : "+JSON Stringify:C1217(This:C1470.toDebug($options))+"...")
-		
-		This:C1470._progressInit($options)
-		
-		//%W-533.4
-		$error:=cURL_FTP_Receive($options; $data; This:C1470.progressCallback)
-		//%W+533.4
-		
-		This:C1470._progressDeinit()
-		
-		$result.errorDetail:=$error
-		
-		SET BLOB SIZE:C606($data; 0)
-		
-		If ($error.status=0)
+	Case of 
+		: ($file=Null:C1517)  // File is null
+			$result.errorCode:=-2
+			$result.errorMessage:="file param is null"
+			CURL__moduleDebugDateTimeLine(2; Current method name:C684; "file param is null")
 			
-			// If remote file has a 0 size, $error.status=0 but local file has not been created
-			If (Not:C34($file.exists))
-				CURL__moduleDebugDateTimeLine(4; Current method name:C684; "cURL_FTP_Receive status = 0 and no local file \""+$file.path+"\" => creating empty file (remote file size = 0 ?)")
-				$file.create()
+		: (Not:C34($file.exists))
+			// If parent folder does not exist, create it
+			If (Not:C34($file.parent.exists))
+				CURL__moduleDebugDateTimeLine(4; Current method name:C684; "cURL_FTP_Receive, parent dir \""+$file.parent.path+"\" does not exist => creating parent dir")
+				$file.parent.create()
 			End if 
 			
-			$result.success:=True:C214
-			$result.aborted:=False:C215
-			$result.errorCode:=0
-			$result.errorMessage:=""
-			CURL__moduleDebugDateTimeLine(4; Current method name:C684; "file : \""+$file.path+"\" ("+String:C10($file.size)+" bytes), options : "+JSON Stringify:C1217(This:C1470.toDebug($options))+", error : "+JSON Stringify:C1217($error))
-		Else 
-			$result.aborted:=($error.status=42)  // aborted
-			$result.errorCode:=$error.status
-			$result.errorMessage:="curl "+This:C1470.protocol+" cURL_FTP_Receive error : "+String:C10($error.status)+" - "+CURL_errorToText($error.status)
-			CURL__moduleDebugDateTimeLine(2; Current method name:C684; "cURL_FTP_Receive error : "+String:C10($error.status)+", file : \""+$file.path+"\", options : "+JSON Stringify:C1217(This:C1470.toDebug($options))+", error : "+JSON Stringify:C1217($error))
-		End if 
-		
-		This:C1470._logDebugDir("receive"; $result)
-		
-	Else   // File already exist
-		$result.errorCode:=-43
-		$result.errorMessage:="file : \""+$file.path+"\" already exist"
-		CURL__moduleDebugDateTimeLine(4; Current method name:C684; "file : \""+$file.path+"\" already exist")
-	End if 
+			If ($remoteFilename="")
+				$remoteFilename:=$file.fullName
+			End if 
+			
+			var $options : Object
+			$options:=This:C1470._defaultOptions($remoteFilename)
+			
+			$options.RESUME_FROM:=0
+			
+			$options.WRITEDATA:=$file.platformPath
+			
+			$result.options:=This:C1470.toDebug($options)
+			$result.command:="cURL_FTP_Receive"
+			
+			var $error : Object
+			var $data : Blob
+			SET BLOB SIZE:C606($data; 0)
+			
+			CURL__moduleDebugDateTimeLine(4; Current method name:C684; "file : \""+$file.path+"\", options : "+JSON Stringify:C1217(This:C1470.toDebug($options))+"...")
+			
+			This:C1470._progressInit($options)
+			
+			//%W-533.4
+			$error:=cURL_FTP_Receive($options; $data; This:C1470.progressCallback)
+			//%W+533.4
+			
+			This:C1470._progressDeinit()
+			
+			$result.errorDetail:=$error
+			
+			SET BLOB SIZE:C606($data; 0)
+			
+			If ($error.status=0)
+				
+				// If remote file has a 0 size, $error.status=0 but local file has not been created
+				If (Not:C34($file.exists))
+					CURL__moduleDebugDateTimeLine(4; Current method name:C684; "cURL_FTP_Receive status = 0 and no local file \""+$file.path+"\" => creating empty file (remote file size = 0 ?)")
+					$file.create()
+				End if 
+				
+				$result.success:=True:C214
+				$result.aborted:=False:C215
+				$result.errorCode:=0
+				$result.errorMessage:=""
+				CURL__moduleDebugDateTimeLine(4; Current method name:C684; "file : \""+$file.path+"\" ("+String:C10($file.size)+" bytes), options : "+JSON Stringify:C1217(This:C1470.toDebug($options))+", error : "+JSON Stringify:C1217($error))
+			Else 
+				$result.aborted:=($error.status=42)  // aborted
+				$result.errorCode:=$error.status
+				$result.errorMessage:="curl "+This:C1470.protocol+" cURL_FTP_Receive error : "+String:C10($error.status)+" - "+CURL_errorToText($error.status)
+				CURL__moduleDebugDateTimeLine(2; Current method name:C684; "cURL_FTP_Receive error : "+String:C10($error.status)+", file : \""+$file.path+"\", options : "+JSON Stringify:C1217(This:C1470.toDebug($options))+", error : "+JSON Stringify:C1217($error))
+			End if 
+			
+			This:C1470._logDebugDir("receive"; $result)
+			
+		Else   // File already exist
+			$result.errorCode:=-43
+			$result.errorMessage:="file : \""+$file.path+"\" already exist"
+			CURL__moduleDebugDateTimeLine(2; Current method name:C684; "file : \""+$file.path+"\" already exist")
+	End case 
 	
 Function delete($remoteFilename : Text)->$result : Object
+	
+	ASSERT:C1129(Count parameters:C259>0; "requires 1 parameter")
 	
 	$result:=New object:C1471
 	$result.success:=False:C215
