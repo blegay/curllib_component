@@ -2,7 +2,6 @@
 //Class: before
 Class constructor($protocol : Text; $host : Text; $login : Text; $password : Text; $dir : Text)
 	//Class: before
-	// MARK: - fzf
 	
 	CURL__init
 	
@@ -83,9 +82,9 @@ Class constructor($protocol : Text; $host : Text; $login : Text; $password : Tex
 	This:C1470.progressId:=0
 	
 Function setCurrentWorkingDir($dir : Text; $createMissingDirs : Boolean)->$result : Object
-	// hello
-	
 	// $createMissingDirs : default false
+	
+	ASSERT:C1129(Count parameters:C259>0; "requires 1 parameter")
 	
 	$result:=New object:C1471
 	$result.success:=False:C215
@@ -147,6 +146,8 @@ Function setCurrentWorkingDirToParent()->$result : Object
 	End if 
 	
 Function send($file : 4D:C1709.File; $remoteFilenameParam : Text)->$result : Object
+	
+	ASSERT:C1129(Count parameters:C259>0; "requires 1 parameter")
 	
 	$result:=New object:C1471
 	$result.success:=False:C215
@@ -223,6 +224,8 @@ Function send($file : 4D:C1709.File; $remoteFilenameParam : Text)->$result : Obj
 	End if 
 	
 Function receive($remoteFilename : Text; $file : 4D:C1709.File)->$result : Object
+	
+	ASSERT:C1129(Count parameters:C259>1; "requires 2 parameters")
 	
 	$result:=New object:C1471
 	$result.success:=False:C215
@@ -753,6 +756,8 @@ Function getDirList()->$result : Object
 	
 Function getFileInfos($filename : Text)->$result : Object
 	
+	ASSERT:C1129(Count parameters:C259>0; "requires 1 parameter")
+	
 	$result:=New object:C1471
 	$result.success:=False:C215
 	$result.errorCode:=-1
@@ -822,6 +827,8 @@ Function getFileInfos($filename : Text)->$result : Object
 	
 Function makeDir($dirName : Text)->$result : Object
 	
+	ASSERT:C1129(Count parameters:C259>0; "requires 1 parameter")
+	
 	$result:=New object:C1471
 	$result.success:=False:C215
 	$result.errorCode:=-1
@@ -870,6 +877,8 @@ Function makeDir($dirName : Text)->$result : Object
 	End if 
 	
 Function removeDir($dirName : Text)->$result : Object
+	
+	ASSERT:C1129(Count parameters:C259>0; "requires 1 parameter")
 	
 	$result:=New object:C1471
 	$result.success:=False:C215
@@ -933,6 +942,8 @@ Function removeDir($dirName : Text)->$result : Object
 Function printDir($dirName : Text; $createMissingDirs : Boolean)->$result : Object
 	// $createMissingDirs : default true
 	
+	ASSERT:C1129(Count parameters:C259>0; "requires 1 parameter")
+	
 	$result:=New object:C1471
 	$result.success:=False:C215
 	$result.errorCode:=-1
@@ -990,6 +1001,8 @@ Function printDir($dirName : Text; $createMissingDirs : Boolean)->$result : Obje
 	This:C1470._logDebugDir("printDir"; $result)
 	
 Function rename($oldName : Text; $newName : Text)->$result : Object
+	
+	ASSERT:C1129(Count parameters:C259>1; "requires 2 parameters")
 	
 	$result:=New object:C1471
 	$result.success:=False:C215
