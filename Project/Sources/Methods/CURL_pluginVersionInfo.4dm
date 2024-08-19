@@ -5,7 +5,7 @@
 //@scope : private 
 //@deprecated : no
 //@description : This function returns an object with plugin version info
-//@parameter[0-OUT-curlVersionInfos-TEXT] : curl version infos object
+//@parameter[0-OUT-curlVersionInfos-OBJECT] : curl version infos object
 //@notes : wrapper on cURL_VersionInfo + extracts plugin version from "Info.plist" file (adds .pluginVersion)
 //@example : 
 //
