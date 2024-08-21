@@ -120,6 +120,17 @@
 			"Params": [],
 			"Summary": ""
 		},
+		"CURL_pluginVersionInfo": {
+			"Syntax": "**CURL_pluginVersionInfo**()->curlVersionInfos : Object",
+			"Params": [
+				[
+					"curlVersionInfos",
+					"Object",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
 		"CURL_httpObjNew": {
 			"Syntax": "**CURL_httpObjNew**()",
 			"Params": [],
