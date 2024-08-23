@@ -224,6 +224,8 @@ Function send($file : 4D:C1709.File; $remoteFilenameParam : Text)->$result : Obj
 	End if 
 	
 Function receive($remoteFilename : Text; $file : 4D:C1709.File)->$result : Object
+	// if $file already exist, will return error -43
+	// if $file is null, will return error -2
 	
 	ASSERT:C1129(Count parameters:C259>1; "requires 2 parameters")
 	
@@ -241,7 +243,8 @@ Function receive($remoteFilename : Text; $file : 4D:C1709.File)->$result : Objec
 			$result.errorMessage:="file param is null"
 			CURL__moduleDebugDateTimeLine(2; Current method name:C684; "file param is null")
 			
-		: (Not:C34($file.exists))
+		: (Not:C34($file.exists))  // only receive if file does not exist
+			
 			// If parent folder does not exist, create it
 			If (Not:C34($file.parent.exists))
 				CURL__moduleDebugDateTimeLine(4; Current method name:C684; "cURL_FTP_Receive, parent dir \""+$file.parent.path+"\" does not exist => creating parent dir")
