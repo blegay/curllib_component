@@ -1,4 +1,24 @@
 //%attributes = {"invisible":true,"preemptive":"capable","shared":false}
+//================================================================================
+//@xdoc-start : en
+//@name : CURL__prefDirPathGet
+//@scope : private 
+//@deprecated : no
+//@description : This function returns a preferences dir path for the component
+//@parameter[0-OUT-preferencesDirPath-TEXT] : preferences dir path
+//@notes : 
+// Windows : "C:\\Users\\<user>\\AppData\\Roaming\\4D\\com.ac-consulting\\curllib-component\\" (>= v4.01.07)
+// Windows : "C:\\Users\\<user>\\4D\\com.ac-consulting\\curllib-component\\" (< v4.01.07)
+// macOS : "Macintosh HD:Users:<user>:Library:Application Support:4D:com.ac-consulting:curllib-component:"
+//@example : CURL__prefDirPathGet
+//@see : 
+//@version : 1.00.00
+//@author : Bruno LEGAY (BLE) - Copyrights A&C Consulting 2024
+//@history : 
+//  CREATION : Bruno LEGAY (BLE) - 23/08/2024, 12:12:09 - 4.01.06
+//@xdoc-end
+//================================================================================
+
 C_TEXT:C284($0; $vt_dirPath)
 
 // "Macintosh HD:Library:Application Support:4D:com.ac-consulting:curllib-component:"
@@ -12,9 +32,27 @@ $vt_filenameNoExt:=$structureFile.name  // name without extension
 // "curllib_component"
 
 $vt_prefDirName:=Replace string:C233($vt_filenameNoExt; "_"; "-"; *)
+// "curllib-component"
 
-C_TEXT:C284($vt_prefsAllUsers)
-$vt_prefsAllUsers:=System folder:C487(User preferences_user:K41:4)
+C_TEXT:C284($vt_prefsDirPath)
+//$vt_prefsAllUsers:=System folder(User preferences_all)
+// Windows : "C:\ProgramData\\"
+// macOS : "Macintosh HD:Library:Application Support:"
+
+$vt_prefsDirPath:=System folder:C487(User preferences_user:K41:4)
+// Windows : "C:\\Users\\bruno\\"
+// macOS : "Macintosh HD:Users:bruno:Library:Application Support:"
+
+If (Is Windows:C1573)
+	Case of 
+		: ($vt_prefsDirPath="@\\AppData\\Roaming\\")
+		: ($vt_prefsDirPath="@\\AppData\\Local\\")
+		Else 
+			// "C:\\Users\\bruno\\"
+			$vt_prefsDirPath:=$vt_prefsDirPath+"AppData\\Roaming\\"
+			// "C:\\Users\\bruno\\AppData\\roaming\\"
+	End case 
+End if 
 
 //$vt_prefsAllUsers:=System folder(User preferences_all)
 // "C:\ProgramData\4D\com.ac-consulting\curllib-component\curllibPreferences.xml"
@@ -30,7 +68,7 @@ $vt_errorHandler:=Method called on error:C704
 ON ERR CALL:C155("ERR_onErrCall")
 
 var $folderPrefs : 4D:C1709.Folder
-$folderPrefs:=Folder:C1567($vt_prefsAllUsers; fk platform path:K87:2).folder("4D").folder("com.ac-consulting").folder($vt_prefDirName)
+$folderPrefs:=Folder:C1567($vt_prefsDirPath; fk platform path:K87:2).folder("4D").folder("com.ac-consulting").folder($vt_prefDirName)
 // "/Library/Application Support/4D/com.ac-consulting/curllib-component"
 If ($folderPrefs.exists)
 	CURL__moduleDebugDateTimeLine(4; Current method name:C684; "dir : \""+$folderPrefs.path+"\" exists, testing if we can write into it...")
@@ -74,30 +112,10 @@ Else
 	End if 
 End if 
 
-//If (Not($vb_ok))
-//C_TEXT($vt_prefsUser)
-//$vt_prefsUser:=System folder(User preferences_user)
-
-//var $folderPrefs : 4D.Folder
-//$folderPrefs:=Folder($vt_prefsUser; fk platform path).folder("4D").folder("com.ac-consulting").folder($vt_prefDirName)
-//// "/Users/ble/Library/Application Support/4D/com.ac-consulting/curllib-component"
-
-//If ($folderPrefs.exists)
-//CURL__moduleDebugDateTimeLine(4; Current method name; "dir : \""+$folderPrefs.path+"\" exists.")
-//Else 
-//CURL__moduleDebugDateTimeLine(4; Current method name; "dir : \""+$folderPrefs.path+"\" does not exist, going to create it...")
-//$vb_ok:=$folderPrefs.create()
-//If (Not($vb_ok))
-//CURL__moduleDebugDateTimeLine(2; Current method name; "failed creating dir : \""+$folderPrefs.path+"\". [KO]")
-//End if 
-//End if 
-
-//End if 
-
 ON ERR CALL:C155($vt_errorHandler)
 
 $vt_dirPath:=$folderPrefs.platformPath
-// "Macintosh HD:Library:Application Support:4D:com.ac-consulting:curllib-component:"
+// "Macintosh HD:Users:bruno:Library:Application Support:4D:com.ac-consulting:curllib-component:"
 
 ASSERT:C1129(Test path name:C476($vt_dirPath)=Is a folder:K24:2; "dir \""+$vt_dirPath+"\" not found")
 
