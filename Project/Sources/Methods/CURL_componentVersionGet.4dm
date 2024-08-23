@@ -5,11 +5,11 @@
 //@scope : public
 //@deprecated : no
 //@description : This function returns the component version 
-//@parameter[0-OUT-componentVersion-TEXT] : component version (e.g. "4.01.06")
+//@parameter[0-OUT-componentVersion-TEXT] : component version (e.g. "4.01.07")
 //@notes : 
 //@example : CURL_componentVersionGet
 //@see : 
-//@version : 4.01.06
+//@version : 4.01.07
 //@author : Bruno LEGAY (BLE)) - Copyrights A&C Consulting 2024
 //@history : 
 //  CREATION : Bruno LEGAY (BLE) - 26/09/2017, 17:06:48 - v1.00.00
@@ -89,17 +89,26 @@
 //    - added CURL_pluginVersionInfo
 //  MODIFICATION : Bruno LEGAY (BLE) - 16/08/2024, 11:56:30 - v4.01.06
 //    - class ftp : small improvements (better error checking)
+//  MODIFICATION : Bruno LEGAY (BLE) - 23/08/2024, 12:10:05 - v4.01.07
+//    - CURL__prefDirPathGet : moved preference files from "C:\\Users\\<user>\\4D\\com.ac-consulting\\curllib-component\\"" to "C:\\Users\\<user>\\AppData\\Roaming\\4D\\com.ac-consulting\\curllib-component\\" on Windows
+//      preferences files are not moved automatically
 //@xdoc-end
 //================================================================================
 
 C_TEXT:C284($0; $vt_componentVersion)
 
-//<Modif> Bruno LEGAY (BLE) (30/05/2024)
-//    - class ftp : small improvements (better error checking)
-$vt_componentVersion:="4.01.06"
+//<Modif> Bruno LEGAY (BLE) (23/08/2024)
+//    - CURL__prefDirPathGet : moved preference files from "C:\\Users\\<user>\\4D\\com.ac-consulting\\curllib-component\\"" to "C:\\Users\\<user>\\AppData\\Roaming\\4D\\com.ac-consulting\\curllib-component\\" on Windows
+$vt_componentVersion:="4.01.07"
 //<Modif>
 
 If (False:C215)
+	
+	//<Modif> Bruno LEGAY (BLE) (30/05/2024)
+	//    - class ftp : small improvements (better error checking)
+	// $vt_componentVersion:="4.01.06"
+	//<Modif>
+	
 	//<Modif> Bruno LEGAY (BLE) (30/05/2024)
 	//    - added CURL_pluginVersionInfo
 	// $vt_componentVersion:="4.01.05"
