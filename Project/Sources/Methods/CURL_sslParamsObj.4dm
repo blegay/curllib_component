@@ -128,3 +128,35 @@ End if
 //CURL__moduleDebugDateTimeLine (6;Current method name;"CURLOPT_CAINFO : \""+$vt_caPathPosix+"\" (posix), \""+$vt_caPath+"\")")
 //End if 
 
+
+//download buffer size
+// https://curl.se/libcurl/c/CURLOPT_BUFFERSIZE.html
+// Pass a long specifying your preferred size (in bytes) for the receive buffer in libcurl.
+If (Not:C34(OB Is defined:C1231($vo_options; "BUFFERSIZE")) | $vb_override)
+	
+	// min value 1024
+	// default value 16 Kb
+	// max value 10 Mb
+	
+	//$options.BUFFERSIZE:=1024
+	//$options.BUFFERSIZE:=16*1024 //default value
+	//$options.BUFFERSIZE:=10*1024*1024  // max value (faster download if connexion has big throughput)
+	$vo_options.BUFFERSIZE:=(10*1024*1024)
+	
+End if 
+
+//upload buffer size
+// https://curl.se/libcurl/c/CURLOPT_UPLOAD_BUFFERSIZE.html
+// Pass a long specifying your preferred size (in bytes) for the upload buffer in libcurl.
+If (Not:C34(OB Is defined:C1231($vo_options; "UPLOAD_BUFFERSIZE")) | $vb_override)
+	
+	// min value 16 Kb
+	// default value 64 Kb
+	// max value 2 Mb
+	
+	//$options.UPLOAD_BUFFERSIZE:=16*1024 // 16k default value
+	//$options.UPLOAD_BUFFERSIZE:=64*1024 // 64k default value
+	//$options.UPLOAD_BUFFERSIZE:=2*1024*1024  // max value (faster upload if connexion has big throughput)
+	$vo_options.UPLOAD_BUFFERSIZE:=(2*1024*1024)
+	
+End if 

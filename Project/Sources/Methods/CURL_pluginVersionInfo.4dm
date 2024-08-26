@@ -57,7 +57,7 @@
 //     "brotli_version": "1.0.9",
 //     "nghttp2_version": "1.61.0",
 //     "zstd_version": "1.5.6",
-//     "pluginVersion": "4.8.2"
+//     "pluginVersion": "4.8.4"
 // }
 //
 // CURL_pluginVersionInfo
@@ -151,7 +151,7 @@
 //   "brotli_version": "1.0.9",
 //   "nghttp2_version": "1.58.0",
 //   "zstd_version": "1.5.2",
-//   "pluginVersion": "4.7.1"
+//   "pluginVersion": "4.7.4"
 // }
 //
 // {
