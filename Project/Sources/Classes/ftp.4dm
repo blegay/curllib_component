@@ -30,6 +30,9 @@ Class constructor($protocol : Text; $host : Text; $login : Text; $password : Tex
 	This:C1470.password:=$password
 	//End if 
 	
+	This:C1470.sshPrivateKeyFile:=Null:C1517
+	// SSH_PRIVATE_KEYFILE
+	
 	This:C1470.defaultOptions:=New object:C1471
 	
 	//   /* USE_SSL */
@@ -1147,6 +1150,18 @@ Function _defaultOptions($remoteFilenameParam : Text)->$options : Object
 	If (This:C1470.password#Null:C1517)
 		$options.PASSWORD:=This:C1470.password
 	End if 
+	
+	Case of 
+		: (This:C1470.sshPrivateKeyFile=Null:C1517)
+		: (Value type:C1509(This:C1470.sshPrivateKeyFile)#Is object:K8:27)
+		: (OB Instance of:C1731(This:C1470.sshPrivateKeyFile; 4D:C1709.File))
+			
+			var $privateKeyFile : 4D:C1709.File
+			$privateKeyFile:=This:C1470.sshPrivateKeyFile
+			If ($privateKeyFile.exists)
+				$options.SSH_PRIVATE_KEYFILE:=$privateKeyFile.platformPath
+			End if 
+	End case 
 	
 	If (Bool:C1537(This:C1470.debug))
 		
