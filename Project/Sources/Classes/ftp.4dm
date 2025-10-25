@@ -742,12 +742,36 @@ Function getDirList()->$result : Object
 		If ($result.ftpparse.query("path = :1"; " @").length=$result.ftpparse.length)
 			CURL__moduleDebugDateTimeLine(2; Current method name:C684; "fix suprious leading space...")
 			$result.dirList:=Replace string:C233($result.dirList; "; "; ";"; *)
-			var $ftpItem : Object
-			For each ($ftpItem; $result.ftpparse)
-				$ftpItem.path:=Substring:C12($ftpItem.path; 2)
+			var $ftpParseItem : Object
+			For each ($ftpParseItem; $result.ftpparse)
+				$ftpParseItem.path:=Substring:C12($ftpParseItem.path; 2)
 			End for each 
 		End if 
 		
+		If (This:C1470.protocol="sftp")
+			
+			If ($result.ftpparse.length>0)
+				If ((OB Keys:C1719($result.ftpparse[0]).length=1) & ($result.ftpparse[0].path#Null:C1517))
+					
+					var $ftpLineParser : cs:C1710.sftpLineParser
+					$ftpLineParser:=cs:C1710.sftpLineParser.new()
+					
+					var $ftpParsed : Object
+					var $ftpParseNew : Collection
+					$ftpParseNew:=New collection:C1472
+					var $ftpParseItem : Object
+					For each ($ftpParseItem; $result.ftpparse)
+						$ftpParsed:=$ftpLineParser.parseLine($ftpParseItem.path)
+						$ftpParsed.path:=$ftpParseItem.path
+						$ftpParseNew.push($ftpParsed)
+					End for each 
+					
+					$result.ftpparse:=$ftpParseNew
+					
+				End if 
+			End if 
+			
+		End if 
 		CURL__moduleDebugDateTimeLine(4; Current method name:C684; "options : "+JSON Stringify:C1217(This:C1470.toDebug($options))+", error : "+JSON Stringify:C1217($error))
 	Else 
 		$result.errorCode:=$error.status
