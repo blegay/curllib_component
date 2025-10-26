@@ -31,7 +31,8 @@ Class constructor($protocol : Text; $host : Text; $login : Text; $password : Tex
 	//End if 
 	
 	This:C1470.sshPrivateKeyFile:=Null:C1517
-	// SSH_PRIVATE_KEYFILE
+	This:C1470.keyPassword:=""
+	This:C1470.sshPublicKeyFile:=Null:C1517
 	
 	This:C1470.defaultOptions:=New object:C1471
 	
@@ -1144,11 +1145,16 @@ Function _defaultOptions($remoteFilenameParam : Text)->$options : Object
 	
 	$options.URL:=This:C1470.toUrl($remoteFilename)
 	
-	If (This:C1470.login#Null:C1517)
+	If ((This:C1470.login#Null:C1517) & (This:C1470.login#""))
 		$options.USERNAME:=This:C1470.login
 	End if 
-	If (This:C1470.password#Null:C1517)
+	
+	If ((This:C1470.password#Null:C1517) & (This:C1470.password#""))
 		$options.PASSWORD:=This:C1470.password
+	End if 
+	
+	If ((This:C1470.keyPassword#Null:C1517) & (This:C1470.keyPassword#""))
+		$options.KEYPASSWD:=This:C1470.keyPassword
 	End if 
 	
 	Case of 
@@ -1162,6 +1168,19 @@ Function _defaultOptions($remoteFilenameParam : Text)->$options : Object
 				$options.SSH_PRIVATE_KEYFILE:=$privateKeyFile.platformPath
 			End if 
 	End case 
+	
+	Case of 
+		: (This:C1470.sshPublicKeyFile=Null:C1517)
+		: (Value type:C1509(This:C1470.sshPublicKeyFile)#Is object:K8:27)
+		: (OB Instance of:C1731(This:C1470.sshPublicKeyFile; 4D:C1709.File))
+			
+			var $publicKeyFile : 4D:C1709.File
+			$publicKeyFile:=This:C1470.sshPublicKeyFile
+			If ($publicKeyFile.exists)
+				$options.SSH_PUBLIC_KEYFILE:=$publicKeyFile.platformPath
+			End if 
+	End case 
+	
 	
 	If (Bool:C1537(This:C1470.debug))
 		
