@@ -228,5 +228,8 @@ Function _year2digitTxtTo4digitTxt($year2digitTxt : Text)->$year4digitTxt : Text
 	
 	
 Function _timestamp($date : Date; $timeTxt : Text)->$timestamp : Text
-	$timestamp:=String:C10(Year of:C25($date); "0000")+"-"+String:C10(Month of:C24($date); "00")+"-"+String:C10(Day of:C23($date); "00")+"T"+$timeTxt
-	
+	$timestamp:=String:C10(Year of:C25($date); "0000")+String:C10(Month of:C24($date); "00")+String:C10(Day of:C23($date); "00")+Replace string:C233($timeTxt; ":"; ""; *)
+	// "20251014211500"
+	// 
+	//$timestamp:=String(Year of($date); "0000")+"-"+String(Month of($date); "00")+"-"+String(Day of($date); "00")+"T"+$timeTxt
+	// "2025-10-14T21:15:00"
