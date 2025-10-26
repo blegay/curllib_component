@@ -49,23 +49,20 @@ Function parseLine($line : Text)->$lineObj : Object
 				$timeOrYearTxt:=Substring:C12($line; $tl_pos{8}; $tl_len{8})
 				$name:=Substring:C12($line; $tl_pos{9}; $tl_len{9})
 				
+				$isDir:=($fileType="d")
 				Case of 
-					: (($fileType="-") & ($name="."))
+					: ($isDir & ($name="."))
 						$fileType:="cdir"
-						$isDir:=True:C214
 						
-					: (($fileType="-") & ($name=".."))
+					: ($isDir & ($name=".."))
 						$fileType:="pdir"
-						$isDir:=True:C214
 						
-					: (($fileType="d"))
+					: ($isDir)
 						$fileType:="dir"
-						$isDir:=True:C214
 						
 					Else 
 						//: (($fileType="-"))
 						$fileType:="file"
-						$isDir:=False:C215
 				End case 
 				
 				$date:=This:C1470._dateUnixTxtToDate($dayTxt; $monthTxt; $timeOrYearTxt)
