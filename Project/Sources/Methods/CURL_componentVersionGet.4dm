@@ -5,11 +5,11 @@
 //@scope : public
 //@deprecated : no
 //@description : This function returns the component version 
-//@parameter[0-OUT-componentVersion-TEXT] : component version (e.g. "4.01.08")
+//@parameter[0-OUT-componentVersion-TEXT] : component version (e.g. "4.01.09")
 //@notes : 
 //@example : CURL_componentVersionGet
 //@see : 
-//@version : 4.01.08
+//@version : 4.01.09
 //@author : Bruno LEGAY (BLE)) - Copyrights A&C Consulting 2025
 //@history : 
 //  CREATION : Bruno LEGAY (BLE) - 26/09/2017, 17:06:48 - v1.00.00
@@ -95,18 +95,25 @@
 //  MODIFICATION : Bruno LEGAY (BLE) - 25/10/2025, 09:37:01 - v4.01.08
 //    - ftp.getDirList() : add parsing to sftp connexion
 //    - class ftp : add .sshPrivateKeyFile (4D.File) property to help authentication with private key
+//  MODIFICATION : Bruno LEGAY (BLE) - 26/10/2025, 06:01:09 - v4.01.09
+//    - ftp.getDirList() : sftp parsing : use "path" as name (to be consistent with ftp) and add "rawPath"
 //@xdoc-end
 //================================================================================
 
 C_TEXT:C284($0; $vt_componentVersion)
 
 //<Modif> Bruno LEGAY (BLE) (25/10/2025)
-//    - ftp.getDirList() : add parsing to sftp connexion
-//    - class ftp : add .sshPrivateKeyFile (4D.File) property to help authentication with private key
-$vt_componentVersion:="4.01.08"
+//    - ftp.getDirList() : sftp parsing : use "path" as name (to be consistent with ftp) and add "rawPath"
+$vt_componentVersion:="4.01.09"
 //<Modif>
 
 If (False:C215)
+	
+	//<Modif> Bruno LEGAY (BLE) (25/10/2025)
+	//    - ftp.getDirList() : add parsing to sftp connexion
+	//    - class ftp : add .sshPrivateKeyFile (4D.File) property to help authentication with private key
+	// $vt_componentVersion:="4.01.08"
+	//<Modif>
 	
 	//<Modif> Bruno LEGAY (BLE) (23/08/2024)
 	//    - CURL__prefDirPathGet : moved preference files from "C:\\Users\\<user>\\4D\\com.ac-consulting\\curllib-component\\"" to "C:\\Users\\<user>\\AppData\\Roaming\\4D\\com.ac-consulting\\curllib-component\\" on Windows
