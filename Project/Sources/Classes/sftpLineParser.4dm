@@ -80,7 +80,7 @@ Function parseLine($line : Text)->$lineObj : Object
 				$lineObj.date:=$date
 				$lineObj.time:=$timeTxt
 				$lineObj.timestamp:=$timestamp
-				$lineObj.name:=$name
+				$lineObj.path:=$name
 				$lineObj.isDir:=$isDir
 				
 			: (Match regex:C1019(This:C1470._regexDos; $line; 1; $tl_pos; $tl_len; *))
@@ -133,7 +133,7 @@ Function parseLine($line : Text)->$lineObj : Object
 				$lineObj.date:=$date
 				$lineObj.time:=$timeTxt
 				$lineObj.timestamp:=$timestamp
-				$lineObj.name:=$name
+				$lineObj.path:=$name
 				$lineObj.isDir:=$isDir
 				
 		End case 

@@ -765,7 +765,7 @@ Function getDirList()->$result : Object
 					var $ftpParseItem : Object
 					For each ($ftpParseItem; $result.ftpparse)
 						$ftpParsed:=$ftpLineParser.parseLine($ftpParseItem.path)
-						$ftpParsed.path:=$ftpParseItem.path
+						$ftpParsed.rawPath:=$ftpParseItem.path
 						$ftpParseNew.push($ftpParsed)
 					End for each 
 					
