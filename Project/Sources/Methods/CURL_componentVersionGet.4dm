@@ -5,11 +5,11 @@
 //@scope : public
 //@deprecated : no
 //@description : This function returns the component version 
-//@parameter[0-OUT-componentVersion-TEXT] : component version (e.g. "4.01.09")
+//@parameter[0-OUT-componentVersion-TEXT] : component version (e.g. "4.01.10")
 //@notes : 
 //@example : CURL_componentVersionGet
 //@see : 
-//@version : 4.01.09
+//@version : 4.01.10
 //@author : Bruno LEGAY (BLE)) - Copyrights A&C Consulting 2025
 //@history : 
 //  CREATION : Bruno LEGAY (BLE) - 26/09/2017, 17:06:48 - v1.00.00
@@ -97,17 +97,28 @@
 //    - class ftp : add .sshPrivateKeyFile (4D.File) property to help authentication with private key
 //  MODIFICATION : Bruno LEGAY (BLE) - 26/10/2025, 06:01:09 - v4.01.09
 //    - ftp.getDirList() : sftp parsing : use "path" as name (to be consistent with ftp) and add "rawPath"
+//  MODIFICATION : Bruno LEGAY (BLE) - 26/10/2025, 07:13:18 - v4.01.10
+//    - ftp.getDirList() : sftp parsing : use "modify" as timestamp (to be consistent with ftp)
+//    - ftp.getDirList() : sftp parsing : "modify" timestamp is now YYYYMMDDHHMMSS (to be consistent with ftp)
+//    - ftp.getDirList() : fix type "cdir" and "pdir"
 //@xdoc-end
 //================================================================================
 
 C_TEXT:C284($0; $vt_componentVersion)
 
-//<Modif> Bruno LEGAY (BLE) (25/10/2025)
-//    - ftp.getDirList() : sftp parsing : use "path" as name (to be consistent with ftp) and add "rawPath"
-$vt_componentVersion:="4.01.09"
+//<Modif> Bruno LEGAY (BLE) (26/10/2025)
+//    - ftp.getDirList() : sftp parsing : use "modify" as timestamp (to be consistent with ftp)
+//    - ftp.getDirList() : sftp parsing : "modify" timestamp is now YYYYMMDDHHMMSS (to be consistent with ftp)
+//    - ftp.getDirList() : fix type "cdir" and "pdir"
+$vt_componentVersion:="4.01.10"
 //<Modif>
 
 If (False:C215)
+	
+	//<Modif> Bruno LEGAY (BLE) (25/10/2025)
+	//    - ftp.getDirList() : sftp parsing : use "path" as name (to be consistent with ftp) and add "rawPath"
+	// $vt_componentVersion:="4.01.09"
+	//<Modif>
 	
 	//<Modif> Bruno LEGAY (BLE) (25/10/2025)
 	//    - ftp.getDirList() : add parsing to sftp connexion
