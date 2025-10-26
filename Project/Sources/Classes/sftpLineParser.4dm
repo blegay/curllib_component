@@ -79,7 +79,7 @@ Function parseLine($line : Text)->$lineObj : Object
 				$lineObj.size:=$size
 				$lineObj.date:=$date
 				$lineObj.time:=$timeTxt
-				$lineObj.timestamp:=$timestamp
+				$lineObj.modify:=$timestamp
 				$lineObj.path:=$name
 				$lineObj.isDir:=$isDir
 				
@@ -132,7 +132,7 @@ Function parseLine($line : Text)->$lineObj : Object
 				$lineObj.size:=$size
 				$lineObj.date:=$date
 				$lineObj.time:=$timeTxt
-				$lineObj.timestamp:=$timestamp
+				$lineObj.modify:=$timestamp
 				$lineObj.path:=$name
 				$lineObj.isDir:=$isDir
 				
