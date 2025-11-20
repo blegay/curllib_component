@@ -15,12 +15,18 @@
 
 Class constructor()
 	
-	This:C1470._regexUnix:="^([\\-d])([rwx\\-*]{9})\\s+\\d+\\s+(\\S+)\\s+(\\S+)\\s+(\\d+)\\s+([A-Za-z]{3})\\s+(\\d{1,2})\\s+([\\d:]{4,5})\\s(.+)$"
-	This:C1470._regexDos:="^(\\d{2})-(\\d{2})-(\\d{2})\\s+(\\d{2}):(\\d{2})(AM|PM)\\s+(<DIR>|\\d+)\\s+(.+)$"
+/*
+d : répertoire
+l : lien symbolique
+c : device caractère
+b : device bloc
+s : socket
+p : named pipe (FIFO)
+*/
 	
-	// Bruno LEGAY 2025-11-20 : ajout "*" dans la liste des permissions (testé avec un serveur sftp sur windows)...
-	// "-rw-******    1 -        -         9910573 Oct 17 15:54 test Août.txt"
-	//This._regexUnix:="^([\\-d])([rwx\\-]{9})\\s+\\d+\\s+(\\S+)\\s+(\\S+)\\s+(\\d+)\\s+([A-Za-z]{3})\\s+(\\d{1,2})\\s+([\\d:]{4,5})\\s(.+)$"
+	This:C1470._regexUnix:="^([\\-dlcbsp])([r\\-*][w\\-*][xsS\\-*][r\\-*][w\\-*][xsS\\-*][r\\-*][w\\-*][xtT\\-*])\\s+\\d+\\s+(\\S+)\\s+(\\S+)\\s+(\\d+)\\s+([A-Za-z]{3})\\s+(\\d{1,2})\\s+([\\d:]{4,5})\\s(.+)$"
+	// This._regexUnix:="^([\\-d])([rwx\\-*]{9})\\s+\\d+\\s+(\\S+)\\s+(\\S+)\\s+(\\d+)\\s+([A-Za-z]{3})\\s+(\\d{1,2})\\s+([\\d:]{4,5})\\s(.+)$"
+	This:C1470._regexDos:="^(\\d{2})-(\\d{2})-(\\d{2})\\s+(\\d{2}):(\\d{2})(AM|PM)\\s+(<DIR>|\\d+)\\s+(.+)$"
 	
 	// permet de forcer les tests unitaires
 	This:C1470._today:=Current date:C33
@@ -32,7 +38,7 @@ Function parseLine($line : Text)->$lineObj : Object
 		ARRAY LONGINT:C221($tl_pos; 0)
 		ARRAY LONGINT:C221($tl_len; 0)
 		
-		var $fileType; $permissions; $owner; $group; $dayTxt; $monthTxt; $name; $timeTxt; $timestamp : Text
+		var $fileType; $fileTypeChar; $permissions; $owner; $group; $dayTxt; $monthTxt; $name; $timeTxt; $timestamp : Text
 		var $size : Real
 		var $date : Date
 		var $isDir : Boolean
@@ -43,7 +49,7 @@ Function parseLine($line : Text)->$lineObj : Object
 				
 				var $timeOrYearTxt : Text
 				
-				$fileType:=Substring:C12($line; $tl_pos{1}; $tl_len{1})
+				$fileTypeChar:=Substring:C12($line; $tl_pos{1}; $tl_len{1})
 				$permissions:=Substring:C12($line; $tl_pos{2}; $tl_len{2})
 				$owner:=Substring:C12($line; $tl_pos{3}; $tl_len{3})
 				$group:=Substring:C12($line; $tl_pos{4}; $tl_len{4})
@@ -53,7 +59,7 @@ Function parseLine($line : Text)->$lineObj : Object
 				$timeOrYearTxt:=Substring:C12($line; $tl_pos{8}; $tl_len{8})
 				$name:=Substring:C12($line; $tl_pos{9}; $tl_len{9})
 				
-				$isDir:=($fileType="d")
+				$isDir:=($fileTypeChar="d")
 				Case of 
 					: ($isDir & ($name="."))
 						$fileType:="cdir"
@@ -69,11 +75,24 @@ Function parseLine($line : Text)->$lineObj : Object
 						$fileType:="file"
 				End case 
 				
+				var $link : Text
+				$link:=""
+				If ($fileTypeChar="l")
+					// "bin -> usr/bin"
+					var $pos : Integer
+					$pos:=Position:C15(" -> "; $name)
+					If ($pos>0)
+						$link:=Substring:C12($name; $pos+4)  // "usr/bin"
+						$name:=Substring:C12($name; 1; $pos-1)  // "bin"
+					End if 
+				End if 
+				
 				$date:=This:C1470._dateUnixTxtToDate($dayTxt; $monthTxt; $timeOrYearTxt)
 				$timeTxt:=Choose:C955(Match regex:C1019("\\d{2}:\\d{2}"; $timeOrYearTxt; 1); $timeOrYearTxt+":00"; "00:00:00")
 				$timestamp:=This:C1470._timestamp($date; $timeTxt)
 				
 				$lineObj.type:=$fileType
+				$lineObj.typeChar:=$fileTypeChar
 				$lineObj.permissions:=$permissions
 				$lineObj.owner:=$owner
 				$lineObj.group:=$group
@@ -82,6 +101,7 @@ Function parseLine($line : Text)->$lineObj : Object
 				$lineObj.time:=$timeTxt
 				$lineObj.modify:=$timestamp
 				$lineObj.path:=$name
+				$lineObj.link:=($link="" ? Null:C1517 : $link)
 				$lineObj.isDir:=$isDir
 				
 			: (Match regex:C1019(This:C1470._regexDos; $line; 1; $tl_pos; $tl_len; *))

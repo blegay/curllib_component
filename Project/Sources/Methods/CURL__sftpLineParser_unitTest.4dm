@@ -33,6 +33,7 @@ $obj:=$ftpLineParser.parseLine($line)
 /*
 $objExpected:={\
 type: "file"; \
+typeChar: "-"; \
 permissions: "rw-******"; \
 owner: "-"; \
 group: "-"; \
@@ -41,11 +42,13 @@ date: "2025-10-17"; \
 time: "15:54:00"; \
 modify: "20251017155400"; \
 path: "test Août.txt"; \
+link: Null; \
 isDir: False}
 */
 
 $objExpected:=New object:C1471(\
 "type"; "file"; \
+"typeChar"; "-"; \
 "permissions"; "rw-******"; \
 "owner"; "-"; \
 "group"; "-"; \
@@ -54,6 +57,7 @@ $objExpected:=New object:C1471(\
 "time"; "15:54:00"; \
 "modify"; "20251017155400"; \
 "path"; "test Août.txt"; \
+"link"; Null:C1517; \
 "isDir"; False:C215)
 ASSERT:C1129(JSON Stringify:C1217($obj)=JSON Stringify:C1217($objExpected))
 
@@ -63,6 +67,7 @@ $obj:=$ftpLineParser.parseLine($line)
 /*
 $objExpected:={\
 type: "file"; \
+typeChar: "-"; \
 permissions: "rw-r--r--"; \
 owner: "admin"; \
 group: "admin"; \
@@ -71,11 +76,13 @@ date: "2025-10-14"; \
 time: "21:15:00"; \
 modify: "20251014211500"; \
 path: "test.tmp"; \
+link: Null; \
 isDir: False}
 */
 
 $objExpected:=New object:C1471(\
 "type"; "file"; \
+"typeChar"; "-"; \
 "permissions"; "rw-r--r--"; \
 "owner"; "admin"; \
 "group"; "admin"; \
@@ -84,6 +91,7 @@ $objExpected:=New object:C1471(\
 "time"; "21:15:00"; \
 "modify"; "20251014211500"; \
 "path"; "test.tmp"; \
+"link"; Null:C1517; \
 "isDir"; False:C215)
 ASSERT:C1129(JSON Stringify:C1217($obj)=JSON Stringify:C1217($objExpected))
 
@@ -94,6 +102,7 @@ $obj:=$ftpLineParser.parseLine($line)
 /*
 $objExpected:={\
 type: "file"; \
+typeChar: "-"; \
 permissions: "rw-r--r--"; \
 owner: "admin"; \
 group: "admin"; \
@@ -102,11 +111,13 @@ date: "2024-10-14"; \
 time: "00:00:00"; \
 modify: "20241014000000"; \
 path: "test.tmp"; \
+link: Null; \
 isDir: False}
 */
 
 $objExpected:=New object:C1471(\
 "type"; "file"; \
+"typeChar"; "-"; \
 "permissions"; "rw-r--r--"; \
 "owner"; "admin"; \
 "group"; "admin"; \
@@ -115,6 +126,7 @@ $objExpected:=New object:C1471(\
 "time"; "00:00:00"; \
 "modify"; "20241014000000"; \
 "path"; "test.tmp"; \
+"link"; Null:C1517; \
 "isDir"; False:C215)
 ASSERT:C1129(JSON Stringify:C1217($obj)=JSON Stringify:C1217($objExpected))
 
