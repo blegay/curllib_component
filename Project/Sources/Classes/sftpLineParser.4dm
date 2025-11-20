@@ -101,7 +101,12 @@ Function parseLine($line : Text)->$lineObj : Object
 				$lineObj.time:=$timeTxt
 				$lineObj.modify:=$timestamp
 				$lineObj.path:=$name
-				$lineObj.link:=($link="" ? Null:C1517 : $link)
+				If ($link="")
+					$lineObj.link:=Null:C1517
+				Else 
+					$lineObj.link:=$link
+				End if 
+				//$lineObj.link:=($link="" ? Null : $link)
 				$lineObj.isDir:=$isDir
 				
 			: (Match regex:C1019(This:C1470._regexDos; $line; 1; $tl_pos; $tl_len; *))
