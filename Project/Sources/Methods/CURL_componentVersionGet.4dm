@@ -5,11 +5,11 @@
 //@scope : public
 //@deprecated : no
 //@description : This function returns the component version 
-//@parameter[0-OUT-componentVersion-TEXT] : component version (e.g. "4.01.12")
+//@parameter[0-OUT-componentVersion-TEXT] : component version (e.g. "4.01.13")
 //@notes : 
 //@example : CURL_componentVersionGet
 //@see : 
-//@version : 4.01.12
+//@version : 4.01.13
 //@author : Bruno LEGAY (BLE)) - Copyrights A&C Consulting 2025
 //@history : 
 //  CREATION : Bruno LEGAY (BLE) - 26/09/2017, 17:06:48 - v1.00.00
@@ -105,17 +105,25 @@
 //    - class ftp : add .sshPublicKeyFile (4D.File) property and .keyPassword (for the private key)
 //  MODIFICATION : Bruno LEGAY (BLE) - 20/11/2025, 14:24:24 - 4.01.12
 //    - class sftpLineParser : fix regex for windows sftp listing
+//  MODIFICATION : Bruno LEGAY (BLE) - 20/11/2025, 20:34:26 - 4.01.13
+//    - class sftpLineParser : fix regex for unix sftp listing (links, etc...)
 //@xdoc-end
 //================================================================================
 
 C_TEXT:C284($0; $vt_componentVersion)
 
 //<Modif> Bruno LEGAY (BLE) (20/11/2025)
-//    - class sftpLineParser : fix regex for windows sftp listing
-$vt_componentVersion:="4.01.12"
+//    - class sftpLineParser : fix regex for unix sftp listing (links, etc...)
+$vt_componentVersion:="4.01.13"
 //<Modif>
 
 If (False:C215)
+	
+	//<Modif> Bruno LEGAY (BLE) (20/11/2025)
+	//    - class sftpLineParser : fix regex for windows sftp listing
+	//$vt_componentVersion:="4.01.12"
+	//<Modif>
+	
 	//<Modif> Bruno LEGAY (BLE) (26/10/2025)
 	//    - class ftp : add .sshPublicKeyFile (4D.File) property and .keyPassword (for the private key)
 	//$vt_componentVersion:="4.01.11"
