@@ -27,6 +27,36 @@ $ftpLineParser._currentYear2Digit:=25
 var $line : Text
 var $obj; $objExpected : Object
 
+$line:="-rw-******    1 -        -         9910573 Oct 17 15:54 test Août.txt"
+$obj:=$ftpLineParser.parseLine($line)
+
+/*
+$objExpected:={\
+type: "file"; \
+permissions: "rw-******"; \
+owner: "-"; \
+group: "-"; \
+size: 9910573; \
+date: "2025-10-17"; \
+time: "15:54:00"; \
+modify: "20251017155400"; \
+path: "test Août.txt"; \
+isDir: False}
+*/
+
+$objExpected:=New object:C1471(\
+"type"; "file"; \
+"permissions"; "rw-******"; \
+"owner"; "-"; \
+"group"; "-"; \
+"size"; 9910573; \
+"date"; "2025-10-17"; \
+"time"; "15:54:00"; \
+"modify"; "20251017155400"; \
+"path"; "test Août.txt"; \
+"isDir"; False:C215)
+ASSERT:C1129(JSON Stringify:C1217($obj)=JSON Stringify:C1217($objExpected))
+
 $line:="-rw-r--r--    1 admin    admin           1 Oct 14 21:15 test.tmp"
 $obj:=$ftpLineParser.parseLine($line)
 

@@ -15,8 +15,12 @@
 
 Class constructor()
 	
-	This:C1470._regexUnix:="^([\\-d])([rwx\\-]{9})\\s+\\d+\\s+(\\S+)\\s+(\\S+)\\s+(\\d+)\\s+([A-Za-z]{3})\\s+(\\d{1,2})\\s+([\\d:]{4,5})\\s(.+)$"
+	This:C1470._regexUnix:="^([\\-d])([rwx\\-*]{9})\\s+\\d+\\s+(\\S+)\\s+(\\S+)\\s+(\\d+)\\s+([A-Za-z]{3})\\s+(\\d{1,2})\\s+([\\d:]{4,5})\\s(.+)$"
 	This:C1470._regexDos:="^(\\d{2})-(\\d{2})-(\\d{2})\\s+(\\d{2}):(\\d{2})(AM|PM)\\s+(<DIR>|\\d+)\\s+(.+)$"
+	
+	// Bruno LEGAY 2025-11-20 : ajout "*" dans la liste des permissions (testé avec un serveur sftp sur windows)...
+	// "-rw-******    1 -        -         9910573 Oct 17 15:54 test Août.txt"
+	//This._regexUnix:="^([\\-d])([rwx\\-]{9})\\s+\\d+\\s+(\\S+)\\s+(\\S+)\\s+(\\d+)\\s+([A-Za-z]{3})\\s+(\\d{1,2})\\s+([\\d:]{4,5})\\s(.+)$"
 	
 	// permet de forcer les tests unitaires
 	This:C1470._today:=Current date:C33

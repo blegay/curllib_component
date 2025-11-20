@@ -587,20 +587,7 @@ Function getDirList()->$result : Object
 			//         "UNIX.owner": "20001",
 			//         "UNIX.ownername": "john",
 			//         "path": "test"
-			//     },
-			//     {
-			//         "modify": "20201201131228",
-			//         "perm": "adfrw",
-			//         "size": "736344",
-			//         "type": "file",
-			//         "unique": "801U1BB33D",
-			//         "UNIX.group": "1004",
-			//         "UNIX.groupname": "admins",
-			//         "UNIX.mode": "0644",
-			//         "UNIX.owner": "20001",
-			//         "UNIX.ownername": "john",
-			//         "path": "sh"
-			//     },
+			//     }, 
 			//     {
 			//         "modify": "20240103201228",
 			//         "perm": "adfrw",
